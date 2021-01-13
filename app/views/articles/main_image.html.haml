@@ -1,0 +1,207 @@
+%button.btn.btn-primary#export-image-btn
+  下载图片
+.container.my-5
+  #main-image-first.main-image-ctn.text-center.border.mb-5
+    .height-100.bg-dark.text-white.d-flex.justify-content-around.align-items-center
+      - if @imgs[0]
+        = image_tag @imgs[0].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold
+        
+        = @article.title
+        零基础到实战视频
+    .height-100.d-flex.justify-content-center.align-items-center.px-3
+      %h2.article-vol.bg-F8E5.p-3.w-100.font-weight-bold.shadow
+        = @article.vol
+        视频教程, 无垃圾, 无重复
+    .height-100.article-info.px-3
+      .row
+        .col-10
+          %ul.text-723.text-left{:type => "square"}
+            %li.mb-3
+              %h3.font-weight-bold
+                视频分类详细,学习路线规划清晰
+            %li
+              %h3.font-weight-bold
+                教学视频+软件开发工具+笔记+源代码
+        .col-2
+          = image_tag '2020.jpg', :class => "img-thumbnail w-5"
+
+    .height-400.article-desc.mx-4.bg-2D2.text-truncate
+      %h3.text-wrap.text-white.p-4
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + " | "
+        = "..."
+    .height-100.article-footer.bg-danger.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        = @article.title
+        工程师必学课程,主流开发技术
+
+  #main-image-two.main-image-ctn.text-center.border.mb-5.bg-2a3
+    .height-100.bg-dark.text-white.d-flex.justify-content-around.align-items-center
+      - if @imgs[1]
+        = image_tag @imgs[1].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold
+        零基础自学
+        = @article.title
+        视频
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h2.article-vol.bg-01B.w-100.p-3.text-white.font-weight-bold.shadow
+        2020专为零基础同学入编程大坑准备
+    .height-500.article-desc.mx-4.bg-4F9.text-white.text-truncate
+      %h2
+        基础入门>框架开发>项目实战>求职笔试面试
+      %hr.border.border-white
+      %h3.text-wrap.text-white.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + ",  "
+        = "..."
+    .height-100.article-footer.bg-186.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        承接网站、app、小程序、爬虫开发
+
+  #main-image-three.main-image-ctn.text-center.border.mb-5.bg-133
+    .height-100.bg-dark.text-white.d-flex.justify-content-around.align-items-center
+      %h1.article-title.font-weight-bold
+        2020零基础>自学>工程师
+      - if @imgs[2]
+        = image_tag @imgs[2].file_url, :width => "100px"
+    .height-100.text-white.d-flex.justify-content-around.align-items-center.px-3
+      %h2.w-100.article-vol.bg-01B.p-3.font-weight-bold.shadow
+        一套视频全面完整学习
+        = @article.title
+        开发
+    .height-100.text-white.d-flex.justify-content-around.align-items-center.px-3
+      %h2.w-100.article-vol.bg-ffc.p-3.font-weight-bold.text-dark.shadow
+        = @article.title
+        0到工程师之路
+    .height-400.article-desc.mx-4.bg-912.text-white.text-truncate
+      %h2
+        主流开发技术、企业实战开发需要必知必会技术
+        %br
+        教学视频+源码+笔记+开发工具
+      %hr.my-0.border.border-white
+      %h3.text-wrap.text-white.px-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + "/"
+        = "..."
+    .height-100.article-footer.bg-512.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        承接网站、app、小程序、爬虫开发
+
+  #main-image-four.main-image-ctn.text-center.border.mb-5.bg-2a3c
+    .height-100.bg-E34.text-white.d-flex.justify-content-around.align-items-center
+      %h1.article-title.font-weight-bold
+        2020 零基础轻松自学
+        = @article.title
+      - if @imgs[3]
+        = image_tag @imgs[3].file_url, :width => "100px"
+    .height-100.text-white.d-flex.justify-content-around.align-items-center.px-3
+      %h2.w-100.text-white.article-vol.bg-77b.p-3.font-weight-bold.shadow
+        = @article.title
+        工程师必学课程、主流开发技术
+    .height-100
+      %h2.text-white.article-vol.bg-5b9.mx-auto.w-75.p-3.font-weight-bold.shadow
+        视频/源码/电子书/开发软件
+    .height-400.article-desc.mx-4.bg-0d3.text-white.text-truncate
+      %h3.text-wrap.text-white.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + "+"
+        = "..."
+    .height-100.article-footer.bg-512.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        零基础学习、学习路线规划详细清晰
+
+  #main-image-five.main-image-ctn.text-center.border.mb-5.bg-2720
+    .height-100.text-white.d-flex.justify-content-around.align-items-center
+      - if @imgs[4]
+        = image_tag @imgs[4].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold
+        全套
+        = @article.title
+        视频教程
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h1.w-100.article-vol.bg-ffc.p-3.font-weight-bold.shadow
+        2020完全0基础入门到实战
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h2.w-100.text-white.article-vol.bg-5b9.p-3.font-weight-bold.shadow
+        教学视频、源码、开发笔记、电子书、开发工具
+    .height-400.article-desc.mx-4.border.text-white.text-truncate
+      %h3.text-wrap.text-white.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + "、"
+        = "..."
+    .height-100.article-footer.bg-de0.d-flex.align-items-center.justify-content-center
+      %h2.text-white.font-weight-bold.py-3
+        开发者群+2900套网站模板免费下载+教程免费持续更新
+
+  #main-image-six.main-image-ctn.text-center.border.mb-5.bg-gtx
+    .height-100.text-white.d-flex.justify-content-around.align-items-center.bg-255165-opacity
+      - if @imgs[5]
+        = image_tag @imgs[5].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold
+        全面系统自学
+        = @article.title
+        视频教程
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h1.w-100.article-vol.bg-ffc-opacity.p-3.font-weight-bold.shadow
+        2020完全0基础入门到实战
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h2.w-100.text-white.article-vol.bg-5b9.p-3.font-weight-bold.shadow
+        教学视频、源码、开发笔记、电子书、开发工具
+    .height-400.bg-dark-opacity.article-desc.mx-4.border.text-white.text-truncate
+      %h3.text-wrap.text-white.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + " | "
+        = "..."
+    .height-100.article-footer.bg-de0.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        本人提供软件开发服务,有需求可联系我
+
+  #main-image-seven.main-image-ctn.text-center.border.mb-5
+    .height-100.d-flex.justify-content-around.align-items-center.border-3
+      - if @imgs[6]
+        = image_tag @imgs[6].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold
+        = @article.title
+        零基础>>自学>>工程师
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h1.w-100.article-vol.p-3.mb-0.font-weight-bold.text-e85
+        一套教程全面完整学通
+        = @article.title
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h1.text-528.w-100.article-vol.p-3
+        = @article.vol 
+        教学视频+源码+电子书+开发工具
+    .height-400.article-desc.mx-4.border-zi.text-white.text-truncate
+      %h3.text-wrap.text-630.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + ", "
+        = "..."
+    .height-100.article-footer.bg-BCD2.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        本人提供软件开发服务,有需求可联系我
+
+  #main-image-eight.main-image-ctn.text-center.border.mb-5
+    .height-100.d-flex.justify-content-around.align-items-center.border-4
+      - if @imgs[7]
+        = image_tag @imgs[7].file_url, :width => "100px"
+      %h1.article-title.font-weight-bold.text-info
+        = @article.title
+        零基础>>自学>>实战开发
+    .height-100.d-flex.justify-content-around.align-items-center.px-3.bg-dc5131
+      %h1.w-100.article-vol.p-3.mb-0.font-weight-bold.text-00f
+        全套
+        = @article.title
+        全面系统详细视频教程
+    .height-100.d-flex.justify-content-around.align-items-center.px-3
+      %h1.text-dc5131.w-100.article-vol.p-3
+        = @article.vol 
+        教学视频,源码,课件,软件工具
+    .height-400.article-desc.mx-4.text-white.text-truncate
+      %h3.text-wrap.text-630.p-2
+        - @article.desc.split("、").shuffle.each do |d|
+          = d + " | "
+        = "..."
+    .height-100.article-footer.bg-dc5131.d-flex.align-items-center.justify-content-center
+      %h1.text-white.font-weight-bold.py-3
+        企业主流开发技术+教程持续更新

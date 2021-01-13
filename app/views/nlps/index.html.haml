@@ -1,0 +1,24 @@
+.container
+  .row
+    .col-md-4
+      .panel.panel-primary
+        .panel-heading
+          待分析数据
+          %button{:id=>"nlp-analyze", :class=>"btn btn-primary btn-lg", :type=>"button"}
+            开始分析
+        .panel-body
+    
+          = text_area_tag "nlp-post"
+    .col-md-4
+      .panel.panel-success
+        .panel-heading
+          词频统计
+        .panel-body.nlp-frequency-container
+          %table.table.text-center
+            %thead
+              %tr
+                %th.text-center
+                  关键词
+                %th.text-center
+                  总数
+            %tbody.nlp-word-frequency

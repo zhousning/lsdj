@@ -1,0 +1,58 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @ocr, :url => { :controller => 'ocrs', :action => 'analyze'}, :builder => WebsiteFormBuilder do |f|
+        - if @ocr.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@ocr.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @ocr.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-row
+          %small
+            小于4M, 大于15px, 小于4096px
+          .form-group.col.row
+            = f.label Setting.templates.index, :class => "col-sm-3 text-right"
+            .col-sm-9
+              .form-check.form-check-inline
+                = f.radio_button :ocr_type, Setting.ocrs.general, :class => "form-check-input", :checked => "checked"
+                = f.label Setting.ocrs.general_title, :class => "form-check-label"
+              .form-check.form-check-inline
+                = f.radio_button :ocr_type, Setting.ocrs.webimage, :class => "form-check-input"
+                = f.label Setting.ocrs.webimage_title, :class => "form-check-label"
+              .form-check.form-check-inline
+                = f.radio_button :ocr_type, Setting.ocrs.handwritten, :class => "form-check-input"
+                = f.label Setting.ocrs.handwritten_title, :class => "form-check-label"
+              .form-check.form-check-inline
+                = f.radio_button :ocr_type, Setting.ocrs.form, :class => "form-check-input"
+                = f.label Setting.ocrs.form_title, :class => "form-check-label"
+              .form-check.form-check-inline
+                = f.radio_button :ocr_type, Setting.ocrs.number, :class => "form-check-input"
+                = f.label Setting.ocrs.number_title, :class => "form-check-label"
+              -#
+                .form-check.form-check-inline
+                  = f.radio_button :ocr_type, Setting.ocrs.formula, :class => "form-check-input"
+                  = f.label Setting.ocrs.formula_title, :class => "form-check-label"
+                .form-check.form-check-inline
+                  = f.radio_button :ocr_type, Setting.ocrs.stamp, :class => "form-check-input"
+                  = f.label Setting.ocrs.stamp_title, :class => "form-check-label"
+                .form-check.form-check-inline
+                  = f.radio_button :ocr_type, Setting.ocrs.finance, :class => "form-check-input"
+                  = f.label Setting.ocrs.finance_title, :class => "form-check-label"
+      
+        .form-group.row
+          = f.label "主图", :class => "col-sm-1 control-label"
+          .col-sm-11
+            = f.fields_for :enclosures do |enclosure|
+              = render 'enclosure_fields', f: enclosure
+            .links
+              = link_to_add_association "添加文件", f, :enclosures, :class => "btn btn-success"
+      
+      
+        .form-group.row
+          .col-sm-3.offset-sm-2
+            = f.submit '识别', :class => "btn btn-success"
+          -#
+            .col-sm-3.offset-sm-1
+              = link_to '返回', ocrs_path, :class => "btn btn-danger"

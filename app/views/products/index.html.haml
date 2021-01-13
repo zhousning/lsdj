@@ -1,0 +1,31 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        %table.text-center.table-striped.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
+          %thead
+            %tr
+              %th{:scope => "col"} #
+            
+              %th{:scope => "col"}
+                = Setting.products.name
+              %th{:scope => "col"}
+                设置
+          %tbody
+            - @products.each_with_index do |product, index|
+              %tr
+                %td{:scope => "row"}
+                  = index+1
+              
+                %td
+                  = product.name
+                %td
+                  .container-fluid
+                    .row
+                      = link_to "编辑", edit_product_path(product), :class => "button button-highlight button-small mr-1" 
+                      = link_to "详细",  product_path(product), :class => "button button-primary button-small mr-1" 
+                      = link_to "删除",  product, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
+
+= render "layouts/control_panel"

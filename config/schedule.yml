@@ -1,0 +1,4 @@
+#produce_leaf:
+#  cron: "* * * * *"
+#  class: "HardWorker"
+#  queue: default

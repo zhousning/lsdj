@@ -1,0 +1,52 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-12
+        %table.table.text-center.table-bordered
+          %thead
+            %tr
+            
+              %th 
+                = Setting.spiders.link
+              %th 
+                = Setting.spiders.cookie
+              %th 
+                = Setting.spiders.agent
+              %th 
+                = Setting.spiders.content_type
+              %th 
+                = Setting.spiders.page
+              %th 
+                = Setting.spiders.file
+              %th 
+                = Setting.spiders.referer
+              %th 
+                = Setting.spiders.host
+              %th 
+                = Setting.spiders.redirection
+          %tbody
+            %tr
+            
+              %td
+                = @spider.link
+              %td
+                = @spider.cookie
+              %td
+                = @spider.agent
+              %td
+                = @spider.content_type
+              %td
+                = @spider.page
+              %td
+                = @spider.file
+              %td
+                = @spider.referer
+              %td
+                = @spider.host
+              %td
+                = @spider.redirection
+    
+
+= render "layouts/control_panel"

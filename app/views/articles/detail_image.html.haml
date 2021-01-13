@@ -1,0 +1,18 @@
+%button.btn.btn-primary#export-detail-btn
+  下载图片
+.container
+  .detail-ctn-750.mb-5
+    .row
+      - @article.category.scan(/(.+)\.(?:rmvb|avi|mp4|wmv)/i) do |c|
+        .col-6.text-truncate
+          = image_tag "xunlei.jpg", :width => "30px"
+          = c[0]
+
+  .detail-ctn-750.mb-5
+    .row
+      - @article.category.scan(/(.+)\.(?:rmvb|avi|mp4|wmv)/i) do |c|
+        .col-6.text-truncate
+          = image_tag "bfyy.jpg", :width => "30px"
+          = c[0]
+  .detail-ctn-750.mb-5.bg-BCD
+    = @article.category.gsub(/\n/, '<br/>').html_safe

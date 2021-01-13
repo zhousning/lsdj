@@ -1,0 +1,21 @@
+- provide(:title, t('.title'))
+
+.container-fluid.h-100.invite-ctn
+  #invite-qrcode
+    = image_tag current_user.qr_code.url
+-#
+  = raw @qrcode.as_html
+  -#
+    .col-12.mt-3.mb-3
+      = text_field_tag "invite_link", @invite_link, :class => "form-control", :readonly => "true"
+  -#
+    .col-12.mt-3.mb-3
+  -#
+    %a#invite-copy-btn.btn.btn-lg.btn-info.btn-block{:tabindex=>"0", :role=>"button", :'data-clipboard-target' => "#invite_link"}
+      复制
+-#
+  .col-12
+    %h3.text-body
+      1. 把链接通过微信、QQ、空间、群组、微博、贴吧等方式分享给好友
+      <br/>
+      2. 好友注册实名认证后，您即可获得茶晶 

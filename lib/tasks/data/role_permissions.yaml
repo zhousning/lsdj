@@ -1,0 +1,103 @@
+---
+- 
+  role_name: 施工单位
+  level: 1
+  permissions: 
+    #-
+    #  controller: Role
+    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
+    #-
+    #  controller: Template 
+    #  actions: [manage, index, show, new, create, edit, update, delete, destroy]
+- 
+  role_name: 施工单位项目经理
+  level: 2 
+  permissions: 
+- 
+  role_name: 施工单位技术负责人
+  level: 2 
+  permissions: 
+- 
+  role_name: 施工单位现场管理人员
+  level: 2 
+  permissions: 
+- 
+  role_name: 施工单位技术工人
+  level: 2 
+  permissions: 
+- 
+  role_name: 监理单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 监理单位全国注册监理工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 监理单位专业注册监理工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 监理单位从业监理人员 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 设计单位注册结构工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位注册建筑工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位职称工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位注册给排水工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位注册电气工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 设计单位注册暖通工程师 
+  level: 2 
+  permissions: 
+- 
+  role_name: 代建单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 代建单位员工 
+  level: 2 
+  permissions: 
+- 
+  role_name: 建设单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 建设单位员工 
+  level: 2 
+  permissions: 
+- 
+  role_name: 地勘单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 地勘单位员工 
+  level: 2 
+  permissions: 
+- 
+  role_name: 监督单位 
+  level: 1
+  permissions: 
+- 
+  role_name: 监督单位员工 
+  level: 2 
+  permissions: 

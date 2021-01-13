@@ -1,0 +1,93 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @spider do |f|
+        - if @spider.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@spider.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @spider.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.spiders.link, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :link, :class => "form-control"
+        .form-group.row
+          = f.label Setting.spiders.page, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :page, :class => "form-control", :placeholder => "1-5"
+
+        .form-group.row
+          = f.label "是否要将请求的网页保存起来", :class => "col-sm-4 text-right"
+          .col-sm-8
+            .form-check.form-check-inline
+              = f.radio_button :doc_save, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.radio_button :doc_save, Setting.systems.status_en_no, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
+          
+        .form-group.row
+          = f.label "是否解析网页", :class => "col-sm-4 text-right"
+          .col-sm-8
+            .form-check.form-check-inline
+              = f.radio_button :doc_parse, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+              = f.label Setting.systems.status_yes, :class => "form-check-label"
+            .form-check.form-check-inline
+              = f.radio_button :doc_parse, Setting.systems.status_en_no, :class => "form-check-input"
+              = f.label Setting.systems.status_no, :class => "form-check-label"
+          
+        .form-group.row
+          = f.label Setting.spiders.cookie, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :cookie, :class => "form-control"
+          
+        .form-group.row
+          = f.label Setting.spiders.agent, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.select :agent, options_for_agent, {:include_blank=>true}, {:class=>"form-control"}
+        .form-group.row
+          = f.label Setting.spiders.content_type, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.select :content_type, options_for_content_type, {:include_blank=>true}, {:class=>"form-control"}
+        .form-group.row
+          = f.label Setting.spiders.referer, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :referer, :class => "form-control"
+          
+        .form-group.row
+          = f.label Setting.spiders.host, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :host, :class => "form-control"
+          
+        .form-group.row
+          = f.label Setting.spiders.redirection, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :redirection, :class => "form-control"
+          
+        .form-group.row
+          = f.label "请求头", :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_area :header, :class => "form-control", :rows => "5"
+          
+        -#
+          .form-group.row
+            = f.label "文件", :class => "col-sm-3 text-right"
+            .col-sm-9
+              = f.text_area :file, :class => "form-control", :rows => "5"
+      
+      
+        .form-group.row
+          = f.label "选择器", :class => "col-sm-1 control-label"
+          .col-sm-11
+            = f.fields_for :selectors do |selector|
+              = render 'selector_fields', f: selector 
+            .links
+              = link_to_add_association "添加", f, :selectors, :class => "btn btn-success"
+      
+        .form-group.row
+          .col-sm-3.offset-sm-2
+            = f.submit '保存', :class => "btn btn-success"
+          .col-sm-3.offset-sm-1
+            = link_to '返回', spiders_path, :class => "btn btn-danger"

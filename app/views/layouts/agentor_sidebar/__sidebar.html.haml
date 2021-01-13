@@ -1,0 +1,32 @@
+.card.border-0.rounded-0
+  #headingOne.card-header.p-0.bg-transparent
+    %h3.m-0
+      = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseOne", :"aria-expanded" => "true", :"data-target" => "#collapseOne", :"data-toggle" => "collapse"} do
+        = fa_icon "area-chart", text: "管理面板", class: "mx-3"
+        
+  #collapseOne.collapse.show{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExample"}
+    .card-body
+      %ul.list-group.list-group-flush
+        = link_to '基本资料', edit_agentor_co_url(current_user.agentor_co), :class => "list-group-item list-group-item-action border-0 text-left pl-4"
+        -#
+          = link_to projects_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4" do
+            = fa_icon "area-chart", text: Setting.projects.label, class: "mx-3"
+.card.border-0.rounded-0
+  #headingTwo.card-header.p-0.bg-transparent
+    %h4.m-0
+      = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseTwo", :"aria-expanded" => "true", :"data-target" => "#collapseTwo", :"data-toggle" => "collapse"} do
+        = fa_icon "area-chart", text: "员工管理", class: "mx-3"
+  #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#accordionExample"}
+    .card-body
+      %ul.list-group.list-group-flush
+        = link_to "员工信息", agentor_co_agentor_handles_url(current_user.agentor_co), :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
+.card.border-0.rounded-0
+  #headingThree.card-header.p-0.bg-transparent
+    %h4.m-0
+      = link_to nil,  {:class => "d-flex p-3 text-decoration-none", :"aria-controls" => "collapseThree", :"aria-expanded" => "true", :"data-target" => "#collapseThree", :"data-toggle" => "collapse"} do
+        = fa_icon "area-chart", text: "项目管理", class: "mx-3"
+  #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
+    .card-body
+      %ul.list-group.list-group-flush
+        = link_to "工程清单", projects_url, :class => "list-group-item list-group-item-action border-0 text-left pl-4" 
+        = link_to "项目邀请", invite_project_groups_url, :class => "list-group-item list-group-item-action border-0 text-left pl-4" 

@@ -1,0 +1,63 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @article do |f|
+        - if @article.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@article.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @article.errors.full_messages.each do |msg|
+                %li= msg
+        .form-group.row
+          = f.label Setting.articles.lang, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :lang, :class => "form-control"
+          
+      
+        .form-group.row
+          = f.label Setting.articles.title, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :title, :class => "form-control"
+          
+        .form-group.row
+          = f.label Setting.articles.address, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :address, :class => "form-control"
+          
+        .form-group.row
+          = f.label Setting.articles.category, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_area :category, :class => "form-control", :rows => "10"
+          
+        .form-group.row
+          = f.label Setting.articles.vol, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_field :vol, :class => "form-control"
+
+        .form-group.row
+          = f.label Setting.articles.desc, :class => "col-sm-3 text-right"
+          .col-sm-9
+            = f.text_area :desc, :class => "form-control", :rows => "10"
+      
+        .form-group.row
+          = f.label "Logo", :class => "col-sm-1 control-label"
+          .col-sm-11
+            = f.fields_for :enclosures do |enclosure|
+              = render 'enclosure_fields', f: enclosure
+            .links
+              = link_to_add_association "添加文件", f, :enclosures, :class => "btn btn-success"
+      
+      
+        .form-group.row
+          = f.label "文章内容", :class => "col-sm-1 control-label"
+          .col-sm-11
+            = f.fields_for :article_contents do |article_content|
+              = render 'article_content_fields', f: article_content 
+            .links
+              = link_to_add_association "添加", f, :article_contents, :class => "btn btn-success"
+      
+        .form-group.row
+          .col-sm-3.offset-sm-2
+            = f.submit '保存', :class => "btn btn-success"
+          .col-sm-3.offset-sm-1
+            = link_to '返回', articles_path, :class => "btn btn-danger"

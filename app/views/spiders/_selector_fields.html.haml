@@ -1,0 +1,16 @@
+.nested-fields
+  .form-group
+    .field.d-inline
+      .form-group.row
+        .col-sm-6
+          = f.text_field :name, :class => "form-control", :placeholder => Setting.selectors.name
+        .col-sm-2
+          = f.text_field :title, :class => "form-control", :placeholder => "选文本就填导出的文件名,选属性就填属性名" 
+        
+        .col-sm-2
+          .form-group.row
+            = f.label Setting.selectors.category, :class => "col-sm-3 text-right"
+            .col-sm-9
+              = f.select :category, options_for_spider_category, {:include_blank => false}, {:class => "form-control"}
+        .col-sm-1
+          = link_to_remove_association "删除", f, :class => "btn btn-danger btn-sm d-inline"

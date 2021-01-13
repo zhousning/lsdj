@@ -1,0 +1,24 @@
+.container-fluid.h-100
+  .row.h-100.py-5.px-5
+    .col-12
+      = form_for @account do |f|
+        - if @account.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@account.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @account.errors.full_messages.each do |msg|
+                %li= msg
+        .form-group.row.justify-content-center.mb-5
+          %h2
+            更改安全密码
+      
+        .form-group.row.mb-5
+          = f.label Setting.accounts.password, :class => "col-2 col-form-label col-form-label-lg text-right"
+          .col-10
+            = f.password_field :password, :class => "form-control border-0 form-control-lg"
+          .col-12
+            %hr
+          
+        .form-group.row
+          .col-3.offset-2
+            = f.submit '更 改', :class => "btn btn-success btn-block btn-lg"

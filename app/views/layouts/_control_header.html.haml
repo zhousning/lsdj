@@ -1,0 +1,20 @@
+%nav#home-nav.navbar.navbar-dark.navbar-expand-lg.sticky-top.bg-212634.p-0
+  %a.navbar-brand.col-sm-3.col-md-2.mr-0{:href => root_path}
+    = Setting.systems.company_name
+  %ul.w-100.navbar-nav.justify-content-end.px-3
+    - unless user_signed_in?
+      %li.nav-item
+        = link_to new_user_registration_path, :class => "nav-link text-white" do
+          注册
+      %li.nav-item
+        = link_to "登录", new_user_session_path, :class => "nav-link text-white"
+    - else
+      %li.nav-item
+        = link_to "控制面板", controls_path, :class => "nav-link text-white"
+      %li.nav-item
+        = link_to current_user.phone, nil, :class => "nav-link text-white"
+      %li.nav-item
+        %a.nav-link.text-white{:href=>destroy_user_session_path, "data-method"=>"delete"} 注销
+      - if current_user.super_admin?
+        %li.nav-item
+          = link_to "后台管理", admin_root_path, :class => "nav-link text-white"

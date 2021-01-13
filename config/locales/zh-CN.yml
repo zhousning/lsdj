@@ -1,0 +1,561 @@
+zh-CN:
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  layouts:
+    application:
+      site_title: "徽卅科技"
+    application_control:
+      site_title: "徽卅科技"
+    application_mobile:
+      site_title: "徽卅科技"
+    application_home:
+      site_title: "徽卅科技"
+
+  home:
+    index:
+      title: "首页"
+    help:
+      title: "帮助中心"
+    custom_service:
+      title: 茶源客服
+
+  controls:
+    index:
+      title: "控制面板"
+
+  users:
+    control:
+      title: "个人中心"
+    manage:
+      title: "管理用户"
+    index:
+      title: "用户列表"
+    show:
+      title: "用户详情"
+    edit:
+      title: "编辑用户"
+    registrations:
+      new:
+        title: "用户注册"
+    confirmations:
+      new:
+        title: "重新发送邮件"
+    sessions:
+      new:
+        title: "用户登录"
+    passwords:
+      forget:
+        title: "找回密码"
+    binding:
+      title: "绑定帐号"
+    sendmail:
+      title: "邮件已发送"
+    confirm:
+      title: "邮箱已确认"
+    agreement:
+      title: "用户协议"
+    center: 
+      title: 个人中心
+    mobile_authc_new:
+      title: 实名认证 
+    mobile_authc_status:
+      title: 实名认证状态 
+    level:
+      title: 等级 
+
+  roles:
+    manage:
+      title: "管理角色"
+    index:
+      title: "角色列表"
+    new:
+      title: "新建角色"
+    show:
+      title: "角色详情"
+    edit:
+      title: "编辑角色"
+
+  templates:
+    index: 
+      title: 模板列表
+    new: 
+      title: 新建模板
+    edit:
+      title: 编辑模板
+    show:
+      title: 查看模板
+    destroy:
+      title: 删除模板
+
+  buyers:
+    manage:
+      title: "客户管理"
+    index:
+      title: "客户列表"
+    new:
+      title: "添加客户"
+    show:
+      title: "查看客户"
+    edit:
+      title: "编辑客户"
+  accounts:
+    info: 
+      title: 账户信息
+    edit:
+      title: 安全密码
+  citrines:
+    index:
+      title: 茶晶兑换
+    info:
+      title: 我的茶晶
+  demands:
+    new:
+      title: 发布求购
+    index:
+      title: 我的求购
+  sells:
+    new:
+      title: 发布转让
+    index:
+      title: 我的转让
+  extract_cashes:
+    new:
+      title: 提现
+
+  notices:
+    index:
+      title: "公告列表"
+    new:
+      title: "新建公告"
+    show:
+      title: "公告详情"
+    edit:
+      title: "编辑公告"
+    mobile_index:
+      title: "公告列表"
+    mobile_show:
+      title: "公告详情"
+  wares:
+    index:
+      title: "商品列表"
+    new:
+      title: "新建商品"
+    show:
+      title: "商品详情"
+    edit:
+      title: "编辑商品"
+    mobile_index:
+      title: "商品列表"
+    mobile_show:
+      title: "商品详情"
+  share_pools:
+    show:
+      title: 分红池
+    current_month:
+      title: 本月分红
+  tasks:
+    invite:
+      title: 邀请好友
+  teams:
+    index:
+      title: 我的团队
+  orders:
+    new:
+      title: 充值中心
+  trade_orders:
+    index:
+      title: "订单列表"
+    new:
+      title: "新建订单"
+    show:
+      title: "订单详情"
+    edit:
+      title: "编辑订单"
+    pending:
+      title: "待支付订单"
+    paid:
+      title: "已支付,待发货订单"
+    departed:
+      title: "已发货订单"
+    completed:
+      title: "已完成订单"
+    all:
+      title: "我的订单"
+  trades:
+    index:
+      title: 茶坊
+    betray_new:
+      title: 求购 
+    buy_new:
+      title: 转让 
+  trees:
+    index:
+      title:
+        徽卅科技
+  pick_records:
+    index:
+      title:
+        采茶记录
+  leafs:
+    index:
+      title:
+        我的茶叶
+  authorities:
+    roles:
+      manage:
+        title: "管理角色"
+    templates:
+      manage:
+        title: 管理模板
+  statistics:
+    index:
+      title: 数据统计
+  constructors:
+    edit:
+      title: 建设单位信息
+  constructor_handles:
+    index:
+      title: 列表-建设单位-员工
+    new:
+      title: 新建-建设单位-员工
+    edit:
+      title: 编辑-建设单位-员工
+    show:
+      title: 详情-建设单位-员工
+  monitor_cos:
+    edit:
+      title: 监督单位信息
+  monitor_handles:
+    index:
+      title: 列表-监督单位-员工
+    new:
+      title: 新建-监督单位-员工
+    edit:
+      title: 编辑-监督单位-员工
+    show:
+      title: 详情-监督单位-员工
+  prospectors:
+    edit:
+      title: 地勘单位信息
+  prospector_handles:
+    index:
+      title: 列表-地勘单位-员工
+    new:
+      title: 新建-地勘单位-员工
+    edit:
+      title: 编辑-地勘单位-员工
+    show:
+      title: 详情-地勘单位-员工
+  agentor_cos:
+    edit:
+      title: 代建单位信息
+  agentor_handles:
+    index:
+      title: 列表-代建单位-员工
+    new:
+      title: 新建-代建单位-员工
+    edit:
+      title: 编辑-代建单位-员工
+    show:
+      title: 详情-代建单位-员工
+  agentor_co_handle_certs:
+    index:
+      title: 备案列表-代建单位-员工
+    new:
+      title: 新建备案-代建单位-员工
+    edit:
+      title: 编辑备案-监理单位-员工
+    show:
+      title: 备案详情-监理单位-员工
+  supervisor_workers:
+    index:
+      title: 列表-监理单位-从业监理人员
+    new:
+      title: 新建-监理单位-从业监理人员
+    edit:
+      title: 编辑-监理单位-从业监理人员
+    show:
+      title: 详情-监理单位-从业监理人员
+  supervisor_worker_certs:
+    index:
+      title: 备案列表-监理单位-从业监理人员
+    new:
+      title: 新建备案-监理单位-从业监理人员
+    edit:
+      title: 编辑备案-监理单位-从业监理人员
+    show:
+      title: 备案详情-监理单位-从业监理人员
+  supervisor_targets:
+    index:
+      title: 列表-监理单位-专业注册监理工程师
+    new:
+      title: 新建-监理单位-专业注册监理工程师
+    edit:
+      title: 编辑-监理单位-专业注册监理工程师
+    show:
+      title: 详情-监理单位-专业注册监理工程师
+  supervisor_target_certs:
+    index:
+      title: 备案列表-监理单位-专业注册监理工程师
+    new:
+      title: 新建备案-监理单位-专业注册监理工程师
+    edit:
+      title: 编辑备案-监理单位-专业注册监理工程师
+    show:
+      title: 备案详情-监理单位-专业注册监理工程师
+  supervisor_states:
+    index:
+      title: 列表-监理单位-全国注册监理工程师
+    new:
+      title: 新建-监理单位-全国注册监理工程师
+    edit:
+      title: 编辑-监理单位-全国注册监理工程师
+    show:
+      title: 详情-监理单位-全国注册监理工程师
+  supervisor_state_certs:
+    index:
+      title: 备案列表-监理单位-全国注册监理工程师
+    new:
+      title: 新建备案-监理单位-全国注册监理工程师
+    edit:
+      title: 编辑备案-监理单位-全国注册监理工程师
+    show:
+      title: 备案详情-监理单位-全国注册监理工程师
+  designers:
+    edit:
+      title: 施工单位信息
+  designer_posts:
+    index:
+      title: 列表-设计单位-职称工程师
+    new:
+      title: 新建-设计单位-职称工程师
+    edit:
+      title: 编辑-设计单位-职称工程师
+    show:
+      title: 详情-设计单位-职称工程师
+  designer_post_certs:
+    index:
+      title: 备案列表-设计单位-职称工程师
+    new:
+      title: 新建备案-设计单位-职称工程师
+    edit:
+      title: 编辑备案-设计单位-职称工程师
+    show:
+      title: 备案详情-设计单位-职称工程师
+  designer_waters:
+    index:
+      title: 列表-设计单位-注册排水工程师
+    new:
+      title: 新建-设计单位-注册排水工程师
+    edit:
+      title: 编辑-设计单位-注册排水工程师
+    show:
+      title: 详情-设计单位-注册排水工程师
+  designer_water_certs:
+    index:
+      title: 备案列表-设计单位-注册排水工程师
+    new:
+      title: 新建备案-设计单位-注册排水工程师
+    edit:
+      title: 编辑备案-设计单位-注册排水工程师
+    show:
+      title: 备案详情-设计单位-注册排水工程师
+  designer_warms:
+    index:
+      title: 列表-设计单位-注册暖通工程师
+    new:
+      title: 新建-设计单位-注册暖通工程师
+    edit:
+      title: 编辑-设计单位-注册暖通工程师
+    show:
+      title: 详情-设计单位-注册暖通工程师
+  designer_warm_certs:
+    index:
+      title: 备案列表-设计单位-注册暖通工程师
+    new:
+      title: 新建备案-设计单位-注册暖通工程师
+    edit:
+      title: 编辑备案-设计单位-注册暖通工程师
+    show:
+      title: 备案详情-设计单位-注册暖通工程师
+  designer_structures:
+    index:
+      title: 列表-设计单位-注册结构工程师
+    new:
+      title: 新建-设计单位-注册结构工程师
+    edit:
+      title: 编辑-设计单位-注册结构工程师
+    show:
+      title: 详情-设计单位-注册结构工程师
+  designer_structure_certs:
+    index:
+      title: 备案列表-设计单位-注册结构工程师
+    new:
+      title: 新建备案-设计单位-注册结构工程师
+    edit:
+      title: 编辑备案-设计单位-注册结构工程师
+    show:
+      title: 备案详情-设计单位-注册结构工程师
+  designer_electrics:
+    index:
+      title: 列表-设计单位-注册电气工程师
+    new:
+      title: 新建-设计单位-注册电气工程师
+    edit:
+      title: 编辑-设计单位-注册电气工程师
+    show:
+      title: 详情-设计单位-注册电气工程师
+  designer_electric_certs:
+    index:
+      title: 备案列表-设计单位-注册电气工程师
+    new:
+      title: 新建备案-设计单位-注册电气工程师
+    edit:
+      title: 编辑备案-设计单位-注册电气工程师
+    show:
+      title: 备案详情-设计单位-注册电气工程师
+  designer_constructors:
+    index:
+      title: 列表-设计单位-注册建筑工程师
+    new:
+      title: 新建-设计单位-注册建筑工程师
+    edit:
+      title: 编辑-设计单位-注册建筑工程师
+    show:
+      title: 详情-设计单位-注册建筑工程师
+  designer_constructor_certs:
+    index:
+      title: 备案列表-设计单位-注册建筑工程师
+    new:
+      title: 新建备案-设计单位-注册建筑工程师
+    edit:
+      title: 编辑备案-设计单位-注册建筑工程师
+    show:
+      title: 备案详情-设计单位-注册建筑工程师
+  labours:
+    edit:
+      title: 施工单位信息
+  labour_handles:
+    index:
+      title: 列表-施工单位-项目经理
+    new:
+      title: 新建-施工单位-项目经理
+    edit:
+      title: 编辑-施工单位-项目经理
+    show:
+      title: 详情-施工单位-项目经理
+  handle_certs:
+    index:
+      title: 备案列表-施工单位-项目经理
+    new:
+      title: 新建备案-施工单位-项目经理
+    edit:
+      title: 编辑备案-施工单位-项目经理
+    show:
+      title: 备案详情-施工单位-项目经理
+  labour_teches:
+    index:
+      title: 列表-施工单位-技术负责人
+    new:
+      title: 新建-施工单位-技术负责人
+    edit:
+      title: 编辑-施工单位-技术负责人
+    show:
+      title: 详情-施工单位-技术负责人
+  tech_certs:
+    index:
+      title: 备案列表-施工单位-技术负责人
+    new:
+      title: 新建备案-施工单位-技术负责人
+    edit:
+      title: 编辑备案-施工单位-技术负责人
+    show:
+      title: 备案详情-施工单位-技术负责人
+  labour_lines:
+    index:
+      title: 列表-施工单位-现场管理人员
+    new:
+      title: 新建-施工单位-现场管理人员
+    edit:
+      title: 编辑-施工单位-现场管理人员
+    show:
+      title: 详情-施工单位-现场管理人员
+  line_certs:
+    index:
+      title: 备案列表-施工单位-现场管理人员
+    new:
+      title: 新建备案-施工单位-现场管理人员
+    edit:
+      title: 编辑备案-施工单位-现场管理人员
+    show:
+      title: 备案详情-施工单位-现场管理人员
+  labour_workers:
+    index:
+      title: 列表-施工单位-技术工人
+    new:
+      title: 新建-施工单位-技术工人
+    edit:
+      title: 编辑-施工单位-技术工人
+    show:
+      title: 详情-施工单位-技术工人
+  worker_certs:
+    index:
+      title: 备案列表-施工单位-技术工人
+    new:
+      title: 新建备案-施工单位-技术工人
+    edit:
+      title: 编辑备案-施工单位-技术工人
+    show:
+      title: 备案详情-施工单位-技术工人
+  labour_handles:
+    index:
+      title: 列表-施工单位-项目经理
+    new:
+      title: 新建-施工单位-项目经理
+    edit:
+      title: 编辑-施工单位-项目经理
+    show:
+      title: 详情-施工单位-项目经理
+  handle_certs:
+    index:
+      title: 备案列表-施工单位-项目经理
+    new:
+      title: 新建备案-施工单位-项目经理
+    edit:
+      title: 编辑备案-施工单位-项目经理
+    show:
+      title: 备案详情-施工单位-项目经理
+  projects:
+    index:
+      title: 工程列表
+    new:
+      title: 新建工程
+    edit:
+      title: 编辑工程
+    show:
+      title: 工程详情
+    project_table:
+      title: 添加工程用表
+  project_groups:
+    index:
+      title: 项目组列表
+    new:
+      title: 添加项目组单位
+    edit:
+      title: 编辑项目组
+    show:
+      title: 项目组详情
+    invite:
+      title: 项目邀请
+  project_tables:
+    index:
+      title: 工程用表列表
+    new:
+      title: 新建工程用表
+    edit:
+      title: 编辑工程用表
+    show:
+      title: 工程用表详情

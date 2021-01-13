@@ -1,0 +1,10 @@
+.nested-fields
+  .form-group
+    .field.d-inline
+      .form-group.row
+        .col-sm-2
+          = f.text_field :name, :class => "form-control", :placeholder => Setting.natures.name
+        .col-sm-2
+          = f.select :tag, options_for_tag, {:include_blank=>false}, {:class=>"form-control"}
+        .col-sm-2
+          = link_to_remove_association "删除", f, :class => "btn btn-danger btn-sm d-inline"

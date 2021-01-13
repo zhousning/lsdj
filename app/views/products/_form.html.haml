@@ -1,0 +1,63 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      %button.btn.btn-primary{"data-target" => "#uploadModal", "data-toggle" => "modal", type: "button"}
+        文件上传
+    .col-sm-12
+      = form_for @product, :builder => WebsiteFormBuilder, :html => {:class => "dropzone", :'data-parsley-validate' => true}, multipart: true do |f|
+        - if @product.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@product.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @product.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.products.name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :name, :class => "form-control rounded-0"
+          
+      
+      
+        .form-group.row
+          = f.label "一个附件", :class => "col-3 text-right col-form-label col-form-label"
+          = f.file_field :idattch, multiple: true
+          -#
+            .col-3
+              %label.newbutton
+                %p.append-url
+                  = f.one_attachment("idattch")
+                = f.file_field :idattch, :class => "select-file", :onchange => "readFileName(this);", :multiple => true
+      
+            .image-sortable
+              - @product.idattch.each do |image|
+                .image
+                  = hidden_field :product, :idattch, multiple: true, :value => image.cache_name || image.identifier
+                  = image.url
+                  %button.remove-image{:type => "button"} Remove
+              -#
+                .image
+                  = f.file_field :idattch, multiple: true
+            %button.add-image{:type => "button"} Add more images
+      
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          .col-3.offset-1
+            = link_to '返回', products_path, :class => "button button-caution"
+
+#uploadModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "uploadModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-dialog-centered.modal-xl
+    .modal-content
+      .modal-header
+        %h5#uploadModalLabel.modal-title
+          文件上传
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} x 
+      .modal-body
+        %form#my-awesome-dropzone.dropzone{:action => "/products/" + @product.id.to_s + "/upload"}
+          %input{:type => "file", :name => "file", :hidden => "true"}

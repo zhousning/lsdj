@@ -1,0 +1,43 @@
+.card-header.bg-white.py-4
+  .row
+    .col-12
+      %h3
+        账户记录
+.card-body.text-center.py-4
+  .row
+    .col-12
+      - if @consumes
+        %table.table
+          %thead
+            %tr
+              %th
+                日期
+              %th
+                项目
+              %th
+                金额
+          %tbody
+            - @orders.each_with_index do |order, index|
+              %tr
+                %td
+                  = order.created_at.strftime("%Y-%m-%d %H:%M")
+                %td
+                  = order.category
+                %td
+                  +
+                  = order.coin
+            - @consumes.each_with_index do |consume, index|
+              %tr
+                %td
+                  = consume.created_at.strftime("%Y-%m-%d %H:%M")
+                %td
+                  = consume.category
+                %td
+                  - if consume.category == Setting.consumes.category_recharge || consume.category == Setting.consumes.category_buy_ware 
+                    -
+                  - elsif consume.category == Setting.consumes.category_buy_commision || consume.category == Setting.consumes.category_recharge 
+                    +
+                  = consume.coin_cost
+      - else
+        %h3.text-center
+          暂无记录

@@ -1,0 +1,28 @@
+- provide(:title, t('.title'))
+
+.card.mt-3.px-5
+  .card-header.bg-white.py-4
+    .row
+      .col-12
+        %h1
+          账户详情
+  .card-body.text-center.py-4
+    .row.mb-5
+      .col.text-center
+        %h3
+          可提现余额
+        %h4
+          = @account.coin
+      .col.text-center
+        %h3
+          冻结余额
+        %h4
+          = @account.freeze_coin
+
+    .row
+      .col-12.mb-5
+        = link_to '充 值', recharge_accounts_path, :class => "btn btn-success btn-lg btn-block"
+      .col-12
+        = link_to '提 现', new_extract_cash_path, :class => "btn btn-info btn-lg btn-block"
+
+= render 'record'

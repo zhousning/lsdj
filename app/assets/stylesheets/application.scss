@@ -1,0 +1,27 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+
+@import "bootstrap";
+@import "animate";
+@import 'bootstrap-datetimepicker';
+@import "bootstrap-table/bootstrap-table";
+@import "bootstrap-switch";
+@import "select2";
+@import "select2-bootstrap";
+@import "buttons";
+@import "font-awesome";
+@import "jquery-transfer/jquery-transfer";
+@import "jquery-transfer/css/icon_font";
+@import "previewer";
+@import "parsley";
+@import "home";
+@import "users";
+@import "common";
+@import "public";
+@import "footer";
+@import "home_footer";
+@import "home";
+@import "public";
+@import "dashboard";
+@import "accounts";
+@import "dropzone/dropzone";
+

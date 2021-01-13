@@ -1,0 +1,33 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-12
+        %table.table.text-center.table-bordered
+          %thead
+            %tr
+            
+              %th 
+                = Setting.articles.title
+              %th 
+                = Setting.articles.category
+              %th 
+                = Setting.articles.address
+          %tbody
+            %tr
+            
+              %td
+                = @article.title
+              %td
+                = @article.category
+              %td
+                = @article.address
+    
+      .col-md-12
+      -#
+        - @article.enclosures.each do |e|
+          = image_tag e.file_url(:small_width)
+    
+
+= render "layouts/control_panel"

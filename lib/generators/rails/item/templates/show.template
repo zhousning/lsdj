@@ -1,0 +1,47 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          .container-fluid
+            .row
+            <% @attrs.each do |attr| %>
+              .col-md-12
+                = Setting.<%= @mpu %>.<%= attr %>
+                = @<%= @mu %>.<%= attr %>
+            <% end %>
+            .row
+            <% @one_enclosure.each do |e| %>
+              .col-md-6
+                = image_tag @<%= @mu %>.<%= e %>_url, :class => "w-100"
+            <% end %>
+            .row
+            <% if @enclosure %>
+              - @<%= @mu %>.enclosures.each do |e|
+                .col-md-6
+                  = image_tag e.file_url(:small_width), :class => "w-100"
+            <% end %>
+            .row
+            <% @one_attachment.each do |a| %>
+              .col-md-6
+                - unless @<%= @mu %>.<%= a %>.blank?
+                  = link_to URI.decode(File.basename(@<%= @mu %>.<%= a %>_url)), download_append_<%= @mu %>_path(@<%= @mu %>.id)
+            <% end %>
+            <% if @attachment %>
+            .row
+              - @<%= @mu %>.attachments.each_with_index do |e, i|
+                .col-md-12
+                  = link_to File.basename(e.file_url), download_attachment_<%= @mu %>_path(@<%= @mu %>.id, :number => i, :ft => '')
+            <% end %>
+            .row
+            <% @fields.each do |field, value| %>
+              - @<%= @mu %>.<%= field.pluralize %>.each do |<%= field %>|
+                <% value['attr'].each do |attr| %> 
+                .col-md-2
+                  = <%= field %>.<%= attr %>
+                <% end %>
+            <% end %>
+
+= render "layouts/control_panel"

@@ -1,0 +1,107 @@
+class <%= @mpc %>Controller < ApplicationController
+  layout "application_control"
+  before_filter :authenticate_user!
+  load_and_authorize_resource
+
+  <% if @index %> 
+  def index
+    @<%= @mpu %> = <%= @mc %>.all
+  end
+  <% end %> 
+
+  <% if @show %> 
+  def show
+    @<%= @mu %> = <%= @mc %>.find(params[:id])
+  end
+  <% end %> 
+
+  <% if @new %> 
+  def new
+    @<%= @mu %> = <%= @mc %>.new
+    <% @fields.each do |field, value| %>
+    @<%= @mu %>.<%= field.pluralize %>.build
+    <% end %>
+  end
+  <% end %> 
+
+  <% if @new %> 
+  def create
+    @<%= @mu %> = <%= @mc %>.new(<%= @mu %>_params)
+    #@<%= @mu %>.user = current_user
+    if @<%= @mu %>.save
+      redirect_to @<%= @mu %>
+    else
+      render :new
+    end
+  end
+  <% end %> 
+
+  <% if @edit %> 
+  def edit
+    @<%= @mu %> = <%= @mc %>.find(params[:id])
+  end
+  <% end %> 
+
+  <% if @edit %> 
+  def update
+    @<%= @mu %> = <%= @mc %>.find(params[:id])
+    if @<%= @mu %>.update(<%= @mu %>_params)
+      redirect_to <%= @mu %>_path(@<%= @mu %>) 
+    else
+      render :edit
+    end
+  end
+  <% end %> 
+
+  <% if @index %> 
+  def destroy
+    @<%= @mu %> = <%= @mc %>.find(params[:id])
+    @<%= @mu %>.destroy
+    redirect_to :action => :index
+  end
+  <% end %> 
+
+  <% if @attachment %>
+    def download_attachment 
+      @<%= @mu %> = <%= @mc %>.find(params[:id])
+      @attachment_id = params[:number].to_i
+      @attachment = @<%= @mu %>.attachments[@attachment_id]
+
+      if @attachment
+        send_file File.join(Rails.root, "public", URI.decode(@attachment.file_url)), :type => "application/force-download", :x_sendfile=>true
+      end
+    end
+  <% end %>
+
+  <% @one_attachment.each do |att| %>
+    def download_append
+      @<%= @mu %> = <%= @mc %>.find(params[:id])
+      @<%= att %> = @<%= @mu %>.<%= att %>_url
+
+      if @<%= att %>
+        send_file File.join(Rails.root, "public", URI.decode(@<%= att %>)), :type => "application/force-download", :x_sendfile=>true
+      end
+    end
+  <% end %>
+
+  private
+    def <%= @mu %>_params
+      params.require(:<%= @mu %>).permit(<% @attrs.each_with_index do |attr, index| %> :<%= attr %><%= index == @attrs.size-1 ? '' : ','%><% end %><% @one_enclosure.each do |e| %> , :<%= e %><% end %><% @one_attachment.each do |a| %> , :<%= a %><% end %><% if @attachment %> , attachments_attributes: attachment_params<% end %><% if @enclosure %> , enclosures_attributes: enclosure_params<% end %><% @fields.each do |field, value| %>, <%= field.pluralize %>_attributes: <%= field %>_params<% end %>)
+    end
+  <% if @enclosure %>
+    def enclosure_params
+      [:id, :file, :_destroy]
+    end
+  <% end %>
+  <% if @attachment %>
+    def attachment_params
+      [:id, :file, :_destroy]
+    end
+  <% end %>
+  <% @fields.each do |field, value| %>
+    def <%= field %>_params
+      [:id<% value['attr'].each do |attr| %>, :<%= attr %><% end %> ,:_destroy]
+    end
+  <% end %>
+end
+

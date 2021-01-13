@@ -1,0 +1,29 @@
+.nested-fields.nestd-item
+  .form-group
+    .field.d-inline
+    <% @field_attr.each_with_index do |attr, index| %>
+      .form-group.row
+        = f.label Setting.<%= @nest.pluralize %>.<%= attr %>, :class => "col-sm-3 text-right"
+        .col-sm-9
+        <% if @field_tag[index] == 'text' %>  = f.text_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'textarea' %>  = f.text_area :<%= attr %>, :class => "form-control", :rows => "20"
+        <% elsif @field_tag[index] == 'number' %>  = f.number_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'phone' %>  = f.phone_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'date' %>  = f.date_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'password' %>  = f.password_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'phone' %> = f.phone_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'email' %> = f.email_field :<%= attr %>, :class => "form-control"
+        <% elsif @field_tag[index] == 'radio' %>  .form-check.form-check-inline
+            = f.radio_button :<%= attr %>, Setting.systems.status_en_yes, :class => "form-check-input", :checked => "checked"
+            = f.label Setting.systems.status_yes, :class => "form-check-label"
+          .form-check.form-check-inline
+            = f.radio_button :<%= attr %>, Setting.systems.status_en_no, :class => "form-check-input"
+            = f.label Setting.systems.status_no, :class => "form-check-label"
+        <% elsif @field_tag[:tag][index] == 'check' %>  .form-check.form-check-inline
+            = f.check_box :<%= attr %>, :class => "form-check-input"
+            = f.label Setting.systems.status_yes, :class => "form-check-label"
+          .form-check.form-check-inline
+            = f.check_box :<%= attr %>, :class => "form-check-input"
+            = f.label Setting.systems.status_no, :class => "form-check-label"
+        <% elsif @field_tag[index] == 'select' %>  = f.select :<%= attr %>, options_for_<%= attr %>, {:include_blank=>false}, {:class=>"form-control"}<% end %><% end %>
+    = link_to_remove_association "X", f, :class => "nestd-notify-badge"

@@ -1,0 +1,18 @@
+.nested-fields
+  .form-group
+    .field.d-inline
+      .form-group.row
+        = f.label Setting.article_contents.title, :class => "col-sm-3 text-right"
+        .col-sm-9
+          = f.text_field :title, :class => "form-control"
+        
+      .form-group.row
+        = f.label Setting.article_contents.desc, :class => "col-sm-3 text-right"
+        .col-sm-9
+          = f.text_area :desc, :class => "form-control", :rows => "5"
+        
+      .form-group.row
+        = f.label Setting.article_contents.tag, :class => "col-sm-3 text-right"
+        .col-sm-9
+          = f.select :tag, options_for_title_tag, {:include_blank=>false}, {:class=>"form-control"}
+    = link_to_remove_association "删除", f, :class => "btn btn-danger btn-sm d-inline"

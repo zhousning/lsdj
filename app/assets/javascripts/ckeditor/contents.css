@@ -1,0 +1,181 @@
+.cke_editable
+{
+	font-size: 13px;
+	line-height: 1.6;
+
+	/* Fix for missing scrollbars with RTL texts. (#10488) */
+	word-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+    .cke_editable {
+    	font-size: 16px;
+    }
+}
+
+.marker
+{
+	background-color: Yellow;
+}
+
+
+/* Widget Styles */
+.code-featured
+{
+	border: 5px solid red;
+}
+
+.math-featured
+{
+	padding: 20px;
+	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	background-color: rgba(255, 0, 0, 0.05);
+	margin: 10px;
+}
+
+.image-clean
+{
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+.image-grayscale
+{
+	background-color: white;
+	color: #666;
+}
+
+.embed-240p
+{
+	max-width: 426px;
+	max-height: 240px;
+	margin:0 auto;
+}
+
+.embed-360p
+{
+	max-width: 640px;
+	max-height: 360px;
+	margin:0 auto;
+}
+
+.embed-480p
+{
+	max-width: 854px;
+	max-height: 480px;
+	margin:0 auto;
+}
+
+.embed-720p
+{
+	max-width: 1280px;
+	max-height: 720px;
+	margin:0 auto;
+}
+
+.embed-1080p
+{
+	max-width: 1920px;
+	max-height: 1080px;
+	margin:0 auto;
+}
+
+html {
+  background: #E4E6EB; 
+}
+
+body.document-editor {
+	width: 17cm;
+	min-height: 21cm;
+	padding: 1cm 2cm 2cm;
+	margin: 0.5cm auto;
+	border: 1px #D3D3D3 solid;
+	background: white;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+}
+
+body.document-editor table {
+  border-collapse:collapse;
+	margin-top:0.5cm;
+  border-color: black;
+	margin-bottom:0.5cm;
+}
+
+/*分页表格的问题*/
+thead {
+  display: table-row-group;
+}
+tr {
+  page-break-before: always;
+  page-break-after: always;
+  page-break-inside: avoid;
+}
+
+table {
+  word-wrap: break-word;
+}
+table td {
+  word-break: break-all;
+}
+/*分页表格的问题*/
+
+body.document-editor table td {
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}
+body.document-editor table td p{
+  margin: 0px;
+}
+
+body.document-editor table td:first-of-type {
+	border-left: 1px solid black;
+}
+
+body.document-editor table tr:first-of-type td {
+	border-top: 1px solid black;
+}
+
+body.document-editor table thead th {
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+}
+
+body.document-editor table thead th:first-of-type {
+	border-left: 1px solid black;
+}
+
+@media print {
+	body.document-editor {
+		border: 0;
+    padding: 0;
+		box-shadow: none;
+	}
+  /*打印不显示分页符不管用*/
+  .cke_pagebreak{
+    border-top-color: white !important;
+    border-bottom-color: white !important;
+  }
+}
+
+@page { 
+  size: A4;
+	margin: 2cm 2.2cm 2cm 2.2cm;
+  /*设置页码不管用
+  @bottom-left {
+    margin: 10pt 0 30pt 0;
+    border-top: .25pt solid #666;
+    content: "Our Cats";
+    font-size: 20px;
+    color: black;
+  }
+  @bottom-right { 
+    margin: 10pt 0 30pt 0;
+    border-top: .25pt solid #666;
+    content: counter(page);
+    font-size: 9pt;
+  }
+  */
+}
+
+

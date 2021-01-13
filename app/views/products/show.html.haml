@@ -1,0 +1,32 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          .container-fluid
+            .row
+            
+              .col-md-12
+                = Setting.products.name
+                = @product.name
+            
+            .row
+            
+            .row
+            
+            .row
+            
+              .col-md-6
+                - unless @product.idattch.blank?
+                  - @product.idattch.each do |image|
+                    = image.url
+                    -#
+                      = link_to URI.decode(File.basename(image.url)), download_append_product_path(@product.id)
+            
+            
+            .row
+            
+
+= render "layouts/control_panel"

@@ -1,0 +1,10 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid
+    .row
+      .col-md-8.offset-md-2.jumbotron
+        %h2.text-center
+          欢迎使用管理系统
+
+= render "layouts/control_index"

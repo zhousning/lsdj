@@ -1,0 +1,166 @@
+.form-row
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.company, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :company, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.cert, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :cert, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.corp, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :corp, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.address, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :address, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.idcard, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :idcard, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.province, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :province, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.city, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :city, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.county, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :county, :class => "form-control", :required => true 
+      
+  .col-6
+    .form-group.row
+      = f.label Setting.labours.habitation, :class => "col-3 text-right col-form-label col-form-label"
+      .col-9
+        = f.text_field :habitation, :class => "form-control", :required => true 
+      
+
+.form-row
+  .col-6
+    .form-group.row
+      = f.label "营业执照", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.cert_front, :class => "blah"
+          = f.file_field :cert_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.cert_back, :class => "blah"
+          = f.file_field :cert_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+  .col-6
+    .form-group.row
+      = f.label "建筑业资质证书(特级证书)", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_front, :class => "blah"
+          = f.file_field :quality_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_back, :class => "blah"
+          = f.file_field :quality_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+
+  .col-6
+    .form-group.row
+      = f.label "建筑业资质证书(一级证书)", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_one_front, :class => "blah"
+          = f.file_field :quality_one_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_one_back, :class => "blah"
+          = f.file_field :quality_one_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+  .col-6
+    .form-group.row
+      = f.label "建筑业资质证书(二级证书)", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_two_front, :class => "blah"
+          = f.file_field :quality_two_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_two_back, :class => "blah"
+          = f.file_field :quality_two_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+  .col-6
+    .form-group.row
+      = f.label "建筑业资质证书(三级证书)", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_three_front, :class => "blah"
+          = f.file_field :quality_three_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.quality_three_back, :class => "blah"
+          = f.file_field :quality_three_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+  .col-6
+    .form-group.row
+      = f.label "安全生产许可证书(三级证书)", :class => "col-3 text-right col-form-label col-form-label"
+      .col-3
+        %label.newbtn
+          = image_tag f.safe_front, :class => "blah"
+          = f.file_field :safe_front, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+      .col-3
+        %label.newbtn
+          = image_tag f.safe_back, :class => "blah"
+          = f.file_field :safe_back, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);", :required => true 
+
+.form-row
+  .col-12
+    .card.rounded-0.mb-3
+      .card-body
+        .card-title
+          总承包
+        .row
+          - @domains.each do |domain|
+            .col-3
+              .form-group.row.domain-ctn
+                = f.label "", :class => "col-6 text-right col-form-label col-form-label" do
+                  %span{:class => @domain_hash[domain.id].nil? ? "domain-name" : "domain-name bg-success" }
+                    = domain.name
+                .col-6
+                  = select_tag "domain_levels", options_for_domain_level(@domain_hash[domain.id]), :include_blank=>false, :class=>"form-control domain-level-select"
+                  = hidden_field_tag "domain[]", @domain_hash[domain.id].nil? ? domain.id : domain.id.to_s + "," + @domain_hash[domain.id], :class => "hidden-domain"
+                  = hidden_field_tag "domain-val", domain.id, :class => "domain-val"
+          
+.form-row
+  .col-12
+    .card.rounded-0.mb-3
+      .card-body
+        .card-title
+          专业承包
+        .row
+          - @majors.each do |major|
+            .col-3
+              .form-group.row.major-ctn
+                = f.label "", :class => "col-6 text-right col-form-label col-form-label" do
+                  %span{:class => @major_hash[major.id].nil? ? "major-name" : "major-name bg-success" }
+                    = major.name
+                .col-6
+                  = select_tag "major_levels", options_for_major_level(@major_hash[major.id]), :include_blank=>false, :class=>"form-control major-level-select"
+                  = hidden_field_tag "major[]", @major_hash[major.id].nil? ? major.id : major.id.to_s + "," + @major_hash[major.id], :class => "hidden-major"
+                  = hidden_field_tag "major-val", major.id, :class => "major-val"
+.form-group.row
+  .col-3.offset-2
+    = f.submit '保存', :class => "btn btn-success"
+  -#
+    .col-3.offset-1
+      = link_to '提交审核', "#", :class => "btn btn-danger"
