@@ -96,9 +96,13 @@ Rails.application.routes.draw do
     post :upload, :on => :member
   end
   resources :archives do
-    post :upload, :on => :member
+    resources :portfolios do
+      post :upload, :on => :member
+    end
+  end
+  resources :portfolios, :only => [] do
     resources :file_libs do
-      get :download_append, :on => :member
+      get :download, :on => :member
     end
   end
   resources :flower

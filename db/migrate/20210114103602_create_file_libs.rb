@@ -14,7 +14,7 @@ class CreateFileLibs < ActiveRecord::Migration
     
 
     
-      t.references :archive
+      t.references :portfolio
     
 
       t.timestamps null: false

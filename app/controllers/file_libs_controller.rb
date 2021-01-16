@@ -5,15 +5,16 @@ class FileLibsController < ApplicationController
 
    
   def index
-    @archive = Archive.find(params[:archive_id])
-    @file_libs = @archive.file_libs
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @file_libs = @portfolio.file_libs
+    gon.portfolio = @portfolio.id
   end
    
 
    
   def show
-    @archive = Archive.find(params[:archive_id])
-    @file_lib = @archive.file_libs.find(params[:id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @file_lib = @portfolio.file_libs.find(params[:id])
   end
    
 
@@ -26,9 +27,9 @@ class FileLibsController < ApplicationController
 
    
   def create
-    @archive = Archive.find(params[:archive_id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
     @file_lib = FileLib.new(file_lib_params)
-    @file_lib.archive = @archive
+    @file_lib.portfolio = @portfolio
     if @file_lib.save
       redirect_to @file_lib
     else
@@ -39,15 +40,15 @@ class FileLibsController < ApplicationController
 
    
   def edit
-    @archive = Archive.find(params[:archive_id])
-    @file_lib = @archive.file_libs.find(params[:id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @file_lib = @portfolio.file_libs.find(params[:id])
   end
    
 
    
   def update
-    @archive = Archive.find(params[:archive_id])
-    @file_lib = @archive.file_libs.find(params[:id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @file_lib = @portfolio.file_libs.find(params[:id])
     if @file_lib.update(file_lib_params)
       redirect_to file_lib_path(@file_lib) 
     else
@@ -58,20 +59,18 @@ class FileLibsController < ApplicationController
 
    
   def destroy
-    @archive = Archive.find(params[:archive_id])
-    @file_lib = @archive.file_libs.find(params[:id])
+    @portfolio = Portfolio.find(params[:portfolio_id])
+    @file_lib = @portfolio.file_libs.find(params[:id])
     @file_lib.destroy
     redirect_to :action => :index
   end
    
 
-
-  def download_append
+  def download
     @file_lib = FileLib.find(params[:id])
-    @idattch = @file_lib.idattch_url
 
-    if @idattch
-      send_file File.join(Rails.root, "public", URI.decode(@idattch)), :type => "application/force-download", :x_sendfile=>true
+    if @file_lib 
+      send_file File.join(Rails.root, "public", @file_lib.path), :type => "application/force-download", :x_sendfile=>true
     end
   end
   

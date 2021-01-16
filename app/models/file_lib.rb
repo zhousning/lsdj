@@ -5,7 +5,7 @@ class FileLib < ActiveRecord::Base
 
 
 
-  belongs_to :archive
+  belongs_to :portfolio
 
 
 end

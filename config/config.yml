@@ -1328,6 +1328,9 @@ development:
     label: 党建档案库
     name: 名称
     desc: 备注
+  portfolios:
+    label: 文件夹
+    name: 文件夹名
 test:
   admins: *107
   users: *108

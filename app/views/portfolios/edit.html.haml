@@ -1,0 +1,10 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          = render 'form'
+
+= render "layouts/control_panel"

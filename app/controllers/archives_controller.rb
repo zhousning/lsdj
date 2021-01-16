@@ -2,7 +2,6 @@ class ArchivesController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
   load_and_authorize_resource
-  protect_from_forgery :except => :upload
 
    
   def index
@@ -28,7 +27,7 @@ class ArchivesController < ApplicationController
     @archive = Archive.new(archive_params)
     @archive.user = current_user
     if @archive.save
-      redirect_to @archive
+      redirect_to archives_url
     else
       render :new
     end
@@ -45,7 +44,8 @@ class ArchivesController < ApplicationController
   def update
     @archive = current_user.archives.find(params[:id])
     if @archive.update(archive_params)
-      redirect_to archive_path(@archive) 
+      #redirect_to archive_path(@archive) 
+      redirect_to archives_url
     else
       render :edit
     end
@@ -59,35 +59,6 @@ class ArchivesController < ApplicationController
     redirect_to :action => :index
   end
    
-
-  def upload
-    @archive = Archive.find(params[:id])
-
-    uploaded_file = params[:file]
-    if @archive
-      begin
-        folder = Rails.root.join('public', 'uploads', @archive.id.to_s)
-        FileUtils.makedirs(folder) unless File.exists?folder
-        file_name = folder + uploaded_file.original_filename
-        File.open(file_name, 'wb') do |file|
-          file.write(uploaded_file.read)
-        end
-        respond_to do |f|
-          f.json { render :json => {:success => "上传成功"}.to_json }
-        end
-      rescue Exception => e
-        puts e
-        respond_to do |f|
-          f.json { render :json => {:error => e}.to_json }
-        end
-      end
-    else
-      respond_to do |f|
-        f.json { render :json => {:error => "请求对象不存在"}.to_json }
-      end
-    end
-  end
-  
 
   private
     def archive_params

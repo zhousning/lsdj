@@ -1,5 +1,5 @@
 - provide(:title, t('.title'))
-
+            
 
 .container-fluid
   .row
@@ -7,7 +7,7 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
-          = link_to "/#{@archive.id}/#{controller_name}", :class => "button pull-right button-primary" do
+          = link_to "/archives/#{@archive.id}/#{controller_name}", :class => "button pull-right button-primary" do
             = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
           = link_to "#{request.url}/edit", :class => "button pull-right button-highlight mr-1" do
             = fa_icon "edit", text: Setting.systems.btn_edit, right: false 
@@ -17,6 +17,7 @@
           .row
             .col-md-12
               .card-body
-                = render 'form'
+                = Setting.portfolios.name
+                = @portfolio.name
 
       = render "layouts/bootstrap/card"

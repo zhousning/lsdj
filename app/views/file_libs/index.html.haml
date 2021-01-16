@@ -6,8 +6,10 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
-          %button{:class => "button pull-right button-primary", "data-target" => "#uploadModal", "data-toggle" => "modal", type: "button"}
-            = fa_icon "plus", text: Setting.systems.btn_upload, right: false 
+          = link_to archive_portfolios_path(@portfolio.archive), :class => "button pull-right button-highlight" do
+            = fa_icon "chevron-left", text: Setting.systems.btn_back
+          %button{:class => "button pull-right button-primary mr-1", "data-target" => "#uploadModal", "data-toggle" => "modal", type: "button", right: false }
+            = fa_icon "plus", text: Setting.systems.btn_upload 
 
       - content_for :card_body do
         .container-fluid.p-0
@@ -20,10 +22,11 @@
                   
                     %th{:scope => "col"}
                       = Setting.file_libs.name
-                    %th{:scope => "col"}
-                      = Setting.file_libs.path
-                    %th{:scope => "col"}
-                      = Setting.file_libs.file_type
+                    -#
+                      %th{:scope => "col"}
+                        = Setting.file_libs.path
+                      %th{:scope => "col"}
+                        = Setting.file_libs.file_type
                     %th{:scope => "col"}
                       设置
                 %tbody
@@ -32,18 +35,21 @@
                       %td{:scope => "row"}
                         = index+1
                     
-                      %td
+                      %td.text-left
                         = file_lib.name
-                      %td
-                        = file_lib.path
-                      %td
-                        = file_lib.file_type
+                      -#
+                        %td
+                          = file_lib.path
+                        %td
+                          = file_lib.file_type
                       %td
                         .container-fluid
                           .row
-                            = link_to "编辑", edit_file_lib_path(file_lib), :class => "button button-highlight button-small mr-1" 
-                            = link_to "详细",  file_lib_path(file_lib), :class => "button button-primary button-small mr-1" 
-                            = link_to "删除",  file_lib, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
+                            -#
+                              = link_to "编辑", edit_portfolio_file_lib_path(@portfolio, file_lib), :class => "button button-highlight button-small mr-1" 
+                              = link_to "详细",  portfolio_file_lib_path(@portfolio, file_lib), :class => "button button-primary button-small mr-1" 
+                            = link_to "下载",  download_portfolio_file_lib_path(@portfolio, file_lib), :class => "button button-primary button-small mr-1" 
+                            = link_to "删除",  portfolio_file_lib_path(@portfolio, file_lib), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
         = yield :main_body 
 
 
@@ -55,9 +61,9 @@
     .modal-content
       .modal-header
         %h5#uploadModalLabel.modal-title
-          文件上传
+          文件上传(一次10个,文件不超过20M, 文件类型:[pdf,doc,docx,ppt,pptx,xls,xlsx,mp4,jpg,png)
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
           %span{"aria-hidden" => "true"} x 
       .modal-body
-        %form#my-awesome-dropzone.dropzone{:action => "/archives/" + @archive.id.to_s + "/upload"}
+        %form#my-awesome-dropzone.dropzone{:action => "/archives/#{@portfolio.archive.id}/portfolios/" + @portfolio.id.to_s + "/upload"}
           %input{:type => "file", :name => "file", :hidden => "true"}
