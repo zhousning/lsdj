@@ -6,6 +6,8 @@
   #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExample"}
     .card-body.p-0
       %ul.list-group.list-group-flush.sidebar-lists
+        = link_to archives_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 bg-1B1B27 text-white" do
+          = fa_icon "circle-o", text: "党建档案库", class: " ml-4 mr-1"
         = link_to templates_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 bg-1B1B27 text-white" do
           = fa_icon "circle-o", text: "模板管理", class: "ml-4 mr-1"
           -#

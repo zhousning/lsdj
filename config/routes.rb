@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Ckeditor::Engine => '/ckeditor'
+  #mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
@@ -94,6 +94,12 @@ Rails.application.routes.draw do
   resources :products do
     get :download_append, :on => :member
     post :upload, :on => :member
+  end
+  resources :archives do
+    post :upload, :on => :member
+    resources :file_libs do
+      get :download_append, :on => :member
+    end
   end
   resources :flower
 

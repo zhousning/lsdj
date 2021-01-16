@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 #gem 'jquery-rails', '~> 4.0.4'
 gem 'jquery-rails'
 
-gem 'jquery-ui-rails'
+#gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
@@ -161,11 +161,16 @@ gem 'chinese_pinyin'
 
 gem 'mini_racer'
 
-gem 'ckeditor'
+#gem 'ckeditor'
 
 gem 'activerecord-import'
 
 gem 'dropzonejs-rails'
+
+gem "jstree-rails-4"
+
+gem 'ancestry'
+
 
 
 #gem 'prawn' print pdf

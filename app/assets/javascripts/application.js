@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/widgets/sortable
+//= require jstree
 //= require parsley
 //= require parsley.i18n.zh_cn
 //= require popper
@@ -20,7 +20,6 @@
 //= require bootstrap-table/bootstrap-table
 //= require bootstrap-table/locale/bootstrap-table-zh-CN
 //= require cocoon
-//= require product 
 //= require kindeditor
 //= require Chart.bundle 
 //= require chartkick 

@@ -1,0 +1,38 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @file_lib, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @file_lib.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@file_lib.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @file_lib.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.file_libs.name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :name, :class => "form-control rounded-0"
+          
+        .form-group.row
+          = f.label Setting.file_libs.path, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :path, :class => "form-control rounded-0"
+          
+        .form-group.row
+          = f.label Setting.file_libs.file_type, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :file_type, :class => "form-control rounded-0"
+          
+      
+      
+      
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          .col-3.offset-1
+            = link_to '返回', file_libs_path, :class => "button button-caution"

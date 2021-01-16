@@ -1,0 +1,63 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      - content_for :card_header do
+        %h5
+          %button{:class => "button pull-right button-primary", "data-target" => "#uploadModal", "data-toggle" => "modal", type: "button"}
+            = fa_icon "plus", text: Setting.systems.btn_upload, right: false 
+
+      - content_for :card_body do
+        .container-fluid.p-0
+          .row
+            .col-md-12
+              %table.text-center.table-striped.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
+                %thead
+                  %tr
+                    %th{:scope => "col"} #
+                  
+                    %th{:scope => "col"}
+                      = Setting.file_libs.name
+                    %th{:scope => "col"}
+                      = Setting.file_libs.path
+                    %th{:scope => "col"}
+                      = Setting.file_libs.file_type
+                    %th{:scope => "col"}
+                      设置
+                %tbody
+                  - @file_libs.each_with_index do |file_lib, index|
+                    %tr
+                      %td{:scope => "row"}
+                        = index+1
+                    
+                      %td
+                        = file_lib.name
+                      %td
+                        = file_lib.path
+                      %td
+                        = file_lib.file_type
+                      %td
+                        .container-fluid
+                          .row
+                            = link_to "编辑", edit_file_lib_path(file_lib), :class => "button button-highlight button-small mr-1" 
+                            = link_to "详细",  file_lib_path(file_lib), :class => "button button-primary button-small mr-1" 
+                            = link_to "删除",  file_lib, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
+        = yield :main_body 
+
+
+
+      = render "layouts/bootstrap/card"
+
+#uploadModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "uploadModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-dialog-centered.modal-xl
+    .modal-content
+      .modal-header
+        %h5#uploadModalLabel.modal-title
+          文件上传
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} x 
+      .modal-body
+        %form#my-awesome-dropzone.dropzone{:action => "/archives/" + @archive.id.to_s + "/upload"}
+          %input{:type => "file", :name => "file", :hidden => "true"}

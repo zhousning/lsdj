@@ -1,0 +1,33 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @archive, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @archive.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@archive.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @archive.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.archives.name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :name, :class => "form-control rounded-0"
+          
+        .form-group.row
+          = f.label Setting.archives.desc, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_area :desc, :class => "form-control rounded-0", :rows => "20"
+          
+      
+      
+      
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          .col-3.offset-1
+            = link_to '返回', archives_path, :class => "button button-caution"

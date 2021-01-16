@@ -1108,6 +1108,7 @@ defaults:
     show: show
     delete: delete
     edit: edit
+    btn_upload: 上传
     btn_back: 返回
     btn_next: 下一步
     btn_edit: 编辑
@@ -1318,6 +1319,15 @@ development:
   products:
     label: 产品
     name: 名称
+  file_libs:
+    label: 文件库
+    name: 文件名
+    path: 路径
+    file_type: 文件类型
+  archives:
+    label: 党建档案库
+    name: 名称
+    desc: 备注
 test:
   admins: *107
   users: *108
