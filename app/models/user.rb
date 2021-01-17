@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :consumes
   has_many :orders
   has_many :archives
+  has_many :examines
 
   belongs_to :role
 

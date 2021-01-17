@@ -105,6 +105,10 @@ Rails.application.routes.draw do
       get :download, :on => :member
     end
   end
+  resources :examines do
+    resources :exm_items do
+    end
+  end
   resources :flower
 
   root :to => 'home#index'

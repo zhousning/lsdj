@@ -167,7 +167,7 @@ gem 'activerecord-import'
 
 gem 'dropzonejs-rails'
 
-gem "jstree-rails-4"
+#gem "jstree-rails-4"
 
 gem 'ancestry'
 

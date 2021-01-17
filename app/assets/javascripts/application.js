@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jstree
 //= require parsley
 //= require parsley.i18n.zh_cn
 //= require popper

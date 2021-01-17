@@ -1,0 +1,31 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          .container-fluid
+            .row
+            
+              .col-md-12
+                = Setting.examines.name
+                = @examine.name
+            
+            .row
+            
+            .row
+            
+            .row
+            
+            
+            .row
+            
+              - @examine.exm_items.each do |exm_item|
+                 
+                .col-md-2
+                  = exm_item.name
+                
+            
+
+= render "layouts/control_panel"

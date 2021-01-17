@@ -1,0 +1,10 @@
+.nested-fields.nestd-item
+  .form-group
+    .field.d-inline
+    
+      .form-group.row
+        = f.label Setting.exm_items.name, :class => "col-sm-3 text-right"
+        .col-sm-9
+          = f.text_field :name, :class => "form-control"
+        
+    = link_to_remove_association "X", f, :class => "nestd-notify-badge"

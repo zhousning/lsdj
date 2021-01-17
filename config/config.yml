@@ -1331,6 +1331,13 @@ development:
   portfolios:
     label: 文件夹
     name: 文件夹名
+  examines:
+    label: 考核资料自选库
+    name: 名称
+  exm_items:
+    label: 一级目录
+    name: 一级目录名
+    hierarchy: 目录树
 test:
   admins: *107
   users: *108

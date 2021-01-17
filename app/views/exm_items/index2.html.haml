@@ -1,0 +1,36 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        %table.text-center.table-striped.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
+          %thead
+            %tr
+              %th{:scope => "col"} #
+            
+              %th{:scope => "col"}
+                = Setting.exm_items.name
+              %th{:scope => "col"}
+                = Setting.exm_items.hierarchy
+              %th{:scope => "col"}
+                设置
+          %tbody
+            - @exm_items.each_with_index do |exm_item, index|
+              %tr
+                %td{:scope => "row"}
+                  = index+1
+              
+                %td
+                  = exm_item.name
+                %td
+                  = exm_item.hierarchy
+                %td
+                  .container-fluid
+                    .row
+                      = link_to "编辑", edit_exm_item_path(exm_item), :class => "button button-highlight button-small mr-1" 
+                      = link_to "删除",  exm_item, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
+                      -#
+                        = link_to "详细",  exm_item_path(exm_item), :class => "button button-primary button-small mr-1" 
+
+= render "layouts/control_panel"

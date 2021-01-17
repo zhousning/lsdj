@@ -1,0 +1,29 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          .container-fluid
+            .row
+            
+              .col-md-12
+                = Setting.exm_items.name
+                = @exm_item.name
+            
+              .col-md-12
+                = Setting.exm_items.hierarchy
+                = @exm_item.hierarchy
+            
+            .row
+            
+            .row
+            
+            .row
+            
+            
+            .row
+            
+
+= render "layouts/control_panel"

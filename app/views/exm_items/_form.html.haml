@@ -1,0 +1,33 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @exm_item, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @exm_item.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@exm_item.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @exm_item.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.exm_items.name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :name, :class => "form-control rounded-0"
+          
+        .form-group.row
+          = f.label Setting.exm_items.hierarchy, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :hierarchy, :class => "form-control rounded-0"
+          
+      
+      
+      
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          .col-3.offset-1
+            = link_to '返回', exm_items_path, :class => "button button-caution"
