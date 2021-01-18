@@ -13,6 +13,65 @@ class ExaminesController < ApplicationController
   def show
     @examine = current_user.examines.find(params[:id])
   end
+
+  def drct_org
+    gon.leftnodes = []
+    archives = current_user.archives
+    archives.each do |archive|
+      arc_h = Hash.new
+      arc_h['name'] = archive.name
+      arc_h['drag'] = false 
+      arc_arr = []
+
+      portfolios = archive.portfolios
+      portfolios.each do |portfolio|
+        ptf_h = Hash.new
+        ptf_h['name'] = portfolio.name
+        ptf_h['drag'] = false
+        ptf_arr = []
+
+        file_libs = portfolio.file_libs
+        file_libs.each do |file|
+          ptf_arr << {'name': file.name, 'drop': false}
+        end
+        ptf_h['children'] = ptf_arr
+        arc_arr << ptf_h
+      end
+      arc_h['children'] = arc_arr
+      gon.leftnodes << arc_h
+    end
+
+    gon.rightnodes = []
+    @examine = current_user.examines.find(params[:id])
+    @exm_items = @examine.exm_items 
+    exm_h = Hash.new
+    exm_h['name'] = @examine.name
+    exm_h['open'] = true
+    exm_h['drag'] = false
+    exm_h['drop'] = false
+    exm_arr = []
+
+    @exm_items.each do |item|
+      exm_arr << {'name': item.name, 'drag': false, 'isParent': true}
+    end
+    exm_h['children'] = exm_arr 
+    gon.rightnodes << @examine.hierarchy 
+    gon.examine = params[:id]
+  end
+
+  def create_drct
+    @examine = current_user.examines.find(params[:id])
+    drct_data = params[:drct_data]
+    if @examine.update_attributes(:hierarchy => drct_data)
+      respond_to do |f|
+        f.json { render :json => {:status => "保存成功"}.to_json }
+      end
+    else
+      respond_to do |f|
+        f.json { render :json => {:status => "保存失败"}.to_json }
+      end
+    end
+  end
    
 
    

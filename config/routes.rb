@@ -106,6 +106,8 @@ Rails.application.routes.draw do
     end
   end
   resources :examines do
+    get :drct_org, :on => :member 
+    get :create_drct, :on => :member
     resources :exm_items do
     end
   end

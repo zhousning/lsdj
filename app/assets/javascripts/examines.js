@@ -1,6 +1,6 @@
 $(".exm_items").ready(function() {
   var leftNodes = gon.leftnodes; 
-  var rightNodes = gon.rightnodes; 
+  var rightNodes = JSON.parse(gon.rightnodes); 
   var setting = {
 		edit: {
 			enable: true,
@@ -29,25 +29,71 @@ $(".exm_items").ready(function() {
   $.fn.zTree.init($("#treeRight"), setting, rightNodes);
 
   zTree = $.fn.zTree.getZTreeObj("treeRight");
+  rMenu = $("#rMenu");
 
   $("#test").click(function(){
     var nodes = zTree.transformToArray(zTree.getNodes());
-    console.log(nodes);
+    var json = getNodesJson(nodes);
+    var json_str = JSON.stringify(json);
+    console.log(json_str);
+    var url = "/examines/" + gon.examine +"/create_drct";
+    $.getJSON(url, {'drct_data': json_str}, function(data){
+      alert(data['status']);
+    });
+    /*console.log(nodes);
     var arr = new Array(); 
     for(var i=0; i<nodes.length; i++){
       arr.push({name: nodes[i]['name'], tid: nodes[i]['tId'], pid: nodes[i]['parentTId']}); 
     }
-    console.log(arr.toString());
+    console.log(arr.toString());*/
   });
-
-  rMenu = $("#rMenu"); 
 
 });
 
-function getNodeJson(nodes){
-  for(var i=0; i<nodes.length; i++){
+function getNodesJson(nodes){
+  var root = nodes[0];
+  var json = {};
+  var arr = [];
+
+  json.name = root.name;
+  var child1 = root.children;
+
+  node_recur(child1, arr);
+  json.children = arr;
+  return json;
+}
+
+//递归遍历所有节点形成json
+function node_recur(child, arrs) {
+  for (var i=0; i<child.length; i++){
+    var json1 = {};
+    var arr1 = [];
+    json1.name = child[i].name;
+    json1.isParent = child[i].isParent;
+    
+    if (child[i].children != undefined) 
+    {
+      var child2= child[i].children
+      for (var j=0; j<child2.length; j++){
+        var json2 = {};
+        var arr2 = [];
+        json2.name = child2[j].name
+        json2.isParent = child2[j].isParent;
+        
+        if (child2[j].children != undefined)
+        {
+          var child3 = child2[j].children
+          node_recur(child3, arr2);
+          json2.children = arr2;
+        }
+        arr1.push(json2);
+      }
+      json1.children = arr1;
+    }
+    arrs.push(json1)
   }
 }
+
 //拖拽
 function zTreeOnDrag(event, treeId, treeNodes) {
 }
@@ -102,7 +148,7 @@ function addTreeNode() {
 	hideRMenu();
 	var newNode = { name:"增加" + (addCount++), isParent: true};
 	if (zTree.getSelectedNodes()[0]) {
-    if (zTree.getSelectedNodes()[0].level !=0 && zTree.getSelectedNodes()[0].isParent == true) {
+    if (zTree.getSelectedNodes()[0].isParent == true) {
 		  newNode.checked = zTree.getSelectedNodes()[0].checked;
 		  zTree.addNodes(zTree.getSelectedNodes()[0], newNode);
     }

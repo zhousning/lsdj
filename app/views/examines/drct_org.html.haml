@@ -1,0 +1,28 @@
+- provide(:title, t('.title'))
+
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      - content_for :card_header do
+        %h5
+          -#
+            = link_to archives_path(@archive), :class => "button pull-right button-highlight" do
+              = fa_icon "chevron-left", text: Setting.systems.btn_back
+            = link_to "/archives/#{@archive.id}/#{controller_name}/new", :class => "button pull-right button-primary mr-1" do
+              = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+
+      - content_for :card_body do
+        .container-fluid.p-0
+          .row
+            .col-md-6.border
+              %ul#treeLeft.ztree
+            .col-md-6.border
+              %button#test{:type => "button"}
+                test
+              %ul#treeRight.ztree.h-100
+
+      = render "layouts/bootstrap/card"
+
+= render "ztreeconfig"
