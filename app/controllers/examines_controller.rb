@@ -1,8 +1,12 @@
+require 'json'
+
+
 class ExaminesController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
   load_and_authorize_resource
 
+  FOLDER_PUBLIC = File.join(Rails.root, "public")
    
   def index
     @examines = current_user.examines
@@ -32,7 +36,7 @@ class ExaminesController < ApplicationController
 
         file_libs = portfolio.file_libs
         file_libs.each do |file|
-          ptf_arr << {'name': file.name, 'drop': false}
+          ptf_arr << {'name': file.name, 'drop': false, 'nodeid': file.id}
         end
         ptf_h['children'] = ptf_arr
         arc_arr << ptf_h
@@ -41,21 +45,9 @@ class ExaminesController < ApplicationController
       gon.leftnodes << arc_h
     end
 
-    gon.rightnodes = []
     @examine = current_user.examines.find(params[:id])
-    @exm_items = @examine.exm_items 
-    exm_h = Hash.new
-    exm_h['name'] = @examine.name
-    exm_h['open'] = true
-    exm_h['drag'] = false
-    exm_h['drop'] = false
-    exm_arr = []
-
-    @exm_items.each do |item|
-      exm_arr << {'name': item.name, 'drag': false, 'isParent': true}
-    end
-    exm_h['children'] = exm_arr 
-    gon.rightnodes << @examine.hierarchy 
+    hercy = @examine.hierarchy
+    gon.rightnodes = hercy.blank? ? '{"name": "' + @examine.name + '", "isParent": true, "nodeid": null}' : hercy
     gon.examine = params[:id]
   end
 
@@ -73,7 +65,42 @@ class ExaminesController < ApplicationController
     end
   end
    
+  def export
+    @examine = current_user.examines.find(params[:id])
+    hierarchy = @examine.hierarchy
+    unless hierarchy.blank?
+      objs = JSON.parse(hierarchy)
+      level = Rails.root.join("public", "examines", @examine.id.to_s)
 
+      hier(objs, level.to_s)
+    end
+  end
+
+  def hier(node, level)
+    puts node
+    nodeid = node['nodeid']
+    name = node['name']
+    level += "/#{name}" 
+    puts level
+
+    isParent = node['isParent']
+    if isParent
+      FileUtils.makedirs(level) unless File.directory?(level)
+    else
+      if nodeid
+        @file = FileLib.find(nodeid)
+        if @file
+          FileUtils.cp FOLDER_PUBLIC + @file.path, level
+        end
+      end
+    end
+
+    if node['children'] 
+      node['children'].each do |obj|
+        hier(obj, level)
+      end
+    end
+  end
    
   def new
     @examine = Examine.new

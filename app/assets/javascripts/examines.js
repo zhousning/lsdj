@@ -34,8 +34,8 @@ $(".exm_items").ready(function() {
   $("#test").click(function(){
     var nodes = zTree.transformToArray(zTree.getNodes());
     var json = getNodesJson(nodes);
+    console.log(json);
     var json_str = JSON.stringify(json);
-    console.log(json_str);
     var url = "/examines/" + gon.examine +"/create_drct";
     $.getJSON(url, {'drct_data': json_str}, function(data){
       alert(data['status']);
@@ -63,12 +63,15 @@ function getNodesJson(nodes){
   return json;
 }
 
+
+
 //递归遍历所有节点形成json
 function node_recur(child, arrs) {
   for (var i=0; i<child.length; i++){
     var json1 = {};
     var arr1 = [];
     json1.name = child[i].name;
+    json1.nodeid = child[i].nodeid;
     json1.isParent = child[i].isParent;
     
     if (child[i].children != undefined) 
@@ -78,6 +81,7 @@ function node_recur(child, arrs) {
         var json2 = {};
         var arr2 = [];
         json2.name = child2[j].name
+        json2.nodeid = child2[j].nodeid
         json2.isParent = child2[j].isParent;
         
         if (child2[j].children != undefined)
