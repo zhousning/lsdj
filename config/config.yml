@@ -455,7 +455,7 @@ mysetting:
     height: 高度
     tag: 标签
   documents: &44
-    label: 网站历史版本
+    label: 历史版本
     title: 标题
     erb_link: 模板地址
     html_link: 网站地址

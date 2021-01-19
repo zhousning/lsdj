@@ -109,6 +109,9 @@ Rails.application.routes.draw do
     get :export, :on => :member 
     get :drct_org, :on => :member 
     get :create_drct, :on => :member
+    resources :documents do
+      get :download, :on => :member
+    end
     resources :exm_items do
     end
   end

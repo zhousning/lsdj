@@ -1,6 +1,5 @@
 require 'json'
 
-
 class ExaminesController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
@@ -67,40 +66,15 @@ class ExaminesController < ApplicationController
    
   def export
     @examine = current_user.examines.find(params[:id])
-    hierarchy = @examine.hierarchy
-    unless hierarchy.blank?
-      objs = JSON.parse(hierarchy)
-      level = Rails.root.join("public", "examines", @examine.id.to_s)
-
-      hier(objs, level.to_s)
-    end
-  end
-
-  def hier(node, level)
-    puts node
-    nodeid = node['nodeid']
-    name = node['name']
-    level += "/#{name}" 
-    puts level
-
-    isParent = node['isParent']
-    if isParent
-      FileUtils.makedirs(level) unless File.directory?(level)
+    @document = Document.new(:examine => @examine, :title => Time.now.to_i.to_s + "%04d" % [rand(10000)], :status => Setting.documents.status_none)
+    if @document.save
+      ExportWorker.perform_async(@examine.id, @document.id)
+      redirect_to examine_documents_path(@examine)
     else
-      if nodeid
-        @file = FileLib.find(nodeid)
-        if @file
-          FileUtils.cp FOLDER_PUBLIC + @file.path, level
-        end
-      end
-    end
-
-    if node['children'] 
-      node['children'].each do |obj|
-        hier(obj, level)
-      end
+      redirect_to :back
     end
   end
+
    
   def new
     @examine = Examine.new

@@ -26,9 +26,18 @@
                     .row
                       = link_to "编辑", edit_examine_path(examine), :class => "button button-highlight button-small mr-1" 
                       = link_to "组织目录",  drct_org_examine_path(examine), :class => "button button-primary button-small mr-1" 
-                      = link_to "导出",  export_examine_path(examine), :class => "button button-royal button-small mr-1" 
+                      -unless examine.hierarchy.blank?
+                        = link_to "生成",  export_examine_path(examine), :class => "button button-action button-small mr-1" 
+                      = link_to "历史版本",  examine_documents_path(examine), :class => "button button-royal button-small mr-1" 
                       = link_to "删除",  examine, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
                       -#
                         = link_to "详细",  examine_path(examine), :class => "button button-primary button-small mr-1" 
 
 = render "layouts/control_panel"
+
+#exportModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exportModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog.modal-dialog-centered.modal-xl
+    .modal-content
+      .modal-body
+        .export-status-ctn
+          系统处理中,请勿关闭浏览器窗口!

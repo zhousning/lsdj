@@ -1,52 +1,64 @@
-$(".exm_items").ready(function() {
-  var leftNodes = gon.leftnodes; 
-  var rightNodes = JSON.parse(gon.rightnodes); 
-  var setting = {
-		edit: {
-			enable: true,
-			showRemoveBtn: false,
-			showRenameBtn: false
-		},
-		data: {
-			simpleData: {
-				enable: true 
-			}
-		},
-		callback: {
-      onDrag: zTreeOnDrag,
-			beforeDrag: beforeDrag,
-			beforeDrop: beforeDrop,
-      onRightClick: OnRightClick
-		}
-	};
-  /*var zNodes = [
-    {name:"test1", open:true, children:[
-      {name:"test1_1"}, {name:"test1_2"}]},
-    {name:"test2", open:true, children:[
-      {name:"test2_1"}, {name:"test2_2"}]}
-  ];*/
-  $.fn.zTree.init($("#treeLeft"), setting, leftNodes);
-  $.fn.zTree.init($("#treeRight"), setting, rightNodes);
+$(".examines").ready(function() {
 
-  zTree = $.fn.zTree.getZTreeObj("treeRight");
-  rMenu = $("#rMenu");
+  if ($(".examines.index").length > 0 ) {
+    /*
+    $(".export-examine-btn").click(function() {
+      //$('#exportModal').modal('show');
 
-  $("#test").click(function(){
-    var nodes = zTree.transformToArray(zTree.getNodes());
-    var json = getNodesJson(nodes);
-    console.log(json);
-    var json_str = JSON.stringify(json);
-    var url = "/examines/" + gon.examine +"/create_drct";
-    $.getJSON(url, {'drct_data': json_str}, function(data){
-      alert(data['status']);
+      var dataid = $(this).attr("data-no");
+      var url = "/examines/" + dataid +"/export";
+      $.getJSON(url, function(data){
+        var state = data['status'];
+        if (state == 0) {
+        }else if(state == 1) {
+          alert("处理失败");
+          //$(".export-status-ctn").html("处理失败,请重新导出");
+        }else if(state == 2) {
+          alert("请先组织目录");
+        }
+      });
     });
-    /*console.log(nodes);
-    var arr = new Array(); 
-    for(var i=0; i<nodes.length; i++){
-      arr.push({name: nodes[i]['name'], tid: nodes[i]['tId'], pid: nodes[i]['parentTId']}); 
-    }
-    console.log(arr.toString());*/
-  });
+    */
+  }
+
+  if ($(".examines.drct_org").length > 0 ) {
+    var leftNodes = gon.leftnodes; 
+    var rightNodes = JSON.parse(gon.rightnodes); 
+    var setting = {
+	  	edit: {
+	  		enable: true,
+	  		showRemoveBtn: false,
+	  		showRenameBtn: false
+	  	},
+	  	data: {
+	  		simpleData: {
+	  			enable: true 
+	  		}
+	  	},
+	  	callback: {
+        onDrag: zTreeOnDrag,
+	  		beforeDrag: beforeDrag,
+	  		beforeDrop: beforeDrop,
+        onRightClick: OnRightClick
+	  	}
+	  };
+    $.fn.zTree.init($("#treeLeft"), setting, leftNodes);
+    $.fn.zTree.init($("#treeRight"), setting, rightNodes);
+
+    zTree = $.fn.zTree.getZTreeObj("treeRight");
+    rMenu = $("#rMenu");
+
+    $("#test").click(function(){
+      var nodes = zTree.transformToArray(zTree.getNodes());
+      var json = getNodesJson(nodes);
+      console.log(json);
+      var json_str = JSON.stringify(json);
+      var url = "/examines/" + gon.examine +"/create_drct";
+      $.getJSON(url, {'drct_data': json_str}, function(data){
+        alert(data['status']);
+      });
+    });
+  }
 
 });
 
@@ -174,3 +186,9 @@ function removeTreeNode() {
 		}
 	}
 }
+  /*var zNodes = [
+    {name:"test1", open:true, children:[
+      {name:"test1_1"}, {name:"test1_2"}]},
+    {name:"test2", open:true, children:[
+      {name:"test2_1"}, {name:"test2_2"}]}
+  ];*/
