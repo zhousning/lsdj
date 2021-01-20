@@ -6,7 +6,7 @@ class DocumentsController < ApplicationController
    
   def index
     @examine = Examine.find(params[:examine_id])
-    @documents = @examine.documents
+    @documents = @examine.documents.order("created_at desc")
   end
    
    

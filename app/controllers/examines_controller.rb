@@ -5,7 +5,6 @@ class ExaminesController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
 
-  FOLDER_PUBLIC = File.join(Rails.root, "public")
    
   def index
     @examines = current_user.examines
@@ -66,9 +65,10 @@ class ExaminesController < ApplicationController
    
   def export
     @examine = current_user.examines.find(params[:id])
-    @document = Document.new(:examine => @examine, :title => Time.now.to_i.to_s + "%04d" % [rand(10000)], :status => Setting.documents.status_none)
+    number = Time.now.to_i.to_s + "%04d" % [rand(10000)]
+    @document = Document.new(:examine => @examine, :title => number, :status => Setting.documents.status_none)
     if @document.save
-      ExportWorker.perform_async(@examine.id, @document.id)
+      ExportWorker.perform_async(@examine.id, @document.id, number)
       redirect_to examine_documents_path(@examine)
     else
       redirect_to :back

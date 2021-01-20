@@ -167,10 +167,9 @@ gem 'activerecord-import'
 
 gem 'dropzonejs-rails'
 
-#gem "jstree-rails-4"
-
 gem 'ancestry'
 
+gem 'sablon'
 
 
 #gem 'prawn' print pdf

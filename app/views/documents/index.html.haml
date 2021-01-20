@@ -21,8 +21,6 @@
                     %th{:scope => "col"}
                       = Setting.documents.title
                     %th{:scope => "col"}
-                      = Setting.documents.html_link
-                    %th{:scope => "col"}
                       = Setting.documents.status
                     %th{:scope => "col"}
                 %tbody
@@ -33,16 +31,20 @@
                     
                       %td
                         = document.title
-                      %td
-                        = document.html_link
-                      - if document.status == Setting.documents.status_success
+                      - if document.status == Setting.documents.status_process
+                        %td
+                          正在处理,稍后刷新查看...
+                        %td
+                      - elsif document.status == Setting.documents.status_success
                         %td
                           成功
                         %td
                           .container-fluid
                             .row
                               = link_to "下载", download_examine_document_path(@examine, document.id), :class => "text-info col" 
-                      - else
-                        失败
+                      - elsif document.status == Setting.documents.status_fail
+                        %td
+                          失败
+                        %td
 
       = render "layouts/bootstrap/card"
