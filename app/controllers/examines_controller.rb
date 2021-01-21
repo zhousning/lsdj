@@ -23,6 +23,7 @@ class ExaminesController < ApplicationController
       arc_h = Hash.new
       arc_h['name'] = archive.name
       arc_h['drag'] = false 
+      arc_h['open'] = true 
       arc_arr = []
 
       portfolios = archive.portfolios
@@ -30,6 +31,7 @@ class ExaminesController < ApplicationController
         ptf_h = Hash.new
         ptf_h['name'] = portfolio.name
         ptf_h['drag'] = false
+        ptf_h['open'] = true 
         ptf_arr = []
 
         file_libs = portfolio.file_libs
