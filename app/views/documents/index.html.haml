@@ -31,7 +31,7 @@
                     
                       %td
                         = document.title
-                      - if document.status == Setting.documents.status_process
+                      - if document.status == Setting.documents.status_process || document.status == Setting.documents.status_none
                         %td
                           正在处理,稍后刷新查看...
                         %td

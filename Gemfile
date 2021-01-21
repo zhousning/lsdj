@@ -171,5 +171,7 @@ gem 'ancestry'
 
 gem 'sablon'
 
+gem 'caracal'
+
 
 #gem 'prawn' print pdf
