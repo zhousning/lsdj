@@ -115,6 +115,9 @@ Rails.application.routes.draw do
     resources :exm_items do
     end
   end
+  resources :agendas do
+    get :download_append, :on => :member
+  end
   resources :flower
 
   root :to => 'home#index'

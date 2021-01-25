@@ -456,7 +456,7 @@ mysetting:
     tag: 标签
   documents: &44
     label: 历史版本
-    title: 版本 
+    title: 版本
     erb_link: 模板地址
     html_link: 网站地址
     status: 状态
@@ -1338,6 +1338,11 @@ development:
     label: 一级目录
     name: 一级目录名
     hierarchy: 目录树
+  agendas:
+    label: 日程
+    title: 标题
+    content: 事务内容
+    worktime: 时间
 test:
   admins: *107
   users: *108

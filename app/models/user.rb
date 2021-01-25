@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :archives
   has_many :examines
+  has_many :agendas
 
   belongs_to :role
 

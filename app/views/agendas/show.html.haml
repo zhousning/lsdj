@@ -1,0 +1,37 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-12
+        .card-body
+          .container-fluid
+            .row
+            
+              .col-md-12
+                = Setting.agendas.title
+                = @agenda.title
+            
+              .col-md-12
+                = Setting.agendas.content
+                = @agenda.content
+            
+              .col-md-12
+                = Setting.agendas.worktime
+                = @agenda.worktime
+            
+            .row
+            
+            .row
+            
+            .row
+            
+              .col-md-6
+                - unless @agenda.idattch.blank?
+                  = link_to URI.decode(File.basename(@agenda.idattch_url)), download_append_agenda_path(@agenda.id)
+            
+            
+            .row
+            
+
+= render "layouts/control_panel"

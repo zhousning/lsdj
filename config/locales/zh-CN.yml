@@ -6,13 +6,13 @@ zh-CN:
       long: "%B %d, %Y"
   layouts:
     application:
-      site_title: "徽卅科技"
+      site_title: "党建工作管理系统"
     application_control:
-      site_title: "徽卅科技"
+      site_title: "党建工作管理系统"
     application_mobile:
-      site_title: "徽卅科技"
+      site_title: "党建工作管理系统"
     application_home:
-      site_title: "徽卅科技"
+      site_title: "党建工作管理系统"
 
   home:
     index:
@@ -194,7 +194,7 @@ zh-CN:
   trees:
     index:
       title:
-        徽卅科技
+        党建工作管理系统
   pick_records:
     index:
       title:
