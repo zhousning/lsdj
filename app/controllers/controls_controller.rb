@@ -9,9 +9,7 @@ class ControlsController < ApplicationController
       obj = Hash.new
       obj['title'] = agenda.title
       obj['start'] = agenda.worktime
-      unless agenda.idattch.blank?
-        obj['url'] = download_append_agenda_path(agenda.id)
-      end
+      obj['url'] = agenda_path(agenda.id)
       gon.events << obj 
     end
   end

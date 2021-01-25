@@ -18,12 +18,13 @@ class OcrsController < ApplicationController
 
   def index
     @ocr = Ocr.new
+    @ocr.enclosures.build
   end
    
   def analyze 
     @ocr = Ocr.new(ocr_params)
     type = ocr_params[:ocr_type].to_i
-    imgs = @ocr.enclosures
+    imgs = @ocr.enclosures[0..3]
 
     result = ""
     filename = "" 
@@ -40,6 +41,7 @@ class OcrsController < ApplicationController
         send_data open(result).read, :filename => filename, :type => "application/force-download", :x_sendfile=>true unless result.blank?
         sleep(rand(3))
       end
+      cookies[:ocrdownload] = "success"
       return
     elsif type == Setting.ocrs.webimage
       imgs.each do |img|
@@ -63,6 +65,7 @@ class OcrsController < ApplicationController
       f.syswrite result
     end
     send_file File.join(Rails.root, "public", "ocrs", filename), :filename => filename, :type => "application/force-download", :x_sendfile=>true
+    cookies[:ocrdownload] = "success"
   end 
 
   def prc_general_basic(file_url)
@@ -201,7 +204,7 @@ class OcrsController < ApplicationController
     #-------unuse
 
     def baidu_request(url, file)
-      access_token = "24.036f01465c12cbcf3e18db99ba93981e.2592000.1584250576.282335-11449805"
+      access_token = "24.133fdf2f85109beb9a49f9690e456275.2592000.1614146332.282335-23585850"
       content_type = "application/x-www-form-urlencoded"
       img = open(file).read
       image = Base64.encode64(img)
@@ -217,7 +220,7 @@ class OcrsController < ApplicationController
     
 
     def baidu_form_request(url, file)
-      access_token = "24.036f01465c12cbcf3e18db99ba93981e.2592000.1584250576.282335-11449805"
+      access_token = "24.133fdf2f85109beb9a49f9690e456275.2592000.1614146332.282335-23585850"
       content_type = "application/x-www-form-urlencoded"
       img = open(file).read
       image = Base64.encode64(img)

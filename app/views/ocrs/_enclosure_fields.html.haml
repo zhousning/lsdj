@@ -1,7 +1,7 @@
-.nested-fields
+.nested-fields.col-sm-3
   .form-group
     .field.d-inline
       %label.newbtn
         = image_tag f.enclosure_image, :class => "blah"
         = f.file_field :file, :accept => "image/png, image/jpeg, image/gif", :class => "select-file", :onchange => "readURL(this);"
-    = link_to_remove_association "删除", f, :class => "btn btn-danger btn-sm d-inline"
+    = link_to_remove_association "删除", f, :class => "button button-caution button-small"

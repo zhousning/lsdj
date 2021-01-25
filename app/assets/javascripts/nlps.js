@@ -11,4 +11,20 @@ $(".nlps.index").ready(function() {
       $(".nlp-word-frequency").html(result);
     });
   });
+
+  $("form#new_ocr").submit(function(res) {
+    $.cookie("ocrdownload", "process");
+    var tha = res;
+    $(".btn-ocr-submit").attr("disabled",true);
+    checkCookie();
+  });
 })
+
+function checkCookie() {
+  var cookieVal = $.cookie("ocrdownload");
+  if (cookieVal == "process") {
+    setTimeout("checkCookie();", 1000);
+  } else {
+    window.location = "/ocrs";
+  }
+}
