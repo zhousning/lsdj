@@ -1,11 +1,15 @@
 html,body {
   height: 100%;
+  font-size: 14px;
 }
 th, td {
   font-weight: unset;
 }
 .index, .show, .edit, .new {
   background: #F1F2FA;
+}
+.bg-ec0303 {
+  background: #ec0303;
 }
 .bg-1B1B27 {
   background: #1B1B27;

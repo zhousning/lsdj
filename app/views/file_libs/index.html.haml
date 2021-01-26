@@ -6,6 +6,7 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
+          = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
           = link_to archive_portfolios_path(@portfolio.archive), :class => "button pull-right button-highlight" do
             = fa_icon "chevron-left", text: Setting.systems.btn_back
           %button{:class => "button pull-right button-primary mr-1", "data-target" => "#uploadModal", "data-toggle" => "modal", type: "button", right: false }

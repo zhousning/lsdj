@@ -6,6 +6,7 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
+          = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
           = link_to archives_path(@archive), :class => "button pull-right button-highlight" do
             = fa_icon "chevron-left", text: Setting.systems.btn_back
           = link_to "/archives/#{@archive.id}/#{controller_name}/new", :class => "button pull-right button-primary mr-1" do
@@ -36,7 +37,7 @@
                         .container-fluid
                           .row
                             = link_to "编辑", edit_archive_portfolio_path(@archive, portfolio), :class => "button button-highlight button-small mr-1" 
-                            = link_to "上传文件",  portfolio_file_libs_path(portfolio), :class => "button button-primary button-small mr-1" 
+                            = link_to "文件列表",  portfolio_file_libs_path(portfolio), :class => "button button-primary button-small mr-1" 
                             -#
                               = link_to "详细",  archive_portfolio_path(@archive, portfolio), :class => "button button-primary button-small mr-1" 
                             = link_to "删除",  archive_portfolio_path(@archive, portfolio), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 

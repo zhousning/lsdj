@@ -559,3 +559,40 @@ zh-CN:
       title: 编辑工程用表
     show:
       title: 工程用表详情
+  agendas:
+    index:
+      title: 日程计划 
+    new:
+      title: 新建日程计划
+    edit:
+      title: 编辑日程计划
+    show:
+      title: 日程计划
+  archives:
+    index:
+      title: 党建档案库 
+    new:
+      title: 新建档案库
+    edit:
+      title: 编辑档案库
+    show:
+      title: 党建档案库
+  examines:
+    index:
+      title: 档案自选库 
+    new:
+      title: 新建自选方案
+    edit:
+      title: 编辑方案
+    show:
+      title: 方案详情
+  portfolios:
+    index:
+      title: 党建档案库>>子文件夹 
+    new:
+      title: 新建子文件夹
+    edit:
+      title: 编辑子文件夹
+  file_libs:
+    index:
+      title: 党建档案库>>子文件夹>>文件列表

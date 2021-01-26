@@ -29,7 +29,7 @@
                   .container-fluid
                     .row
                       = link_to "编辑", edit_archive_path(archive), :class => "button button-highlight button-small mr-1" 
-                      = link_to "查看", archive_portfolios_path(archive), :class => "button button-primary button-small mr-1" 
+                      = link_to "子文件夹", archive_portfolios_path(archive), :class => "button button-primary button-small mr-1" 
                       = link_to "删除",  archive, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
 
 = render "layouts/control_panel"

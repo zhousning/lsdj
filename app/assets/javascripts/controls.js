@@ -9,6 +9,7 @@ $(".controls.index").ready(function() {
           center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
         },
+        themeSystem: 'bootstrap',
         //initialDate: '2020-09-12',
         locale: initialLocaleCode,
         buttonIcons: true, // show the prev/next text
