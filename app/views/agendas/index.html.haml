@@ -9,11 +9,9 @@
             %tr
               %th{:scope => "col"} #
             
-              %th{:scope => "col"}
+              %th.w-50{:scope => "col"}
                 = Setting.agendas.title
-              %th{:scope => "col"}
-                = Setting.agendas.content
-              %th{:scope => "col"}
+              %th.w-25{:scope => "col"}
                 = Setting.agendas.worktime
               %th{:scope => "col"}
                 设置
@@ -26,12 +24,10 @@
                 %td
                   = agenda.title
                 %td
-                  = agenda.content
-                %td
-                  = agenda.worktime
+                  = agenda.worktime.strftime("%Y-%m-%d %H:%M:%S")
                 %td
                   .container-fluid
-                    .row
+                    .row.justify-content-center
                       = link_to "编辑", edit_agenda_path(agenda), :class => "button button-highlight button-small mr-1" 
                       = link_to "详细",  agenda_path(agenda), :class => "button button-primary button-small mr-1" 
                       = link_to "删除",  agenda, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 

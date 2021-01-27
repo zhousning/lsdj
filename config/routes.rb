@@ -108,7 +108,7 @@ Rails.application.routes.draw do
   resources :examines do
     get :export, :on => :member 
     get :drct_org, :on => :member 
-    get :create_drct, :on => :member
+    post :create_drct, :on => :member
     resources :documents do
       get :download, :on => :member
     end

@@ -31,7 +31,7 @@ class PortfoliosController < ApplicationController
     @portfolio = Portfolio.new(portfolio_params)
     @portfolio.archive = @archive 
     if @portfolio.save
-      redirect_to archive_portfolios_url(@archive, @portfolio)
+      redirect_to archive_portfolios_url(@archive)
     else
       render :new
     end
@@ -50,7 +50,7 @@ class PortfoliosController < ApplicationController
     @archive = Archive.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
     if @portfolio.update(portfolio_params)
-      redirect_to archive_portfolios_url(@archive, @portfolio)
+      redirect_to archive_portfolios_url(@archive)
     else
       render :edit
     end

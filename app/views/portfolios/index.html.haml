@@ -21,9 +21,9 @@
                   %tr
                     %th{:scope => "col"} #
                   
-                    %th{:scope => "col"}
+                    %th.w-75{:scope => "col"}
                       = Setting.portfolios.name
-                    %th{:scope => "col"}
+                    %th.w-25{:scope => "col"}
                       设置
                 %tbody
                   - @portfolios.each_with_index do |portfolio, index|
@@ -35,7 +35,7 @@
                         = portfolio.name
                       %td
                         .container-fluid
-                          .row
+                          .row.justify-content-center
                             = link_to "编辑", edit_archive_portfolio_path(@archive, portfolio), :class => "button button-highlight button-small mr-1" 
                             = link_to "文件列表",  portfolio_file_libs_path(portfolio), :class => "button button-primary button-small mr-1" 
                             -#

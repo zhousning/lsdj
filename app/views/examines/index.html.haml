@@ -9,9 +9,9 @@
             %tr
               %th{:scope => "col"} #
             
-              %th{:scope => "col"}
+              %th.w-50{:scope => "col"}
                 = Setting.examines.name
-              %th{:scope => "col"}
+              %th.w-50{:scope => "col"}
                 设置
           %tbody
             - @examines.each_with_index do |examine, index|
@@ -23,7 +23,7 @@
                   = examine.name
                 %td
                   .container-fluid
-                    .row
+                    .row.justify-content-center
                       = link_to "编辑", edit_examine_path(examine), :class => "button button-highlight button-small mr-1" 
                       = link_to "组织目录",  drct_org_examine_path(examine), :class => "button button-primary button-small mr-1" 
                       -unless examine.hierarchy.blank?

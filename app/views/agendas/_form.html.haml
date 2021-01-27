@@ -14,17 +14,17 @@
         .form-group.row
           = f.label Setting.agendas.title, :class => "col-sm-3 col-form-label text-right"
           .col-sm-6
-            = f.text_field :title, :class => "form-control rounded-0"
+            = f.text_field :title, :class => "form-control rounded-0", :required => true
 
         .form-group.row
           = f.label Setting.agendas.worktime, :class => "col-sm-3 col-form-label text-right"
           .col-sm-6
-            = f.datetime_local_field :worktime, :class => "form-control rounded-0"
+            = f.datetime_local_field :worktime, :class => "form-control rounded-0", :required => true
           
         .form-group.row
           = f.label Setting.agendas.content, :class => "col-sm-3 col-form-label text-right"
           .col-sm-6
-            = f.text_area :content, :class => "form-control rounded-0", :rows => "20"
+            = f.text_area :content, :class => "form-control rounded-0", :rows => "20", :required => true
           
           
       

@@ -3,35 +3,25 @@
 - content_for :main_body do
   .container-fluid.p-0
     .row
-      .col-md-12
+      .col-md-8.offset-2
         .card-body
           .container-fluid
             .row
-            
               .col-md-12
-                = Setting.agendas.title
                 = @agenda.title
+              .col-md-12
+                = @agenda.worktime.strftime("%Y-%m-%d %H:%M:%S")
             
               .col-md-12
                 = Setting.agendas.content
-                = @agenda.content
+                %p
+                  = @agenda.content
             
-              .col-md-12
-                = Setting.agendas.worktime
-                = @agenda.worktime
             
             .row
-            
-            .row
-            
-            .row
-            
               .col-md-6
                 - unless @agenda.idattch.blank?
                   = link_to URI.decode(File.basename(@agenda.idattch_url)), download_append_agenda_path(@agenda.id)
             
             
-            .row
-            
-
 = render "layouts/control_panel"

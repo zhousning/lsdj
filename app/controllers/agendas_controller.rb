@@ -5,7 +5,7 @@ class AgendasController < ApplicationController
 
    
   def index
-    @agendas = current_user.agendas
+    @agendas = current_user.agendas.order("worktime DESC")
   end
    
 

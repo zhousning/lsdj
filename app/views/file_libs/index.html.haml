@@ -21,14 +21,14 @@
                   %tr
                     %th{:scope => "col"} #
                   
-                    %th{:scope => "col"}
+                    %th.w-75{:scope => "col"}
                       = Setting.file_libs.name
                     -#
                       %th{:scope => "col"}
                         = Setting.file_libs.path
                       %th{:scope => "col"}
                         = Setting.file_libs.file_type
-                    %th{:scope => "col"}
+                    %th.w-25{:scope => "col"}
                       设置
                 %tbody
                   - @file_libs.each_with_index do |file_lib, index|
@@ -45,7 +45,7 @@
                           = file_lib.file_type
                       %td
                         .container-fluid
-                          .row
+                          .row.justify-content-center
                             -#
                               = link_to "编辑", edit_portfolio_file_lib_path(@portfolio, file_lib), :class => "button button-highlight button-small mr-1" 
                               = link_to "详细",  portfolio_file_lib_path(@portfolio, file_lib), :class => "button button-primary button-small mr-1" 

@@ -1,19 +1,53 @@
 require 'json'
 
 class ExaminesController < ApplicationController
+  protect_from_forgery :except => :create_drct
+
   layout "application_control"
   before_filter :authenticate_user!
   load_and_authorize_resource
-
    
   def index
     @examines = current_user.examines
   end
    
-
-   
   def show
     @examine = current_user.examines.find(params[:id])
+  end
+
+  def new
+    @examine = Examine.new
+    
+    @examine.exm_items.build
+  end
+   
+  def create
+    @examine = Examine.new(examine_params)
+    @examine.user = current_user
+    if @examine.save
+      redirect_to examines_path
+    else
+      render :new
+    end
+  end
+   
+  def edit
+    @examine = current_user.examines.find(params[:id])
+  end
+   
+  def update
+    @examine = current_user.examines.find(params[:id])
+    if @examine.update(examine_params)
+      redirect_to examines_path
+    else
+      render :edit
+    end
+  end
+   
+  def destroy
+    @examine = current_user.examines.find(params[:id])
+    @examine.destroy
+    redirect_to :action => :index
   end
 
   def drct_org
@@ -36,7 +70,7 @@ class ExaminesController < ApplicationController
 
         file_libs = portfolio.file_libs
         file_libs.each do |file|
-          ptf_arr << {'name': file.name, 'drop': false, 'nodeid': file.id}
+          ptf_arr << {'name': file.name, 'nodeid': file.id}
         end
         ptf_h['children'] = ptf_arr
         arc_arr << ptf_h
@@ -76,56 +110,6 @@ class ExaminesController < ApplicationController
       redirect_to :back
     end
   end
-
-   
-  def new
-    @examine = Examine.new
-    
-    @examine.exm_items.build
-    
-  end
-   
-
-   
-  def create
-    @examine = Examine.new(examine_params)
-    @examine.user = current_user
-    if @examine.save
-      redirect_to @examine
-    else
-      render :new
-    end
-  end
-   
-
-   
-  def edit
-    @examine = current_user.examines.find(params[:id])
-  end
-   
-
-   
-  def update
-    @examine = current_user.examines.find(params[:id])
-    if @examine.update(examine_params)
-      redirect_to examine_path(@examine) 
-    else
-      render :edit
-    end
-  end
-   
-
-   
-  def destroy
-    @examine = current_user.examines.find(params[:id])
-    @examine.destroy
-    redirect_to :action => :index
-  end
-   
-
-  
-
-  
 
   private
     def examine_params

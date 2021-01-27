@@ -25,28 +25,39 @@ $(".examines").ready(function() {
     var leftNodes = gon.leftnodes; 
     var rightNodes = JSON.parse(gon.rightnodes); 
     var setting = {
+      view: {
+        addHoverDom: addHoverDom,
+        removeHoverDom: removeHoverDom,
+        selectedMulti: false
+      },
 	  	edit: {
 	  		enable: true,
-	  		showRemoveBtn: false,
-	  		showRenameBtn: false
+        editNameSelectAll: true,
+	  		showRemoveBtn: showRemoveBtn,
+	  		showRenameBtn: showRenameBtn
 	  	},
 	  	data: {
+        keep: {
+          leaf: true,
+          parent: true
+        },
 	  		simpleData: {
 	  			enable: true 
 	  		}
 	  	},
 	  	callback: {
-        onDrag: zTreeOnDrag,
-	  		beforeDrag: beforeDrag,
-	  		beforeDrop: beforeDrop,
-        onRightClick: OnRightClick
+        beforeDrag: beforeDrag,
+        beforeEditName: beforeEditName,
+        beforeRemove: beforeRemove,
+        beforeRename: beforeRename,
+        onRemove: onRemove,
+        onRename: onRename
 	  	}
 	  };
     $.fn.zTree.init($("#treeLeft"), setting, leftNodes);
     $.fn.zTree.init($("#treeRight"), setting, rightNodes);
 
     zTree = $.fn.zTree.getZTreeObj("treeRight");
-    rMenu = $("#rMenu");
 
     $("#test").click(function(){
       var nodes = zTree.transformToArray(zTree.getNodes());
@@ -54,7 +65,7 @@ $(".examines").ready(function() {
       console.log(json);
       var json_str = JSON.stringify(json);
       var url = "/examines/" + gon.examine +"/create_drct";
-      $.getJSON(url, {'drct_data': json_str}, function(data){
+      $.post(url, {'drct_data': json_str}, function(data){
         alert(data['status']);
       });
     });
@@ -62,6 +73,93 @@ $(".examines").ready(function() {
 
 });
 
+var log, className = "dark";
+function beforeDrag(treeId, treeNodes) {
+	return false;
+}
+function beforeEditName(treeId, treeNode) {
+	className = (className === "dark" ? "":"dark");
+	showLog("[ "+getTime()+" beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+	var zTree = $.fn.zTree.getZTreeObj("treeRight");
+	zTree.selectNode(treeNode);
+	setTimeout(function() {
+		if (confirm("进入节点 -- " + treeNode.name + " 的编辑状态吗？")) {
+			setTimeout(function() {
+				zTree.editName(treeNode);
+			}, 0);
+		}
+	}, 0);
+	return false;
+}
+function beforeRemove(treeId, treeNode) {
+	className = (className === "dark" ? "":"dark");
+	showLog("[ "+getTime()+" beforeRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+	var zTree = $.fn.zTree.getZTreeObj("treeRight");
+	zTree.selectNode(treeNode);
+	return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+}
+function onRemove(e, treeId, treeNode) {
+	showLog("[ "+getTime()+" onRemove ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
+}
+function beforeRename(treeId, treeNode, newName, isCancel) {
+	className = (className === "dark" ? "":"dark");
+	showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" beforeRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
+	if (newName.length == 0) {
+		setTimeout(function() {
+			var zTree = $.fn.zTree.getZTreeObj("treeRight");
+			zTree.cancelEditName();
+			alert("节点名称不能为空.");
+		}, 0);
+		return false;
+	}
+	return true;
+}
+function onRename(e, treeId, treeNode, isCancel) {
+	showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" onRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
+}
+function showRemoveBtn(treeId, treeNode) {
+	return !treeNode.isFirstNode;
+}
+function showRenameBtn(treeId, treeNode) {
+	return !treeNode.isLastNode;
+}
+function showLog(str) {
+	if (!log) log = $("#log");
+	log.append("<li class='"+className+"'>"+str+"</li>");
+	if(log.children("li").length > 8) {
+		log.get(0).removeChild(log.children("li")[0]);
+	}
+}
+function getTime() {
+	var now= new Date(),
+	h=now.getHours(),
+	m=now.getMinutes(),
+	s=now.getSeconds(),
+	ms=now.getMilliseconds();
+	return (h+":"+m+":"+s+ " " +ms);
+}
+
+var newCount = 1;
+function addHoverDom(treeId, treeNode) {
+	var sObj = $("#" + treeNode.tId + "_span");
+	if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
+	var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+		+ "' title='add node' onfocus='this.blur();'></span>";
+	sObj.after(addStr);
+	var btn = $("#addBtn_"+treeNode.tId);
+	if (btn) btn.bind("click", function(){
+		var zTree = $.fn.zTree.getZTreeObj("treeRight");
+		zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
+		return false;
+	});
+}
+function removeHoverDom(treeId, treeNode) {
+	$("#addBtn_"+treeNode.tId).unbind().remove();
+}
+function selectAll() {
+	var zTree = $.fn.zTree.getZTreeObj("treeRight");
+	zTree.setting.edit.editNameSelectAll =  $("#selectAll").attr("checked");
+}
 function getNodesJson(nodes){
   var root = nodes[0];
   var json = {};
@@ -109,86 +207,9 @@ function node_recur(child, arrs) {
     arrs.push(json1)
   }
 }
-
-//拖拽
-function zTreeOnDrag(event, treeId, treeNodes) {
-}
-function beforeDrag(treeId, treeNodes) {
-	for (var i=0,l=treeNodes.length; i<l; i++) {
-		if (treeNodes[i].drag === false) {
-			return false;
-		}
-  }
-	return true;
-}
-function beforeDrop(treeId, treeNodes, targetNode, moveType) {
-	return targetNode ? targetNode.drop !== false : true;
-}
-//右键菜单
-function OnRightClick(event, treeId, treeNode) {
-	if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
-		zTree.cancelSelectedNode();
-		showRMenu("root", event.clientX, event.clientY);
-	} else if (treeNode && !treeNode.noR) {
-		zTree.selectNode(treeNode);
-		showRMenu("node", event.clientX, event.clientY);
-	}
-}
-function showRMenu(type, x, y) {
-	$("#rMenu ul").show();
-	if (type=="root") {
-		$("#m_del").hide();
-		$("#m_check").hide();
-		$("#m_unCheck").hide();
-	} else {
-		$("#m_del").show();
-		$("#m_check").show();
-		$("#m_unCheck").show();
-	}
-    y += document.body.scrollTop;
-    x += document.body.scrollLeft;
-    rMenu.css({"top":y+"px", "left":x+"px", "visibility":"visible"});
-		$("body").bind("mousedown", onBodyMouseDown);
-}
-function hideRMenu() {
-	if (rMenu) rMenu.css({"visibility": "hidden"});
-	$("body").unbind("mousedown", onBodyMouseDown);
-}
-function onBodyMouseDown(event){
-	if (!(event.target.id == "rMenu" || $(event.target).parents("#rMenu").length>0)) {
-		rMenu.css({"visibility" : "hidden"});
-	}
-}
-var addCount = 1;
-function addTreeNode() {
-	hideRMenu();
-	var newNode = { name:"增加" + (addCount++), isParent: true};
-	if (zTree.getSelectedNodes()[0]) {
-    if (zTree.getSelectedNodes()[0].isParent == true) {
-		  newNode.checked = zTree.getSelectedNodes()[0].checked;
-		  zTree.addNodes(zTree.getSelectedNodes()[0], newNode);
-    }
-	} else {
-		zTree.addNodes(null, newNode);
-	}
-}
-function removeTreeNode() {
-	hideRMenu();
-	var nodes = zTree.getSelectedNodes();
-	if (nodes && nodes.length>0) {
-		if (nodes[0].children && nodes[0].children.length > 0) {
-			var msg = "确认全部删除吗?\n\n请确认！";
-			if (confirm(msg)==true){
-				zTree.removeNode(nodes[0]);
-			}
-		} else {
-			zTree.removeNode(nodes[0]);
-		}
-	}
-}
-  /*var zNodes = [
-    {name:"test1", open:true, children:[
-      {name:"test1_1"}, {name:"test1_2"}]},
-    {name:"test2", open:true, children:[
-      {name:"test2_1"}, {name:"test2_2"}]}
-  ];*/
+/*var zNodes = [
+  {name:"test1", open:true, children:[
+    {name:"test1_1"}, {name:"test1_2"}]},
+  {name:"test2", open:true, children:[
+    {name:"test2_1"}, {name:"test2_2"}]}
+];*/
