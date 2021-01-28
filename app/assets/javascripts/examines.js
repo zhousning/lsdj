@@ -24,7 +24,27 @@ $(".examines").ready(function() {
   if ($(".examines.drct_org").length > 0 ) {
     var leftNodes = gon.leftnodes; 
     var rightNodes = JSON.parse(gon.rightnodes); 
-    var setting = {
+    var settingLeft = {
+			edit: {
+				enable: true,
+				showRemoveBtn: false,
+				showRenameBtn: false
+			},
+			data: {
+        keep: {
+          leaf: true,
+          parent: true
+        },
+				simpleData: {
+					enable: true
+				}
+			},
+			callback: {
+				beforeDrag: beforeDrag,
+				beforeDrop: beforeDrop
+			}
+		};
+    var settingRight = {
       view: {
         addHoverDom: addHoverDom,
         removeHoverDom: removeHoverDom,
@@ -54,8 +74,8 @@ $(".examines").ready(function() {
         onRename: onRename
 	  	}
 	  };
-    $.fn.zTree.init($("#treeLeft"), setting, leftNodes);
-    $.fn.zTree.init($("#treeRight"), setting, rightNodes);
+    $.fn.zTree.init($("#treeLeft"), settingLeft, leftNodes);
+    $.fn.zTree.init($("#treeRight"), settingRight, rightNodes);
 
     zTree = $.fn.zTree.getZTreeObj("treeRight");
 
@@ -74,21 +94,20 @@ $(".examines").ready(function() {
 });
 
 var log, className = "dark";
-function beforeDrag(treeId, treeNodes) {
-	return false;
-}
 function beforeEditName(treeId, treeNode) {
 	className = (className === "dark" ? "":"dark");
 	showLog("[ "+getTime()+" beforeEditName ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name);
 	var zTree = $.fn.zTree.getZTreeObj("treeRight");
 	zTree.selectNode(treeNode);
 	setTimeout(function() {
+		zTree.editName(treeNode);
+	}, 0);
+  /*
+	setTimeout(function() {
 		if (confirm("进入节点 -- " + treeNode.name + " 的编辑状态吗？")) {
-			setTimeout(function() {
-				zTree.editName(treeNode);
-			}, 0);
 		}
 	}, 0);
+  */
 	return false;
 }
 function beforeRemove(treeId, treeNode) {
@@ -118,10 +137,12 @@ function onRename(e, treeId, treeNode, isCancel) {
 	showLog((isCancel ? "<span style='color:red'>":"") + "[ "+getTime()+" onRename ]&nbsp;&nbsp;&nbsp;&nbsp; " + treeNode.name + (isCancel ? "</span>":""));
 }
 function showRemoveBtn(treeId, treeNode) {
-	return !treeNode.isFirstNode;
+	//return !treeNode.isFirstNode;
+	return treeNode.level != 0 && treeNode.isParent;
 }
 function showRenameBtn(treeId, treeNode) {
-	return !treeNode.isLastNode;
+	//return !treeNode.isLastNode;
+	return treeNode.level != 0 && treeNode.isParent;
 }
 function showLog(str) {
 	if (!log) log = $("#log");
@@ -143,15 +164,17 @@ var newCount = 1;
 function addHoverDom(treeId, treeNode) {
 	var sObj = $("#" + treeNode.tId + "_span");
 	if (treeNode.editNameFlag || $("#addBtn_"+treeNode.tId).length>0) return;
-	var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
-		+ "' title='add node' onfocus='this.blur();'></span>";
-	sObj.after(addStr);
-	var btn = $("#addBtn_"+treeNode.tId);
-	if (btn) btn.bind("click", function(){
-		var zTree = $.fn.zTree.getZTreeObj("treeRight");
-		zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++)});
-		return false;
-	});
+  if (treeNode.isParent == true) {
+  	var addStr = "<span class='button add' id='addBtn_" + treeNode.tId
+  		+ "' title='add node' onfocus='this.blur();'></span>";
+  	sObj.after(addStr);
+  	var btn = $("#addBtn_"+treeNode.tId);
+  	if (btn) btn.bind("click", function(){
+  		var zTree = $.fn.zTree.getZTreeObj("treeRight");
+  		zTree.addNodes(treeNode, {id:(100 + newCount), pId:treeNode.id, name:"new node" + (newCount++), isParent: true});
+  		return false;
+  	});
+  }
 }
 function removeHoverDom(treeId, treeNode) {
 	$("#addBtn_"+treeNode.tId).unbind().remove();
@@ -213,3 +236,14 @@ function node_recur(child, arrs) {
   {name:"test2", open:true, children:[
     {name:"test2_1"}, {name:"test2_2"}]}
 ];*/
+function beforeDrag(treeId, treeNodes) {
+			for (var i=0,l=treeNodes.length; i<l; i++) {
+				if (treeNodes[i].drag === false) {
+					return false;
+				}
+			}
+			return true;
+		}
+		function beforeDrop(treeId, treeNodes, targetNode, moveType) {
+			return targetNode ? targetNode.drop !== false : true;
+		}
