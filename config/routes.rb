@@ -105,6 +105,13 @@ Rails.application.routes.draw do
       get :download, :on => :member
     end
   end
+
+  resources :meter_reads do
+    post :parse_excel, :on => :collection
+    get :meter_xls_download, :on => :collection 
+  end
+
+
   resources :examines do
     get :export, :on => :member 
     get :drct_org, :on => :member 

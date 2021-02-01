@@ -1,0 +1,112 @@
+- provide(:title, t('.title'))
+
+- content_for :main_body do
+  .container-fluid.p-0
+    .row
+      .col-md-8.offset-2
+        .card-body
+          .container-fluid
+            .row
+              .col-md-6
+                = @meter_read.name
+                = @meter_read.cal_date
+              .col-md-6
+                %p
+                  计件金额:
+                  = @meter_read.total
+              .col-md-6
+                %p
+                  抄见率:
+                  = @meter_read.cj_rate
+                  = "/"
+                  准确率:
+                  = @meter_read.acrt_rate
+                  = "/"
+                  奖励:
+                  = @meter_read.acrt_mny
+              .col-md-6
+                %p
+                  水量回收率:
+                  = @meter_read.rcy_rate
+                  = "/"
+                  奖励:
+                  = @meter_read.rcy_mny
+            .row
+              .col-md-12
+                %table#meter-read-table.table.text-right.table-bordered
+                  %h4.text-center
+                    计件标准
+                  %tr
+                    %td 
+                      = Setting.meter_reads.std_sm_wm
+                      = @meter_read.std_sm_wm
+                    %td 
+                      = Setting.meter_reads.std_big_wm
+                      = @meter_read.std_big_wm
+                  %tr
+                    %td 
+                      = Setting.meter_reads.std_sm_yc
+                      = @meter_read.std_sm_yc
+                    %td 
+                      = Setting.meter_reads.std_big_yc
+                      = @meter_read.std_big_yc
+                  %tr
+                    %td 
+                      = Setting.meter_reads.std_vst_wm
+                      = @meter_read.std_vst_wm
+                    %td 
+                %table.table.text-right.table-bordered
+                  %h4.text-center
+                    计件统计
+                  %tr
+                    %td 
+                      = Setting.meter_reads.act_big_read
+                      = @meter_read.act_big_read
+                    %td 
+                      = Setting.meter_reads.mst_big_read
+                      = @meter_read.mst_big_read
+                  %tr
+                    %td 
+                      = Setting.meter_reads.act_sm_read
+                      = @meter_read.act_sm_read
+                    %td 
+                      = Setting.meter_reads.mst_sm_read
+                      = @meter_read.mst_sm_read
+                  %tr
+                    %td 
+                      = Setting.meter_reads.act_vst_read
+                      = @meter_read.act_vst_read
+                    %td 
+                      = Setting.meter_reads.mst_vst_read
+                      = @meter_read.mst_vst_read
+                  %tr
+                    %td 
+                      = Setting.meter_reads.act_bigyc_read
+                      = @meter_read.act_bigyc_read
+                    %td 
+                      = Setting.meter_reads.mst_bigyc_read
+                      = @meter_read.mst_bigyc_read
+                  %tr
+                    %td 
+                      = Setting.meter_reads.act_smyc_read
+                      = @meter_read.act_smyc_read
+                    %td 
+                      = Setting.meter_reads.mst_smyc_read
+                      = @meter_read.mst_smyc_read
+                  %tr
+                    %td 
+                      = Setting.meter_reads.rcv_count
+                      = @meter_read.rcv_count
+                    %td 
+                      = Setting.meter_reads.wtr_count
+                      = @meter_read.wtr_count
+                  %tr
+                    %td 
+                      = Setting.meter_reads.smp_fc_count
+                      = @meter_read.smp_fc_count
+                    %td 
+                      = Setting.meter_reads.smp_count
+                      = @meter_read.smp_count
+            
+
+= render "layouts/control_panel"

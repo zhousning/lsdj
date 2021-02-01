@@ -577,6 +577,15 @@ zh-CN:
       title: 编辑档案库
     show:
       title: 党建档案库
+  meter_reads:
+    index:
+      title: 计件 
+    new:
+      title: 新建计件
+    edit:
+      title: 编辑计件
+    show:
+      title: 计件详情
   examines:
     index:
       title: 档案自选库 

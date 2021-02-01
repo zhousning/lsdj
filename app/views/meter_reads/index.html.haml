@@ -1,0 +1,92 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      - content_for :card_header do
+        %h5
+          = link_to meter_xls_download_meter_reads_path, :class => "button button-royal pull-right button-small" do
+            下载计件表模板
+          %button.button.button-caution.button-small.pull-right.mr-1{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+            上传excel
+          = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+          = link_to "/#{controller_name}/new", :class => "button button-primary pull-right mr-1 button-small" do
+            = fa_icon "plus", text: Setting.systems.btn_new, right: false 
+      - content_for :card_body do
+        .container-fluid.p-0
+          .row
+            .col-md-12
+              %table#meter-read-table.text-center.table-bordered.table-sm.w-100
+                %thead.thead-light
+                  %tr
+                    %th{:scope => "col"} #
+                  
+                    %th{:scope => "col"}
+                      = Setting.meter_reads.name
+                    %th{:scope => "col"}
+                      = Setting.meter_reads.cal_date
+                    %th{:scope => "col"}
+                      应抄/实抄
+                    %th{:scope => "col"}
+                      计件金额
+                    %th{:scope => "col"}
+                      抄见率 / 准确率 / 奖励
+                    %th{:scope => "col"}
+                      水量回收率 / 奖励
+                    %th{:scope => "col"}
+                      设置
+                %tbody
+                  - @meter_reads.each_with_index do |meter_read, index|
+                    %tr
+                      %td{:scope => "row"}
+                        = index+1
+                    
+                      %td
+                        = meter_read.name
+                      %td
+                        = meter_read.cal_date
+                      %td
+                        = meter_read.mst_mt_count
+                        = "/"
+                        = meter_read.act_mt_count
+                      %td
+                        = meter_read.total
+                      %td
+                        = meter_read.cj_rate
+                        = "/"
+                        = meter_read.acrt_rate
+                        = "/"
+                        = meter_read.acrt_mny
+                      %td
+                        = meter_read.rcy_rate
+                        = "/"
+                        = meter_read.rcy_mny
+                      %td
+                        .container-fluid
+                          .row.justify-content-center
+                            = link_to "编辑", edit_meter_read_path(meter_read), :class => "button button-highlight button-small mr-1"
+                            = link_to "详细", meter_read_path(meter_read), :class => "button button-primary button-small mr-1"
+                            = link_to "删除", meter_read, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small"
+      = render "layouts/bootstrap/card"
+
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title 计件表上传 
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} x 
+      .modal-body
+        = form_tag "/meter_reads/parse_excel", multipart: true do
+          .form-group.row
+            = label_tag "日期", nil, :class => "col-4 text-right col-form-label col-form-label"
+            .col-8
+              = text_field_tag "date", nil, :class => "form-control"
+          .form-group.row
+            = label_tag "计件表", nil, :class => "col-4 text-right col-form-label col-form-label"
+            .col-8
+              = file_field_tag "excel_file" 
+          .form-group.row
+            .col-8
+              = submit_tag '保存', :class => "btn btn-primary" 

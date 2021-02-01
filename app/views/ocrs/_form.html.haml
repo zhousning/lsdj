@@ -17,10 +17,10 @@
             .form-check.form-check-inline
               = f.radio_button :ocr_type, "表格识别", :class => "form-check-input"
               = f.label "表格识别", :class => "form-check-label"
-          .col-sm-6
-            %p.text-danger
-              上传小于1M, 大于20px, 小于4000px的图片,最多4张图片
             -#
+              .col-sm-6
+                %p.text-danger
+                  上传小于1M, 大于20px, 小于4000px的图片,最多4张图片
               .form-check.form-check-inline
                 = f.radio_button :ocr_type, Setting.ocrs.webimage, :class => "form-check-input"
                 = f.label Setting.ocrs.webimage_title, :class => "form-check-label"
@@ -48,8 +48,9 @@
             .row
               = f.fields_for :enclosures do |enclosure|
                 = render 'enclosure_fields', f: enclosure
-              .links
-                = link_to_add_association "添加文件", f, :enclosures, :class => "button button-primary button-small"
+              -#
+                .links
+                  = link_to_add_association "添加文件", f, :enclosures, :class => "button button-primary button-small"
       
       
         .form-group.row

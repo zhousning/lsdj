@@ -1,0 +1,149 @@
+.container-fluid
+  .row
+    .col-sm-8
+      = form_for @meter_read, :html => {:'data-parsley-validate' => true} do |f|
+        - if @meter_read.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@meter_read.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @meter_read.errors.full_messages.each do |msg|
+                %li= msg
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.name, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.text_field :name, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.cal_date, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.text_field :cal_date, :class => "form-control rounded-0"
+        
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.std_big_wm, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :std_big_wm, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.std_sm_wm, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :std_sm_wm, :class => "form-control rounded-0"
+
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.std_big_yc, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :std_big_yc, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.std_sm_yc, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :std_sm_yc, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.std_vst_wm, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :std_vst_wm, :class => "form-control rounded-0"
+
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.act_big_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :act_big_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.mst_big_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :mst_big_read, :class => "form-control rounded-0"
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.act_sm_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :act_sm_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.mst_sm_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :mst_sm_read, :class => "form-control rounded-0"
+              
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.act_vst_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :act_vst_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.mst_vst_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :mst_vst_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.act_bigyc_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :act_bigyc_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.mst_bigyc_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :mst_bigyc_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.act_smyc_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :act_smyc_read, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.mst_smyc_read, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :mst_smyc_read, :class => "form-control rounded-0"
+              
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.smp_fc_count, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :smp_fc_count, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.smp_count, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :smp_count, :class => "form-control rounded-0"
+
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.rcv_count, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :rcv_count, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.wtr_count, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.number_field :wtr_count, :class => "form-control rounded-0"
+              
+        
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"

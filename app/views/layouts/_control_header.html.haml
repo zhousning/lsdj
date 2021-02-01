@@ -2,7 +2,9 @@
   -#
     %nav#home-nav.navbar.navbar-dark.navbar-expand-lg.sticky-top.bg-212634.p-0
   %a.navbar-brand.col-sm-3.col-md-2.mr-0.text-center{:href => root_path}
-    = image_tag "dangqi.png", :class => "control-navbar-logo mr-2"
+    -#
+      = image_tag "dangqi.png", :class => "control-navbar-logo mr-2"
+      = image_tag "sdgylogo.jpg", :class => "control-navbar-logo mr-2"
     = Setting.systems.company_name
   %ul.w-100.navbar-nav.justify-content-end.px-3
     - unless user_signed_in?
