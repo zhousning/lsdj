@@ -6,6 +6,7 @@ class FileLibsController < ApplicationController
    
   def index
     @portfolio = Portfolio.find(params[:portfolio_id])
+    @archive = @portfolio.archive
     @file_libs = @portfolio.file_libs
     gon.portfolio = @portfolio.id
   end

@@ -6,13 +6,13 @@ zh-CN:
       long: "%B %d, %Y"
   layouts:
     application:
-      site_title: "党建工作管理系统"
+      site_title: "工作管理系统"
     application_control:
-      site_title: "党建工作管理系统"
+      site_title: "工作管理系统"
     application_mobile:
-      site_title: "党建工作管理系统"
+      site_title: "工作管理系统"
     application_home:
-      site_title: "党建工作管理系统"
+      site_title: "工作管理系统"
 
   home:
     index:
@@ -194,7 +194,7 @@ zh-CN:
   trees:
     index:
       title:
-        党建工作管理系统
+        工作管理系统
   pick_records:
     index:
       title:
@@ -570,13 +570,13 @@ zh-CN:
       title: 日程计划
   archives:
     index:
-      title: 党建档案库 
+      title: 档案库 
     new:
       title: 新建档案库
     edit:
       title: 编辑档案库
     show:
-      title: 党建档案库
+      title: 档案库
   meter_reads:
     index:
       title: 计件 
@@ -597,11 +597,11 @@ zh-CN:
       title: 方案详情
   portfolios:
     index:
-      title: 党建档案库>>子文件夹 
+      title: 子文件夹 
     new:
       title: 新建子文件夹
     edit:
       title: 编辑子文件夹
   file_libs:
     index:
-      title: 党建档案库>>子文件夹>>文件列表
+      title: 文件列表

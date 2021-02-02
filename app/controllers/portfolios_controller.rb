@@ -65,6 +65,25 @@ class PortfoliosController < ApplicationController
     redirect_to :action => :index
   end
   
+  def file_type(name)
+    type = ""
+    if !(/\.doc/ =~ name).nil?
+      type = Setting.file_libs.doc
+    elsif !(/\.xls/ =~ name).nil?
+      type = Setting.file_libs.xls
+    elsif !(/\.ppt/ =~ name).nil?
+      type = Setting.file_libs.ppt
+    elsif !(/\.pdf/ =~ name).nil?
+      type = Setting.file_libs.pdf
+    elsif !(/\.jpg|\.png|\.jpeg/ =~ name).nil?
+      type = Setting.file_libs.img
+    elsif !(/\.mp4/ =~ name).nil?
+      type = Setting.file_libs.mp4
+    elsif !(/\.txt/ =~ name).nil?
+      type = Setting.file_libs.txt
+    end
+    type
+  end
 
   def upload
     @archive = Archive.find(params[:archive_id])
@@ -84,7 +103,8 @@ class PortfoliosController < ApplicationController
           file.write(uploaded_file.read)
           filelib = @portfolio.file_libs.where(:path => file_path) 
           if filelib.blank?
-            @filelib = FileLib.new(:name => name, :path => file_path) 
+            filetype = file_type(name) 
+            @filelib = FileLib.new(:name => name, :path => file_path, :file_type => filetype) 
             @filelib.portfolio = @portfolio
             @filelib.save!
           end

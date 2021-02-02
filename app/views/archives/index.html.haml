@@ -3,33 +3,44 @@
 - content_for :main_body do
   .container-fluid.p-0
     .row
-      .col-md-12
-        %table.text-center.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
-          %thead
-            %tr
-              %th{:scope => "col"} #
-            
-              %th.w-25{:scope => "col"}
-                = Setting.archives.name
-              %th.w-50{:scope => "col"}
-                = Setting.archives.desc
-              %th.w-25{:scope => "col"}
-                设置
-          %tbody
-            - @archives.each_with_index do |archive, index|
+      - @archives.each_with_index do |archive, index|
+        .col-1.folder-ctn.my-4
+          .card.border-0
+            = link_to archive_portfolios_path(archive) do 
+              = image_tag "icons-folder.svg", :class => "card-img-top"
+            %p.card-subtitle.text-muted.text-center
+              = archive.name
+            .card-body.folder-btn-ctn
+              = link_to "编辑", edit_archive_path(archive), :class => "button button-royal button-small mx-2 px-1" 
+              = link_to "删除",  archive, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small px-1" 
+      -#
+        .col-md-12
+          %table.text-center.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
+            %thead
               %tr
-                %td{:scope => "row"}
-                  = index+1
+                %th{:scope => "col"} #
               
-                %td
-                  = archive.name
-                %td
-                  = archive.desc
-                %td
-                  .container-fluid
-                    .row.justify-content-center
-                      = link_to "编辑", edit_archive_path(archive), :class => "button button-highlight button-small mr-1" 
-                      = link_to "子文件夹", archive_portfolios_path(archive), :class => "button button-primary button-small mr-1" 
-                      = link_to "删除",  archive, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
+                %th.w-25{:scope => "col"}
+                  = Setting.archives.name
+                %th.w-50{:scope => "col"}
+                  = Setting.archives.desc
+                %th.w-25{:scope => "col"}
+                  设置
+            %tbody
+              - @archives.each_with_index do |archive, index|
+                %tr
+                  %td{:scope => "row"}
+                    = index+1
+                
+                  %td
+                    = archive.name
+                  %td
+                    = archive.desc
+                  %td
+                    .container-fluid
+                      .row.justify-content-center
+                        = link_to "编辑", edit_archive_path(archive), :class => "button button-highlight button-small mr-1" 
+                        = link_to "子文件夹", archive_portfolios_path(archive), :class => "button button-primary button-small mr-1" 
+                        = link_to "删除",  archive, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
 
 = render "layouts/control_panel"

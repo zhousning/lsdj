@@ -6,7 +6,10 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
-          = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+          = link_to Setting.archives.label, archives_path(@archive)
+          = " >> "  
+          = link_to @archive.name, archive_portfolios_path(@portfolio.archive)
+          = " >> #{@portfolio.name}"  
           = link_to archive_portfolios_path(@portfolio.archive), :class => "button pull-right button-highlight" do
             = fa_icon "chevron-left", text: Setting.systems.btn_back
           %button{:class => "button pull-right button-primary mr-1", "data-target" => "#uploadModal", "data-toggle" => "modal", type: "button", right: false }
@@ -16,34 +19,32 @@
         .container-fluid.p-0
           .row
             .col-md-12
-              %table.text-center.table-striped.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
+              %table.text-center.table-sm.border-left-0.border-right-0{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable", :"data-search" => "true",:'data-advanced-search'=>"true" }
                 %thead
                   %tr
-                    %th{:scope => "col"} #
-                  
-                    %th.w-75{:scope => "col"}
+                    %th.border-0{:scope => "col"}              
+                    %th.border-0.w-75{:scope => "col"}
                       = Setting.file_libs.name
                     -#
                       %th{:scope => "col"}
                         = Setting.file_libs.path
                       %th{:scope => "col"}
                         = Setting.file_libs.file_type
-                    %th.w-25{:scope => "col"}
-                      设置
+                    %th.border-0.w-25{:scope => "col"}
                 %tbody
                   - @file_libs.each_with_index do |file_lib, index|
-                    %tr
-                      %td{:scope => "row"}
-                        = index+1
+                    %tr.border-left-0.border-right-0
+                      %td.border-left-0.border-right-0{:scope => "row"}
+                        = image_tag file_icon(file_lib.file_type) 
                     
-                      %td.text-left
+                      %td.text-left.border-left-0.border-right-0
                         = file_lib.name
                       -#
                         %td
                           = file_lib.path
                         %td
                           = file_lib.file_type
-                      %td
+                      %td.border-left-0.border-right-0
                         .container-fluid
                           .row.justify-content-center
                             -#
@@ -62,7 +63,7 @@
     .modal-content
       .modal-header
         %h5#uploadModalLabel.modal-title
-          文件上传(一次10个,文件不超过20M, 文件类型:[pdf,doc,docx,ppt,pptx,xls,xlsx,mp4,jpg,png)
+          文件上传(一次10个,文件不超过20M, 文件类型:[txt,pdf,doc,docx,ppt,pptx,xls,xlsx,mp4,jpg,png])
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
           %span{"aria-hidden" => "true"} x 
       .modal-body

@@ -125,6 +125,9 @@ Rails.application.routes.draw do
   resources :agendas do
     get :download_append, :on => :member
   end
+  resources :stats do
+    get :download_append, :on => :member
+  end
   resources :flower
 
   root :to => 'home#index'

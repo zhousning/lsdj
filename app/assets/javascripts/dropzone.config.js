@@ -1,6 +1,6 @@
 Dropzone.options.myAwesomeDropzone = {
   paramName: "file",
-  acceptedFiles: "image/*,application/pdf,.txt,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4", 
+  acceptedFiles: ".png,.jpg,.jpeg,application/pdf,.txt,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4", 
   //addRemoveLinks: true,
   maxFiles: 10,
   maxFilesize: 20, // MB

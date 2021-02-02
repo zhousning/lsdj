@@ -13,32 +13,34 @@ class StatisticsController < ApplicationController
   end
    
   def line
-    render json: Account.group(:user_id).count
+    puts "........"
+    puts FileLib.group(:name).count
+    render json: FileLib.group(:name).count
   end
 
   def column
-    render json: Account.group(:user_id).count
+    render json: FileLib.group(:name).count
   end
 
   def pie 
-    render json: Account.group(:user_id).count
+    render json: FileLib.group(:name).count
   end
 
   def bar 
-    render json: Account.group(:user_id).count
+    render json: FileLib.group(:name).count
   end
 
   def area 
-    render json: Account.group(:user_id).count
+    render json: FileLib.group(:name).count
   end
 
   def scatter 
-    render json: Account.group(:user_id).count
+    render json: FileLib.group(:name).count
   end
 
   def series 
     #第一个group是序列,第二个group是x轴对应的值
-    render json: Account.group(:coin).group(:user_id).count.chart_json
+    render json: FileLib.group(:coin).group(:name).count.chart_json
   end
 
   private

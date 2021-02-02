@@ -6,7 +6,8 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
-          = fa_icon "list", text: t(controller_name + "." + action_name + '.title')
+          = link_to Setting.archives.label, archives_path(@archive)
+          = " >> #{@archive.name}"  
           = link_to archives_path(@archive), :class => "button pull-right button-highlight" do
             = fa_icon "chevron-left", text: Setting.systems.btn_back
           = link_to "/archives/#{@archive.id}/#{controller_name}/new", :class => "button pull-right button-primary mr-1" do
@@ -15,6 +16,17 @@
       - content_for :card_body do
         .container-fluid.p-0
           .row
+            - @portfolios.each_with_index do |portfolio, index|
+              .col-1.folder-ctn.my-4
+                .card.border-0
+                  = link_to portfolio_file_libs_path(portfolio) do
+                    = image_tag "icons-folder.svg", :class => "card-img-top"
+                  %p.card-subtitle.text-muted.text-center
+                    = portfolio.name
+                  .card-body.folder-btn-ctn
+                    = link_to "编辑", edit_archive_portfolio_path(@archive, portfolio), :class => "button button-royal button-small mx-2 px-1" 
+                    = link_to "删除",  archive_portfolio_path(@archive, portfolio), :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small px-1" 
+          -#
             .col-md-12
               %table.text-center.table-striped.table-sm{:'data-toggle' => "table", :"data-pagination"=>"true", :'data-id-table'=>"advancedTable"}
                 %thead

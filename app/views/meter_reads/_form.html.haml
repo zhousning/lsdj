@@ -10,18 +10,6 @@
             %ul
               - @meter_read.errors.full_messages.each do |msg|
                 %li= msg
-        .form-row
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.name, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.text_field :name, :class => "form-control rounded-0"
-              
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.cal_date, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.text_field :cal_date, :class => "form-control rounded-0"
         
         .form-row
           .col-6
@@ -54,6 +42,20 @@
               .col-4
                 = f.number_field :std_vst_wm, :class => "form-control rounded-0"
 
+        %hr
+
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.name, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.text_field :name, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_reads.cal_date, :class => "col-8 text-right col-form-label col-form-label"
+              .col-4
+                = f.text_field :cal_date, :class => "form-control rounded-0"
               
         .form-row
           .col-6

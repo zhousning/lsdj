@@ -1008,7 +1008,7 @@ defaults:
   awards: &112
     ten_citrine: 10
     one_citrine: 1
-  wares: &129
+  wares:
     title: 宝贝标题
     price: 价格
     citrine_count: 赠送茶晶数
@@ -1116,7 +1116,7 @@ defaults:
     btn_show: 详情
     btn_delete: 删除
     btn_save: 保存
-    company_name: 梁山水务办公辅助系统 
+    company_name: 梁山水务办公辅助系统
     nav_item1: 首页
     nav_item2: 招标公告
     nav_item3: 中标公告
@@ -1348,8 +1348,15 @@ development:
     name: 文件名
     path: 路径
     file_type: 文件类型
+    doc: '0'
+    xls: '1'
+    pdf: '2'
+    img: '3'
+    ppt: '4'
+    mp4: '5'
+    txt: '6'
   archives:
-    label: 党建档案库
+    label: 档案库
     name: 名称
     desc: 备注
   portfolios:
@@ -1367,6 +1374,13 @@ development:
     title: 标题
     content: 事务内容
     worktime: 时间
+  stats:
+    label: 统计
+    title: 标题
+    xtitle: x轴标题
+    ytitle: y轴标题
+    legend: 图例
+    data: 数据
 test:
   admins: *107
   users: *108

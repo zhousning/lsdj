@@ -1,0 +1,17 @@
+.folder-ctn {
+  position: relative;
+}
+.folder-btn-ctn{
+  display: none;
+  position: absolute;
+  top: -20px;
+  padding: 0px;
+  text-align: center;
+}
+.folder-ctn:hover .folder-btn-ctn{
+  display: inline;
+  position: absolute;
+}
+.folder-ctn:hover .card{
+  background: #f1f5fa;
+}

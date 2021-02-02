@@ -11,6 +11,10 @@
         = fa_icon "diamond", text: "AI工具箱", class: "ml-4 mr-2"
       = link_to meter_reads_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/meter/ =~ request.path).nil? ? '' : 'text-danger' }" do
         = fa_icon "calculator", text: "计件计算器", class: "ml-4 mr-2"
+      = link_to stats_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/stats/ =~ request.path).nil? ? '' : 'text-danger' }" do
+        = fa_icon "bar-chart", text: "数据图表", class: "ml-4 mr-2"
+      = link_to statistics_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/statistic/ =~ request.path).nil? ? '' : 'text-danger' }" do
+        = fa_icon "bar-chart", text: "数据图表", class: "ml-4 mr-2"
 -#
   .card.border-0.rounded-0
     #headingThree.card-header.p-0.bg-transparent

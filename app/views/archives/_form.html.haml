@@ -15,11 +15,11 @@
           = f.label Setting.archives.name, :class => "col-sm-3 col-form-label text-right"
           .col-sm-6
             = f.text_field :name, :class => "form-control rounded-0", :required => true
-          
-        .form-group.row
-          = f.label Setting.archives.desc, :class => "col-sm-3 col-form-label text-right"
-          .col-sm-6
-            = f.text_area :desc, :class => "form-control rounded-0", :rows => "20"
+        -#
+          .form-group.row
+            = f.label Setting.archives.desc, :class => "col-sm-3 col-form-label text-right"
+            .col-sm-6
+              = f.text_area :desc, :class => "form-control rounded-0", :rows => "20"
           
       
       
