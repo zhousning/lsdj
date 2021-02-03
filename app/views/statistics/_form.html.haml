@@ -1,0 +1,54 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-5
+      = form_for @statistic, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @statistic.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@statistic.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @statistic.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.statistics.title, :class => "col-sm-2 col-form-label text-right"
+          .col-sm-10
+            = f.text_field :title, :class => "form-control rounded-0", :required => true, :placeholder => "统计标题示例"
+          
+        .form-group.row
+          = f.label Setting.statistics.xtitle, :class => "col-sm-2 col-form-label text-right"
+          .col-sm-10
+            = f.text_field :xtitle, :class => "form-control rounded-0", :required => true, :placeholder => "统计x标题"
+          
+        .form-group.row
+          = f.label Setting.statistics.ytitle, :class => "col-sm-2 col-form-label text-right"
+          .col-sm-10
+            = f.text_field :ytitle, :class => "form-control rounded-0", :required => true, :placeholder => "统计y标题"
+          
+        -#
+          .form-group.row
+            = f.label Setting.statistics.legend, :class => "col-sm-2 col-form-label text-right"
+            .col-sm-10
+              = f.text_field :legend, :class => "form-control rounded-0", :required => true
+          
+        .form-group.row
+          = f.label Setting.statistics.data, :class => "col-sm-2 col-form-label text-right"
+          .col-sm-10
+            %p.text-danger
+              数据示例：管网=1，监察=2，人事=3，行政=4，党群=3
+            = f.text_area :data, :class => "form-control rounded-0", :rows => "20", :required => true, :placeholder => "管网=1，监察=2，人事=3，行政=4，党群=3"
+          
+      
+      
+      
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          .col-3.offset-1
+            = link_to '返回', statistics_path, :class => "button button-caution"
+    .col-sm-7
+      %p
+        = image_tag "graphiccase.png", :class => "w-100"

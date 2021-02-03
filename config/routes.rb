@@ -46,14 +46,14 @@ Rails.application.routes.draw do
 
   resources :subunits
 
-  resources :statistics, :only => [:index] do
-    get :line, :on => :collection
-    get :series, :on => :collection
-    get :column, :on => :collection
-    get :pie, :on => :collection
-    get :bar, :on => :collection
-    get :area, :on => :collection
-    get :scatter, :on => :collection
+  resources :statistics do
+    get :line, :on => :member
+    get :series, :on => :member
+    get :column, :on => :member
+    get :pie, :on => :member
+    get :bar, :on => :member
+    get :area, :on => :member
+    get :scatter, :on => :member
   end
 
   resources :systems, :only => [] do
@@ -123,9 +123,6 @@ Rails.application.routes.draw do
     end
   end
   resources :agendas do
-    get :download_append, :on => :member
-  end
-  resources :stats do
     get :download_append, :on => :member
   end
   resources :flower

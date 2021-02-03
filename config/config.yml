@@ -57,9 +57,9 @@ mysetting:
     label: 小鸟
     name: 名称
     age: 年龄
-  statistics: &10
+  statistics: &130
     label: 数据统计
-  spiders: &11
+  spiders: &10
     label: 爬虫
     link: 请求地址
     cookie: cookie
@@ -70,7 +70,7 @@ mysetting:
     referer: referer
     host: host
     redirection: redirection
-  selectors: &12
+  selectors: &11
     label: 选择器
     name: 选择器名称
     category: 类型
@@ -85,7 +85,7 @@ mysetting:
       img:
         info: 图片
         value: '2'
-  websites: &13
+  websites: &12
     label: 网站
     name: 公司名称
     style: 风格
@@ -94,36 +94,36 @@ mysetting:
     mastheader: 首屏
     footer: 页脚
     logo: 公司logo
-  navbars: &14
+  navbars: &13
     label: 导航条
     name: 名称
-  pages: &15
+  pages: &14
     label: 网页
     name: 名称
     draft: 草稿
     keyword: 关键词
     block_order: 版块排序
-  blocks: &16
+  blocks: &15
     label: 版块
     name: 标题
     title_two: 二级标题
     background: 背景色
     color: 字体颜色
     reset_icon: 重置图标
-  layouts: &17
+  layouts: &16
     label: 布局
     name: 名称
-  block_contents: &18
+  block_contents: &17
     label: 版块内容
     title: 标题
     description: 描述
-  carousels: &19
+  carousels: &18
     label: 轮播
     name: 名称
-  formats: &20
+  formats: &19
     label: 布局
     name: 名称
-  title_ones: &21
+  title_ones: &20
     label: 一级标题
     tag: 标签
     align: 对齐
@@ -133,7 +133,7 @@ mysetting:
     background: 背景
     line_height: 行高
     letter_spacing: 字间距
-  title_twos: &22
+  title_twos: &21
     label: 二级标题
     tag: 标签
     align: 对齐
@@ -143,7 +143,7 @@ mysetting:
     weight: 字体粗细
     line_height: 行高
     letter_spacing: 字间距
-  title_threes: &23
+  title_threes: &22
     label: 三级标题
     tag: 标签
     align: 对齐
@@ -153,7 +153,7 @@ mysetting:
     weight: 粗细
     line_height: 行高
     letter_spacing: 字间距
-  tags: &24
+  tags: &23
     h1:
       info: h1
       value: '1'
@@ -178,7 +178,7 @@ mysetting:
     small:
       info: small
       value: '8'
-  aligns: &25
+  aligns: &24
     left:
       info: text-left
       value: '0'
@@ -191,7 +191,7 @@ mysetting:
     justify:
       info: text-justify
       value: '3'
-  colors: &26
+  colors: &25
     primary:
       info: text-primary
       value: '0'
@@ -225,7 +225,7 @@ mysetting:
     white:
       info: text-white
       value: '10'
-  bgs: &27
+  bgs: &26
     default:
       info: ''
       value: ''
@@ -262,7 +262,7 @@ mysetting:
     transparent:
       info: bg-transparent
       value: '10'
-  weights: &28
+  weights: &27
     default:
       info: ''
       value: ''
@@ -281,7 +281,7 @@ mysetting:
     lighter:
       info: font-weight-lighter
       value: '4'
-  fonts: &29
+  fonts: &28
     default:
       info: ''
       value: ''
@@ -294,7 +294,7 @@ mysetting:
     title_two_font_30:
       info: title-two-font-30
       value: '2'
-  line_heights: &30
+  line_heights: &29
     default:
       info: ''
       value: ''
@@ -304,14 +304,14 @@ mysetting:
     height_36:
       info: line-height-36px
       value: '36'
-  letter_spacings: &31
+  letter_spacings: &30
     default:
       info: ''
       value: ''
     spacing_5:
       info: '5'
       value: '5'
-  block_layouts: &32
+  block_layouts: &31
     one_column:
       info: 一列
       value: '1'
@@ -327,7 +327,7 @@ mysetting:
     six_column:
       info: 六列
       value: '6'
-  contacts: &33
+  contacts: &32
     label: 联系方式
     phone: 电话
     wechat: 微信
@@ -335,7 +335,7 @@ mysetting:
     email: 邮箱
     qq: QQ
     introduce: 公司简介
-  icon_libraries: &34
+  icon_libraries: &33
     label: 图标库
     category: 分类
     scene: 场景
@@ -344,7 +344,7 @@ mysetting:
     tag: 标签
     line_type: 0
     area_type: 1
-  icon_category: &35
+  icon_category: &34
     international: 国际
     sports: 体育
     entertainment: 娱乐
@@ -371,7 +371,7 @@ mysetting:
     history: 历史
     music: 音乐
     synthesis: 综合
-  website_styles: &36
+  website_styles: &35
     pure:
       info: 清新
       value: '1'
@@ -381,14 +381,14 @@ mysetting:
     flat:
       info: 扁平
       value: '2'
-  color_styles: &37
+  color_styles: &36
     pure:
       info: 纯色
       value: '1'
     gradient:
       info: 渐变
       value: '0'
-  website_colors: &38
+  website_colors: &37
     red:
       info: 红色
       value: '0'
@@ -410,7 +410,7 @@ mysetting:
     purple:
       info: 紫色
       value: '6'
-  subunits: &39
+  subunits: &38
     label: 组件
     html: Html
     css: Css
@@ -420,14 +420,14 @@ mysetting:
     type: 类型
     min_length: 文本最小长度
     max_length: 文本最大长度
-  subunit_icon_types: &40
+  subunit_icon_types: &39
     icon_type:
       info: 图标
       value: '0'
     image_type:
       info: 图片
       value: '1'
-  subunit_types: &41
+  subunit_types: &40
     navbar:
       info: 导航条
       value: '0'
@@ -440,13 +440,13 @@ mysetting:
     footer:
       info: 页脚
       value: '3'
-  color_libraries: &42
+  color_libraries: &41
     label: 颜色库
     category: 分类
     style: 风格
     color_value: 颜色值
     tag: 标签
-  image_libraries: &43
+  image_libraries: &42
     label: 图片库
     category: 分类
     style: 风格
@@ -454,7 +454,7 @@ mysetting:
     width: 宽度
     height: 高度
     tag: 标签
-  documents: &44
+  documents: &43
     label: 历史版本
     title: 版本
     erb_link: 模板地址
@@ -464,7 +464,7 @@ mysetting:
     status_process: 10
     status_success: 101
     status_fail: 70
-  articles: &45
+  articles: &44
     label: 文章
     lang: 语言
     title: 文章名
@@ -472,12 +472,12 @@ mysetting:
     address: 地址
     vol: 大小
     desc: 简要描述
-  article_contents: &46
+  article_contents: &45
     label: 文章内容
     title: 标题
     desc: 描述
     tag: 标签
-  ocrs: &47
+  ocrs: &46
     label: 文字识别
     general: 0
     form: 1
@@ -495,16 +495,16 @@ mysetting:
     number_title: 数字
     stamp_title: 印章
     finance_title: 财会
-  guests: &48
+  guests: &47
     label: 来宾
     name: 姓名
-  nests: &49
+  nests: &48
     label: 嵌套显示
     name: 名称
-  leaders: &50
+  leaders: &49
     label: 领导
     name: 名称
-  labours: &51
+  labours: &50
     label: 施工单位
     company: 单位全称名称
     cert: 统一社会信用代码
@@ -515,35 +515,35 @@ mysetting:
     city: 市
     county: 县
     habitation: 法定代表人身份地址
-  supervisors: &52
+  supervisors: &51
     label: 监理单位
-  prospectors: &53
+  prospectors: &52
     label: 地勘单位
-  designers: &54
+  designers: &53
     label: 设计单位
-  monitors: &55
+  monitors: &54
     label: 监督单位
-  agentors: &56
+  agentors: &55
     label: 代建单位
-  domains: &57
+  domains: &56
     label: 总承包
     name: 名称
     level_one: 壹级
     level_two: 贰级
     level_three: 叁级
-  majors: &58
+  majors: &57
     label: 专业承包
     name: 名称
     level_one: 壹级
     level_two: 贰级
     level_three: 叁级
-  user_domains: &59
+  user_domains: &58
     label: 用户总包
     level: 等级
-  user_majors: &60
+  user_majors: &59
     label: 用户专业承包
     level: 等级
-  constructors: &61
+  constructors: &60
     label: 建设单位
     company: 单位全称名称
     cert: 统一社会信用代码
@@ -554,16 +554,16 @@ mysetting:
     city: 市
     county: 区
     habitation: 法定代表人身份地址
-  table_templates: &62
+  table_templates: &61
     label: 质量规范验收表格
     category: 分类
     number: 编号
     name: 名称
     info: 说明
-  table_pages: &63
+  table_pages: &62
     label: 表格页
     content: 内容
-  projects: &64
+  projects: &63
     label: 工程项目
     name: 工程项目名称
     itemname: 分项名称，分项工程名称
@@ -628,36 +628,36 @@ mysetting:
     geo_prospect: 地勘单位
     prj_manager: 项目负责人
     status: 状态
-  project_tables: &65
+  project_tables: &64
     label: 质量规范验收表格
     category: 分类
     number: 编号
     name: 名称
     info: 说明
-  project_pages: &66
+  project_pages: &65
     label: 表格页
     content: 内容
-  labour_handles: &67
+  labour_handles: &66
     label: 项目经理
     name: 姓名
     phone: 手机
     idno: 身份证号
-  labour_teches: &68
+  labour_teches: &67
     label: 技术负责人
     name: 姓名
     phone: 手机
     idno: 身份证号
-  labour_lines: &69
+  labour_lines: &68
     label: 技术负责人
     name: 姓名
     phone: 手机
     idno: 身份证号
-  labour_workers: &70
+  labour_workers: &69
     label: 技术工人
     name: 姓名
     phone: 手机
     idno: 身份证号
-  handle_certs: &71
+  handle_certs: &70
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
@@ -669,7 +669,7 @@ mysetting:
     level_b: B
     level_c: C
     level_none: 无
-  tech_certs: &72
+  tech_certs: &71
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
@@ -681,7 +681,7 @@ mysetting:
     level_b: 中级
     level_c: 高级
     level_none: 无
-  line_certs: &73
+  line_certs: &72
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
@@ -693,7 +693,7 @@ mysetting:
     level_b: 中级
     level_c: 高级
     level_none: 无
-  worker_certs: &74
+  worker_certs: &73
     label: 证书
     reg_no: 注册证书编号
     cert_no: 证书编号
@@ -705,11 +705,11 @@ mysetting:
     level_b: 中级
     level_c: 高级
     level_none: 无
-  handle_arcts: &75
+  handle_arcts: &74
     label: 项目经理注册专业关联表
     handle_cert_id: 项目经理外键
     arct_ctg_id: 注册建造师类别外键
-  arct_ctgs: &76
+  arct_ctgs: &75
     label: 全国注册建造师注册专业
     name: 名称
     level: 等级
@@ -717,7 +717,7 @@ mysetting:
     level_two: 贰级
     level_three: 叁级
     level_none: 无
-  skill_ctgs: &77
+  skill_ctgs: &76
     label: 全国注册建造师注册专业
     name: 名称
     level: 等级
@@ -725,13 +725,13 @@ mysetting:
     level_two: 中级
     level_three: 高级
     level_none: 无
-  prf_ctgs: &78
+  prf_ctgs: &77
     label: 住房城乡建设领域现场专业人员
     name: 名称
     level: 等级
     level_one: 土建
     level_two: 设备
-  hdct_ctgs: &79
+  hdct_ctgs: &78
     label: 专业技术等级
     name: 名称
     level: 等级
@@ -739,7 +739,7 @@ mysetting:
     level_two: 中级
     level_three: 高级
     level_none: 无
-  cert_ctgs: &80
+  cert_ctgs: &79
     label: 证书类目
     category: 证书类别
     name: 分类名称
@@ -750,110 +750,110 @@ mysetting:
     supervisor_state: 全国注册监理工程师
     supervisor_target: 专业注册监理工程师
     designer_post: 设计单位工程师
-  number_levels: &81
+  number_levels: &80
     level_one: 壹级
     level_two: 贰级
     level_three: 叁级
     level_none: 无
-  desc_levels: &82
+  desc_levels: &81
     level_one: 初级
     level_two: 中级
     level_three: 高级
     level_none: 无
-  flags: &83
+  flags: &82
     labour_handle: labour_handle
     labour_line: labour_line
     labour_tech: labour_tech
     labour_worker: labour_worker
-  constructor_handles: &84
+  constructor_handles: &83
     label: 建设单位员工
     name: 姓名
     idno: 身份证
     cpt_job: 单位职位
     prj_job: 项目职务
-  prospector_handles: &85
+  prospector_handles: &84
     label: 地勘单位员工
     name: 姓名
     idno: 身份证号
     cpt_job: 单位职务
     prj_job: 项目职务
-  monitor_handles: &86
+  monitor_handles: &85
     label: 监督单位员工
     name: 姓名
     idno: 身份证号
     cpt_job: 单位职务
     prj_job: 项目职务
-  agentor_handles: &87
+  agentor_handles: &86
     label: 代建单位员工
     name: 姓名
     phone: 电话
     idno: 身份证
     cpt_job: 单位职务
     prj_job: 项目职务
-  supervisor_states: &88
+  supervisor_states: &87
     label: 全国注册监理工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 识别号
-  supervisor_targets: &89
+  supervisor_targets: &88
     label: 专业注册监理工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  supervisor_workers: &90
+  supervisor_workers: &89
     label: 从业监理人员
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_structures: &91
+  designer_structures: &90
     label: 注册结构工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_constructors: &92
+  designer_constructors: &91
     label: 注册建筑工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_waters: &93
+  designer_waters: &92
     label: 注册给排水工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_electrics: &94
+  designer_electrics: &93
     label: 注册电气工程师
     name: 名字
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_warms: &95
+  designer_warms: &94
     label: 注册暖通工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_posts: &96
+  designer_posts: &95
     label: 职称工程师
     name: 姓名
     phone: 电话
     idno: 身份证号码
     status: 状态
     idnumber: 标识符
-  designer_constructor_certs: &97
+  designer_constructor_certs: &96
     label: 注册建筑工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -863,7 +863,7 @@ mysetting:
     status: 状态
     idnumber: 标识符
     dep: 发证单位
-  designer_structure_certs: &98
+  designer_structure_certs: &97
     label: 注册结构工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -872,7 +872,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  designer_water_certs: &99
+  designer_water_certs: &98
     label: 注册给排水工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -881,7 +881,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  designer_electric_certs: &100
+  designer_electric_certs: &99
     label: 注册电气工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -890,7 +890,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  designer_warm_certs: &101
+  designer_warm_certs: &100
     label: 注册暖通工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -899,7 +899,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  supervisor_state_certs: &102
+  supervisor_state_certs: &101
     label: 全国注册监理工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -908,7 +908,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  supervisor_target_certs: &103
+  supervisor_target_certs: &102
     label: 专业注册监理工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -917,7 +917,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  supervisor_worker_certs: &104
+  supervisor_worker_certs: &103
     label: 从业监理人员
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -926,7 +926,7 @@ mysetting:
     level: 等级
     status: 状态
     idnumber: 标识符
-  designer_post_certs: &105
+  designer_post_certs: &104
     label: 职称工程师
     reg_no: 注册证书编号
     start: 初始注册时间
@@ -936,7 +936,7 @@ mysetting:
     level: 职称等级
     status: 状态
     idnumber: 标识符
-  project_groups: &106
+  project_groups: &105
     label: 项目组
     name: 名称
     status: 状态
@@ -946,12 +946,12 @@ mysetting:
     status_join: 已加入
     status_reject: 已拒绝
 defaults:
-  admins: &107
+  admins: &106
     class_name: all
     email: mytea@world.com
     phone: '15859859888'
     password: myteaworld
-  users: &108
+  users: &107
     class_name: User
     opening: 0
     pending: 1
@@ -970,7 +970,7 @@ defaults:
     status: 认证状态
     level: 等级
     inviter: 邀请者
-  roles: &109
+  roles: &108
     label: 角色
     name: 名称
     class_name: Role
@@ -999,13 +999,13 @@ defaults:
     prospector_handle: 地勘单位员工
     monitor: 监督单位
     monitor_handle: 监督单位员工
-  permissions: &110
+  permissions: &109
     super_admin: 管理系统所有资源
-  citrines: &111
+  citrines: &110
     exchange_max: 300
     count: 可用茶晶
     total: 茶晶总数
-  awards: &112
+  awards: &111
     ten_citrine: 10
     one_citrine: 1
   wares:
@@ -1020,10 +1020,10 @@ defaults:
     up_title: 上架
     down: 0
     down_title: 下架
-  trees: &113
+  trees: &112
     name: 名字
     count: 茶树数量
-  leafs: &114
+  leafs: &113
     produce_max: 12
     pick: 已采摘
     unpick: 未采摘
@@ -1031,10 +1031,10 @@ defaults:
     pick_time: 采摘时间
     disable: 0
     enable: 1
-  notices: &130
+  notices: &129
     title: 标题
     content: 内容
-  orders: &115
+  orders: &114
     category_none: none
     category_recharge: 账户充值
     paid: paid
@@ -1047,7 +1047,7 @@ defaults:
     state_trade_created_string: 已创建
     state_trade_success_string: 支付成功
     state_trade_failed_string: 支付失败
-  accounts: &116
+  accounts: &115
     coin: 金额
     password: 安全密码
     number: 卡号
@@ -1058,7 +1058,7 @@ defaults:
     award_invite_recharge: 40
     enable: enable
     disable: disable
-  consumes: &117
+  consumes: &116
     number: 消费编号
     category: 项目
     coin_cost: 消费
@@ -1079,17 +1079,17 @@ defaults:
     status_success: success
     status_failed: failed
     status_exception: exception
-  demands: &118
+  demands: &117
     price: 单价
     count: 数量
     enable: enable
     disable: disable
-  sells: &119
+  sells: &118
     price: 单价
     count: 数量
     enable: enable
     disable: disable
-  systems: &120
+  systems: &119
     poundage: 0.1
     commision: 0.1
     authc_pay: 1
@@ -1116,7 +1116,7 @@ defaults:
     btn_show: 详情
     btn_delete: 删除
     btn_save: 保存
-    company_name: 梁山水务办公辅助系统
+    company_name: 梁山水务轻松办公系统
     nav_item1: 首页
     nav_item2: 招标公告
     nav_item3: 中标公告
@@ -1126,7 +1126,7 @@ defaults:
     pending: 待审核
     rejected: 不通过
     passed: 通过
-  trade_orders: &121
+  trade_orders: &120
     number: 订单编号
     price: 价格
     state: 状态
@@ -1146,7 +1146,7 @@ defaults:
     completed_title: 已完成
     canceled: canceled
     canceled_title: 已取消
-  extract_cashes: &122
+  extract_cashes: &121
     coin: 提取金额
     status: 状态
     pending: pending
@@ -1155,7 +1155,7 @@ defaults:
     agree_title: 同意
     disagree: disagree
     disagree_title: 不同意
-  share_pools: &123
+  share_pools: &122
     today_enter: 今日入账
     total: 月分红池总额度
     user_total: 昨日分红池总额
@@ -1165,9 +1165,9 @@ defaults:
     diamond: 昨日钻石茶主平均分红
     current_total: 分红池当月总额
     own_tea: 持茶/片所得
-  pick_records: &124
+  pick_records: &123
     number: 数量
-  trades: &125
+  trades: &124
     min: 交易最低价
     max: 交易最高价
     total_purchase: 今日总求购
@@ -1177,17 +1177,17 @@ defaults:
     end: 交易结束时间
     start_default: '09:00'
     end_default: '16:00'
-  levels: &126
+  levels: &125
     bronze: 青铜茶主
     silver: 白银茶主
     gold: 黄金茶主
     platinum: 铂金茶主
     diamond: 钻石茶主
-  teams: &127
+  teams: &126
     children: 我的直推
-  tea_prices: &128
+  tea_prices: &127
     price: 今日茶叶价
-  meter_reads: &129
+  meter_reads: &128
     label: 抄收绩效考核
     std_sm_wm: 小表标准 (元/块)
     std_big_wm: 大表标准 (元/块)
@@ -1220,126 +1220,132 @@ development:
   templates: *7
   natures: *8
   birds: *9
-  statistics: *10
-  spiders: *11
-  selectors: *12
-  websites: *13
-  navbars: *14
-  pages: *15
-  blocks: *16
-  layouts: *17
-  block_contents: *18
-  carousels: *19
-  formats: *20
-  title_ones: *21
-  title_twos: *22
-  title_threes: *23
-  tags: *24
-  aligns: *25
-  colors: *26
-  bgs: *27
-  weights: *28
-  fonts: *29
-  line_heights: *30
-  letter_spacings: *31
-  block_layouts: *32
-  contacts: *33
-  icon_libraries: *34
-  icon_category: *35
-  website_styles: *36
-  color_styles: *37
-  website_colors: *38
-  subunits: *39
-  subunit_icon_types: *40
-  subunit_types: *41
-  color_libraries: *42
-  image_libraries: *43
-  documents: *44
-  articles: *45
-  article_contents: *46
-  ocrs: *47
-  guests: *48
-  nests: *49
-  leaders: *50
-  labours: *51
-  supervisors: *52
-  prospectors: *53
-  designers: *54
-  monitors: *55
-  agentors: *56
-  domains: *57
-  majors: *58
-  user_domains: *59
-  user_majors: *60
-  constructors: *61
-  table_templates: *62
-  table_pages: *63
-  projects: *64
-  project_tables: *65
-  project_pages: *66
-  labour_handles: *67
-  labour_teches: *68
-  labour_lines: *69
-  labour_workers: *70
-  handle_certs: *71
-  tech_certs: *72
-  line_certs: *73
-  worker_certs: *74
-  handle_arcts: *75
-  arct_ctgs: *76
-  skill_ctgs: *77
-  prf_ctgs: *78
-  hdct_ctgs: *79
-  cert_ctgs: *80
-  number_levels: *81
-  desc_levels: *82
-  flags: *83
-  constructor_handles: *84
-  prospector_handles: *85
-  monitor_handles: *86
-  agentor_handles: *87
-  supervisor_states: *88
-  supervisor_targets: *89
-  supervisor_workers: *90
-  designer_structures: *91
-  designer_constructors: *92
-  designer_waters: *93
-  designer_electrics: *94
-  designer_warms: *95
-  designer_posts: *96
-  designer_constructor_certs: *97
-  designer_structure_certs: *98
-  designer_water_certs: *99
-  designer_electric_certs: *100
-  designer_warm_certs: *101
-  supervisor_state_certs: *102
-  supervisor_target_certs: *103
-  supervisor_worker_certs: *104
-  designer_post_certs: *105
-  project_groups: *106
-  admins: *107
-  users: *108
-  roles: *109
-  permissions: *110
-  citrines: *111
-  awards: *112
-  trees: *113
-  leafs: *114
-  orders: *115
-  accounts: *116
-  consumes: *117
-  demands: *118
-  sells: *119
-  systems: *120
-  trade_orders: *121
-  extract_cashes: *122
-  share_pools: *123
-  pick_records: *124
-  trades: *125
-  levels: *126
-  teams: *127
-  tea_prices: *128
-  meter_reads: *129
+  statistics:
+    label: 统计
+    title: 标题
+    xtitle: x轴标题
+    ytitle: y轴标题
+    legend: 图例
+    data: 数据
+  spiders: *10
+  selectors: *11
+  websites: *12
+  navbars: *13
+  pages: *14
+  blocks: *15
+  layouts: *16
+  block_contents: *17
+  carousels: *18
+  formats: *19
+  title_ones: *20
+  title_twos: *21
+  title_threes: *22
+  tags: *23
+  aligns: *24
+  colors: *25
+  bgs: *26
+  weights: *27
+  fonts: *28
+  line_heights: *29
+  letter_spacings: *30
+  block_layouts: *31
+  contacts: *32
+  icon_libraries: *33
+  icon_category: *34
+  website_styles: *35
+  color_styles: *36
+  website_colors: *37
+  subunits: *38
+  subunit_icon_types: *39
+  subunit_types: *40
+  color_libraries: *41
+  image_libraries: *42
+  documents: *43
+  articles: *44
+  article_contents: *45
+  ocrs: *46
+  guests: *47
+  nests: *48
+  leaders: *49
+  labours: *50
+  supervisors: *51
+  prospectors: *52
+  designers: *53
+  monitors: *54
+  agentors: *55
+  domains: *56
+  majors: *57
+  user_domains: *58
+  user_majors: *59
+  constructors: *60
+  table_templates: *61
+  table_pages: *62
+  projects: *63
+  project_tables: *64
+  project_pages: *65
+  labour_handles: *66
+  labour_teches: *67
+  labour_lines: *68
+  labour_workers: *69
+  handle_certs: *70
+  tech_certs: *71
+  line_certs: *72
+  worker_certs: *73
+  handle_arcts: *74
+  arct_ctgs: *75
+  skill_ctgs: *76
+  prf_ctgs: *77
+  hdct_ctgs: *78
+  cert_ctgs: *79
+  number_levels: *80
+  desc_levels: *81
+  flags: *82
+  constructor_handles: *83
+  prospector_handles: *84
+  monitor_handles: *85
+  agentor_handles: *86
+  supervisor_states: *87
+  supervisor_targets: *88
+  supervisor_workers: *89
+  designer_structures: *90
+  designer_constructors: *91
+  designer_waters: *92
+  designer_electrics: *93
+  designer_warms: *94
+  designer_posts: *95
+  designer_constructor_certs: *96
+  designer_structure_certs: *97
+  designer_water_certs: *98
+  designer_electric_certs: *99
+  designer_warm_certs: *100
+  supervisor_state_certs: *101
+  supervisor_target_certs: *102
+  supervisor_worker_certs: *103
+  designer_post_certs: *104
+  project_groups: *105
+  admins: *106
+  users: *107
+  roles: *108
+  permissions: *109
+  citrines: *110
+  awards: *111
+  trees: *112
+  leafs: *113
+  orders: *114
+  accounts: *115
+  consumes: *116
+  demands: *117
+  sells: *118
+  systems: *119
+  trade_orders: *120
+  extract_cashes: *121
+  share_pools: *122
+  pick_records: *123
+  trades: *124
+  levels: *125
+  teams: *126
+  tea_prices: *127
+  meter_reads: *128
   products:
     label: 产品
     name: 名称
@@ -1382,34 +1388,34 @@ development:
     legend: 图例
     data: 数据
 test:
-  admins: *107
-  users: *108
-  roles: *109
-  permissions: *110
-  citrines: *111
-  awards: *112
-  wares: *129
-  trees: *113
-  leafs: *114
-  notices: *130
-  orders: *115
-  accounts: *116
-  consumes: *117
-  demands: *118
-  sells: *119
-  systems: *120
-  trade_orders: *121
-  extract_cashes: *122
-  share_pools: *123
-  pick_records: *124
-  trades: *125
-  levels: *126
-  teams: *127
-  tea_prices: *128
-  meter_reads: *129
+  admins: *106
+  users: *107
+  roles: *108
+  permissions: *109
+  citrines: *110
+  awards: *111
+  wares: *128
+  trees: *112
+  leafs: *113
+  notices: *129
+  orders: *114
+  accounts: *115
+  consumes: *116
+  demands: *117
+  sells: *118
+  systems: *119
+  trade_orders: *120
+  extract_cashes: *121
+  share_pools: *122
+  pick_records: *123
+  trades: *124
+  levels: *125
+  teams: *126
+  tea_prices: *127
+  meter_reads: *128
 production:
-  wares: *129
-  notices: *130
+  wares: *128
+  notices: *129
   reports: *3
   models: *4
   properties: *5
@@ -1417,123 +1423,123 @@ production:
   templates: *7
   natures: *8
   birds: *9
-  statistics: *10
-  spiders: *11
-  selectors: *12
-  websites: *13
-  navbars: *14
-  pages: *15
-  blocks: *16
-  layouts: *17
-  block_contents: *18
-  carousels: *19
-  formats: *20
-  title_ones: *21
-  title_twos: *22
-  title_threes: *23
-  tags: *24
-  aligns: *25
-  colors: *26
-  bgs: *27
-  weights: *28
-  fonts: *29
-  line_heights: *30
-  letter_spacings: *31
-  block_layouts: *32
-  contacts: *33
-  icon_libraries: *34
-  icon_category: *35
-  website_styles: *36
-  color_styles: *37
-  website_colors: *38
-  subunits: *39
-  subunit_icon_types: *40
-  subunit_types: *41
-  color_libraries: *42
-  image_libraries: *43
-  documents: *44
-  articles: *45
-  article_contents: *46
-  ocrs: *47
-  guests: *48
-  nests: *49
-  leaders: *50
-  labours: *51
-  supervisors: *52
-  prospectors: *53
-  designers: *54
-  monitors: *55
-  agentors: *56
-  domains: *57
-  majors: *58
-  user_domains: *59
-  user_majors: *60
-  constructors: *61
-  table_templates: *62
-  table_pages: *63
-  projects: *64
-  project_tables: *65
-  project_pages: *66
-  labour_handles: *67
-  labour_teches: *68
-  labour_lines: *69
-  labour_workers: *70
-  handle_certs: *71
-  tech_certs: *72
-  line_certs: *73
-  worker_certs: *74
-  handle_arcts: *75
-  arct_ctgs: *76
-  skill_ctgs: *77
-  prf_ctgs: *78
-  hdct_ctgs: *79
-  cert_ctgs: *80
-  number_levels: *81
-  desc_levels: *82
-  flags: *83
-  constructor_handles: *84
-  prospector_handles: *85
-  monitor_handles: *86
-  agentor_handles: *87
-  supervisor_states: *88
-  supervisor_targets: *89
-  supervisor_workers: *90
-  designer_structures: *91
-  designer_constructors: *92
-  designer_waters: *93
-  designer_electrics: *94
-  designer_warms: *95
-  designer_posts: *96
-  designer_constructor_certs: *97
-  designer_structure_certs: *98
-  designer_water_certs: *99
-  designer_electric_certs: *100
-  designer_warm_certs: *101
-  supervisor_state_certs: *102
-  supervisor_target_certs: *103
-  supervisor_worker_certs: *104
-  designer_post_certs: *105
-  project_groups: *106
-  admins: *107
-  users: *108
-  roles: *109
-  permissions: *110
-  citrines: *111
-  awards: *112
-  trees: *113
-  leafs: *114
-  orders: *115
-  accounts: *116
-  consumes: *117
-  demands: *118
-  sells: *119
-  systems: *120
-  trade_orders: *121
-  extract_cashes: *122
-  share_pools: *123
-  pick_records: *124
-  trades: *125
-  levels: *126
-  teams: *127
-  tea_prices: *128
-  meter_reads: *129
+  statistics: *130
+  spiders: *10
+  selectors: *11
+  websites: *12
+  navbars: *13
+  pages: *14
+  blocks: *15
+  layouts: *16
+  block_contents: *17
+  carousels: *18
+  formats: *19
+  title_ones: *20
+  title_twos: *21
+  title_threes: *22
+  tags: *23
+  aligns: *24
+  colors: *25
+  bgs: *26
+  weights: *27
+  fonts: *28
+  line_heights: *29
+  letter_spacings: *30
+  block_layouts: *31
+  contacts: *32
+  icon_libraries: *33
+  icon_category: *34
+  website_styles: *35
+  color_styles: *36
+  website_colors: *37
+  subunits: *38
+  subunit_icon_types: *39
+  subunit_types: *40
+  color_libraries: *41
+  image_libraries: *42
+  documents: *43
+  articles: *44
+  article_contents: *45
+  ocrs: *46
+  guests: *47
+  nests: *48
+  leaders: *49
+  labours: *50
+  supervisors: *51
+  prospectors: *52
+  designers: *53
+  monitors: *54
+  agentors: *55
+  domains: *56
+  majors: *57
+  user_domains: *58
+  user_majors: *59
+  constructors: *60
+  table_templates: *61
+  table_pages: *62
+  projects: *63
+  project_tables: *64
+  project_pages: *65
+  labour_handles: *66
+  labour_teches: *67
+  labour_lines: *68
+  labour_workers: *69
+  handle_certs: *70
+  tech_certs: *71
+  line_certs: *72
+  worker_certs: *73
+  handle_arcts: *74
+  arct_ctgs: *75
+  skill_ctgs: *76
+  prf_ctgs: *77
+  hdct_ctgs: *78
+  cert_ctgs: *79
+  number_levels: *80
+  desc_levels: *81
+  flags: *82
+  constructor_handles: *83
+  prospector_handles: *84
+  monitor_handles: *85
+  agentor_handles: *86
+  supervisor_states: *87
+  supervisor_targets: *88
+  supervisor_workers: *89
+  designer_structures: *90
+  designer_constructors: *91
+  designer_waters: *92
+  designer_electrics: *93
+  designer_warms: *94
+  designer_posts: *95
+  designer_constructor_certs: *96
+  designer_structure_certs: *97
+  designer_water_certs: *98
+  designer_electric_certs: *99
+  designer_warm_certs: *100
+  supervisor_state_certs: *101
+  supervisor_target_certs: *102
+  supervisor_worker_certs: *103
+  designer_post_certs: *104
+  project_groups: *105
+  admins: *106
+  users: *107
+  roles: *108
+  permissions: *109
+  citrines: *110
+  awards: *111
+  trees: *112
+  leafs: *113
+  orders: *114
+  accounts: *115
+  consumes: *116
+  demands: *117
+  sells: *118
+  systems: *119
+  trade_orders: *120
+  extract_cashes: *121
+  share_pools: *122
+  pick_records: *123
+  trades: *124
+  levels: *125
+  teams: *126
+  tea_prices: *127
+  meter_reads: *128

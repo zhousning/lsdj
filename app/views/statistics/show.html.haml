@@ -1,0 +1,101 @@
+- provide(:title, t('.title'))
+
+-#
+  - content_for :main_body do
+    .container-fluid.p-0
+      .row
+        .col-md-8.offset-2
+          .card-body
+            .container-fluid
+              .row
+              
+                .col-md-12
+                  = Setting.statistics.title
+                  = @statistic.title
+              
+                .col-md-12
+                  = Setting.statistics.xtitle
+                  = @statistic.xtitle
+              
+                .col-md-12
+                  = Setting.statistics.ytitle
+                  = @statistic.ytitle
+              
+                .col-md-12
+                  = Setting.statistics.legend
+                  = @statistic.legend
+              
+                .col-md-12
+                  = Setting.statistics.data
+                  = @statistic.data
+            
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.pt-3{:role => "main"}
+      .row
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "line-chart", text: @line_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = line_chart line_statistic_path(@statistic), label: @line_title[:label],  title: @line_title[:title], xtitle: @line_title[:xtitle], ytitle: @line_title[:ytitle], download: {background: "#ffffff"}, colors: @line_title[:colors], dataLabels: { "enabled": true}
+                    -#
+                      = line_chart line_statistic_path(@statistic),  label: @line_title[:label],  title: @line_title[:title], xtitle: @line_title[:xtitle], ytitle: @line_title[:ytitle], download: {background: "#ffffff"}, colors: @line_title[:colors]
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "area-chart", text: @area_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = area_chart area_statistic_path(@statistic),  label: @area_title[:label],  title: @area_title[:title], xtitle: @area_title[:xtitle], ytitle: @area_title[:ytitle], download: {background: "#ffffff"}, colors:  @area_title[:colors]
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "bar-chart", text: @column_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = column_chart column_statistic_path(@statistic),  label: @column_title[:label],  title: @column_title[:title], xtitle: @column_title[:xtitle], ytitle: @column_title[:ytitle], download: {background: "#ffffff"}, colors: @column_title[:colors]
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "bar-chart-o", text: @bar_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = bar_chart bar_statistic_path(@statistic),  label: @bar_title[:label],  title: @bar_title[:title], xtitle: @bar_title[:xtitle], ytitle: @bar_title[:ytitle], download: {background: "#ffffff"}, colors: @bar_title[:colors]
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "pie-chart", text: @pie_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = pie_chart pie_statistic_path(@statistic),  label: @pie_title[:label],  title: @pie_title[:title], xtitle: @pie_title[:xtitle], ytitle: @pie_title[:ytitle], download: {background: "#ffffff"}
+      -#
+        .col-6
+          .card.shadow.rounded-0.mb-3
+            .card-header.bg-white.border-bottom-0.text-muted.rounded-0
+              = fa_icon "circle", text: @scatter_title[:title]
+            .card-body
+              .container-fluid.p-0
+                .row
+                  .col-md-12
+                    = scatter_chart scatter_statistic_path(@statistic),  label: @scatter_title[:label],  title: @scatter_title[:title], xtitle: @scatter_title[:xtitle], ytitle: @scatter_title[:ytitle], download: {background: "#ffffff"}, colors: @scatter_title[:colors]
+        .card.shadow.rounded-0.mb-3
+          .card-header.bg-primary.text-muted.rounded-0
+            = fa_icon "line-chart", text: "多序列" 
+          .card-body
+            .container-fluid.p-0
+              .row
+                .col-md-12
+                  = line_chart series_statistic_path(@statistic) 
