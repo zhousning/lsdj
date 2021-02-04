@@ -60,6 +60,8 @@ class CreateMeterReads < ActiveRecord::Migration
 
       t.float :rcy_mny,  null: false, default: Setting.systems.default_num 
 
+      t.references :user
+
       t.timestamps null: false
     end
   end

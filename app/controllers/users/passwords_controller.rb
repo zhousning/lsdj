@@ -6,17 +6,20 @@ class Users::PasswordsController < Devise::PasswordsController
   end
 
   def update_password
-    code = params[:confirm_code]
-    @user = User.find_by_phone(user_params[:phone]) 
+    #code = params[:confirm_code]
+    users = User.where(:phone => user_params[:phone], :identity => user_params[:identity]) 
+    @user = users.first
     #if @user && code == cookies[:reg_code]
     if @user
       if @user.update(user_params)
         bypass_sign_in(@user)
         redirect_to root_path
       else
+        flash[:error] = "密码更新失败" 
         render :forget
       end
     else
+      flash[:error] = "用户不存在" 
       redirect_to forget_path
     end
   end
@@ -24,7 +27,7 @@ class Users::PasswordsController < Devise::PasswordsController
   private
 
     def user_params
-      params.require(:user).permit(:phone, :password, :password_confirmation)
+      params.require(:user).permit(:phone, :identity, :password, :password_confirmation)
     end
   # GET /resource/password/new
   # def new

@@ -13,6 +13,8 @@ zh-CN:
       site_title: "工作管理系统"
     application_home:
       site_title: "工作管理系统"
+    application_no_header:
+      site_title: "工作管理系统"
 
   home:
     index:
@@ -213,6 +215,12 @@ zh-CN:
   statistics:
     index:
       title: 数据统计
+    new:
+      title: 新建数据
+    edit:
+      title: 编辑数据
+    show:
+      title: 图表
   constructors:
     edit:
       title: 建设单位信息
@@ -595,6 +603,8 @@ zh-CN:
       title: 编辑方案
     show:
       title: 方案详情
+    drct_org:
+      title: 组织目录 
   portfolios:
     index:
       title: 子文件夹 

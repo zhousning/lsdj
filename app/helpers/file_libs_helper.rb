@@ -1,7 +1,7 @@
 module FileLibsHelper
   def file_icon(type) 
     icons = {
-      Setting.file_libs.doc => "office/doc.svg",
+      Setting.file_libs.doc => "office/word.svg",
       Setting.file_libs.xls => "office/excel.svg",
       Setting.file_libs.pdf => "office/pdf.svg",
       Setting.file_libs.img => "office/image.svg",

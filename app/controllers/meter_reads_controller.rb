@@ -3,8 +3,8 @@ require 'json'
 
 class MeterReadsController < ApplicationController
   layout "application_control"
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  before_action :authenticate_user!
+  #load_and_authorize_resource
   
 
   def meter_xls_download
@@ -58,17 +58,19 @@ class MeterReadsController < ApplicationController
           params[:wtr_count] = v.nil? ? 0 : v 
         end
       end
-      MeterRead.create!(calculate_format(params))
+      @meter_read = MeterRead.new(calculate_format(params))
+      @meter_read.user = current_user
+      @meter_read.save!
     end
     redirect_to :action => :index
   end 
 
   def index
-    @meter_reads = MeterRead.all
+    @meter_reads = current_user.meter_reads
   end
    
   def show
-    @meter_read = MeterRead.find(params[:id])
+    @meter_read = current_user.meter_reads.find(params[:id])
   end
    
   def new
@@ -78,6 +80,7 @@ class MeterReadsController < ApplicationController
    
   def create 
     @meter_read = MeterRead.new(calculate_format(meter_read_params))
+    @meter_read.user = current_user
     if @meter_read.save
       redirect_to @meter_read
     else
@@ -86,11 +89,11 @@ class MeterReadsController < ApplicationController
   end
    
   def edit
-    @meter_read = MeterRead.find(params[:id])
+    @meter_read = current_user.meter_reads.find(params[:id])
   end
    
   def update
-    @meter_read = MeterRead.find(params[:id])
+    @meter_read = current_user.meter_reads.find(params[:id])
     if @meter_read.update(calculate_format(meter_read_params))
       redirect_to meter_read_path(@meter_read) 
     else
@@ -99,7 +102,7 @@ class MeterReadsController < ApplicationController
   end
    
   def destroy
-    @meter_read = MeterRead.find(params[:id])
+    @meter_read = current_user.meter_reads.find(params[:id])
     @meter_read.destroy
     redirect_to :action => :index
   end

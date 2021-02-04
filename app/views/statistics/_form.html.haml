@@ -47,8 +47,9 @@
         .form-group.row
           .col-3.offset-3
             = f.submit '保存', :class => "button button-action"
-          .col-3.offset-1
-            = link_to '返回', statistics_path, :class => "button button-caution"
+          -#
+            .col-3.offset-1
+              = link_to '返回', statistics_path, :class => "button button-caution"
     .col-sm-7
       %p
         = image_tag "graphiccase.png", :class => "w-100"

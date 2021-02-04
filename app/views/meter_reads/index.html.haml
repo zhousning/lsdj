@@ -82,11 +82,11 @@
           .form-group.row
             = label_tag "日期", nil, :class => "col-4 text-right col-form-label col-form-label"
             .col-8
-              = text_field_tag "date", nil, :class => "form-control"
+              = text_field_tag "date", nil, :class => "form-control", :required => true
           .form-group.row
             = label_tag "计件表", nil, :class => "col-4 text-right col-form-label col-form-label"
             .col-8
-              = file_field_tag "excel_file" 
+              = file_field_tag "excel_file", :required => true 
           .form-group.row
             .col-8
               = submit_tag '保存', :class => "btn btn-primary" 

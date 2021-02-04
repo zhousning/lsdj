@@ -1,22 +1,29 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   layout "application_no_header"
+  before_filter :configure_permitted_parameters
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:phone, :identity, :password, :password_confirmation])
+    #devise_parameter_sanitizer.permit(:update_account, :keys => [:phone, :identity, :password, :password_confirmation])
+  end
+
   #layout "application_mobile"
 # before_action :configure_account_update_params, only: [:update]
 
-  def create
-    super
-    #role = Role.find(params['company'])
-    #if role && role.name != Setting.roles.super_admin
-    #  super do |resource|
-    #    if resource.persisted?
-    #      resource.set_roles(params['company'])
-    #      resource.set_profile
-    #    end
-    #  end
-    #else
-    #  redirect_to new_user_registration_url
-    #end
-  end
+  #def create
+  #  #super
+  #  #role = Role.find(params['company'])
+  #  #if role && role.name != Setting.roles.super_admin
+  #  #  super do |resource|
+  #  #    if resource.persisted?
+  #  #      resource.set_roles(params['company'])
+  #  #      resource.set_profile
+  #  #    end
+  #  #  end
+  #  #else
+  #  #  redirect_to new_user_registration_url
+  #  #end
+  #end
   
   #def new
   #  super do|resource|
@@ -131,9 +138,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    root_url
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

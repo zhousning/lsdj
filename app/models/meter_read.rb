@@ -36,6 +36,7 @@
 
 class MeterRead < ActiveRecord::Base
 
+  belongs_to :user
 
 
 

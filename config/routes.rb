@@ -127,5 +127,5 @@ Rails.application.routes.draw do
   end
   resources :flower
 
-  root :to => 'home#index'
+  root :to => 'controls#index'
 end

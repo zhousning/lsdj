@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :examines
   has_many :agendas
   has_many :statistics
+  has_many :meter_reads
 
   belongs_to :role
 

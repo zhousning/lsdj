@@ -10,7 +10,7 @@ require 'find'
 
 class OcrsController < ApplicationController
   layout "application_control"
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #load_and_authorize_resource
 
   PUBLIC_FOLDER = File.join(Rails.root, "public")

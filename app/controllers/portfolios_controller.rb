@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   layout "application_control"
   before_filter :authenticate_user!
-  load_and_authorize_resource
+  #load_and_authorize_resource
   protect_from_forgery :except => :upload
 
    
