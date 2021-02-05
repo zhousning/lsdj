@@ -95,7 +95,7 @@ Rails.application.routes.draw do
     get :download_append, :on => :member
     post :upload, :on => :member
   end
-  resources :archives do
+  resources :archives, :except => [:show] do
     resources :portfolios do
       post :upload, :on => :member
     end
