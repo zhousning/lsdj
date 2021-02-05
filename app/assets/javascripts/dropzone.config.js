@@ -3,9 +3,9 @@ Dropzone.options.myAwesomeDropzone = {
   acceptedFiles: ".png,.jpg,.jpeg,application/pdf,.txt,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.mp4", 
   //addRemoveLinks: true,
   maxFiles: 10,
-  maxFilesize: 20, // MB
+  maxFilesize: 5, // MB
   dictInvalidInputType: '文件类型不支持',
-  dictFileTooBig: '文件不能超过20M',
+  dictFileTooBig: '文件不能超过5M',
   dictMaxFilesExceeded: '最多一次上传10个文件,刷新页面继续上传',
   init: function() {  
     this.on("totaluploadprogress", function(prg, total_bit, bit) {  

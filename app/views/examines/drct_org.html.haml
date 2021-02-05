@@ -18,6 +18,9 @@
       - content_for :card_body do
         .container-fluid
           .row
+            .offset-1.col-sm-10
+              %p.text-danger
+                拖动左侧待选文件至右侧，右侧只允许有一个根节点，保存后返回点击生成即可按右侧目录生成文件夹
             .offset-1.col-md-4.ctg-tree-ctn
               %ul#treeLeft.ztree
             .col-md-1.ctg-tree-md

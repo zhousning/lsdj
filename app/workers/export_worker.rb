@@ -21,7 +21,7 @@ class ExportWorker
     end
   end
 
-  def export_process(examine, document, name) 
+  def export_process(examine, document, name)
     hierarchy = examine.hierarchy
     objs = JSON.parse(hierarchy)
     target_folder = Rails.root.join("public", "examines", examine.id.to_s, name).to_s
@@ -30,6 +30,9 @@ class ExportWorker
 
     title_level = 0 #判断目录层级用 
     index = 1 #给每个文件编号,包括文件夹
+    root_folder = target_folder + "/" + index.to_s + "_" + examine.name
+    FileUtils.makedirs(root_folder) unless File.directory?(root_folder)
+
     hier(objs, target_folder, index, title_level, target_folder, docx)
     docx.save
     command = "zip -r " + target_folder + ".zip " + target_folder
@@ -43,7 +46,6 @@ class ExportWorker
     index_str = index.to_s
     level += "/#{index_str}_#{name}" 
     title_level += 1
-    puts level
 
     isParent = node['isParent']
     if isParent
