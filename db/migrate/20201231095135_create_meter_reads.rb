@@ -59,6 +59,8 @@ class CreateMeterReads < ActiveRecord::Migration
       t.float :acrt_mny,  null: false, default: Setting.systems.default_num 
 
       t.float :rcy_mny,  null: false, default: Setting.systems.default_num 
+      
+      t.float :salary,  null: false, default: Setting.systems.default_num 
 
       t.references :user
 

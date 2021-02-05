@@ -35,6 +35,7 @@ class OcrsController < ApplicationController
       end
       filename = Time.now.to_i.to_s + "%04d" % [rand(10000)] + ".txt"
     elsif type == Setting.ocrs.form
+      puts "........"
       imgs.each do |img|
         result = prc_form(URI.decode(img.file_url))
         filename = Time.now.to_i.to_s + "%04d" % [rand(10000)] + ".xls"

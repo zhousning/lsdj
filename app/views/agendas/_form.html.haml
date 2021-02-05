@@ -19,7 +19,10 @@
         .form-group.row
           = f.label Setting.agendas.worktime, :class => "col-sm-3 col-form-label text-right"
           .col-sm-6
-            = f.datetime_local_field :worktime, :class => "form-control rounded-0", :required => true
+            -#
+              = f.datetime_select :worktime, :id => "worktime", :class => "form-control rounded-0", :required => true
+            = f.datetime_select :worktime, :start_year => 2021, :order => [:year, :month, :day ], use_month_numbers: true  , :class => "form-control rounded-0", :required => true
+
           
         .form-group.row
           = f.label Setting.agendas.content, :class => "col-sm-3 col-form-label text-right"

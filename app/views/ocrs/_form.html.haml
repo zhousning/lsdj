@@ -12,10 +12,10 @@
         .form-group.row
           .col-sm-6
             .form-check.form-check-inline
-              = f.radio_button :ocr_type, "文字识别", :class => "form-check-input", :checked => "checked"
+              = f.radio_button :ocr_type, Setting.ocrs.general, :class => "form-check-input", :checked => "checked"
               = f.label "文字识别", :class => "form-check-label"
             .form-check.form-check-inline
-              = f.radio_button :ocr_type, "表格识别", :class => "form-check-input"
+              = f.radio_button :ocr_type, Setting.ocrs.form, :class => "form-check-input"
               = f.label "表格识别", :class => "form-check-label"
             -#
               .col-sm-6
@@ -56,6 +56,10 @@
         .form-group.row
           .col-sm-3.offset-sm-2
             = f.submit '识别', :class => "btn-ocr-submit button button-royal button-small"
+        .form-group.row
+          .col-sm-12
+            .progress.ocr-progress
+              .progress-bar.w-100.progress-bar-striped.progress-bar-animated{:role => "progressbar", :"aria-valuenow" => "100", :"aria-valuemin" => "0", :"aria-valuemax" => "100"}
           -#
             .col-sm-3.offset-sm-1
               = link_to '返回', ocrs_path, :class => "btn btn-danger"

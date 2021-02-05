@@ -237,13 +237,31 @@ function node_recur(child, arrs) {
     {name:"test2_1"}, {name:"test2_2"}]}
 ];*/
 function beforeDrag(treeId, treeNodes) {
-			for (var i=0,l=treeNodes.length; i<l; i++) {
-				if (treeNodes[i].drag === false) {
-					return false;
-				}
-			}
-			return true;
+	for (var i=0,l=treeNodes.length; i<l; i++) {
+		if (treeNodes[i].drag === false) {
+			return false;
 		}
-		function beforeDrop(treeId, treeNodes, targetNode, moveType) {
-			return targetNode ? targetNode.drop !== false : true;
-		}
+	}
+	return true;
+}
+function beforeDrop(treeId, treeNodes, targetNode, moveType) {
+  //return targetNode ? targetNode.drop !== false : true; //默认的配置
+  flag = true;
+  if (targetNode) {
+    if (targetNode.level == 0 && (moveType == "prev" || moveType == "next")) {
+      flag = false;
+    }
+  } else {
+    flag = false;
+  }
+  return flag; 
+}
+
+
+
+
+
+
+
+
+

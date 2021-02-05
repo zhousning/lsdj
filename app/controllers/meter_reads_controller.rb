@@ -161,6 +161,7 @@ class MeterReadsController < ApplicationController
       output_params[:rcy_rate] = rcy_rate
       output_params[:acrt_mny] = acrt_mny
       output_params[:rcy_mny] = rcy_mny
+      output_params[:salary] = total + acrt_mny + rcy_mny 
 
       output_params
     end

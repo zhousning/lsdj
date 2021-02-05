@@ -23,12 +23,15 @@
                   = examine.name
                 %td
                   .container-fluid
-                    .row.justify-content-center
+                    .row.justify-content-center.align-items-center
                       = link_to "编辑", edit_examine_path(examine), :class => "button button-highlight button-small mr-1" 
+                      = fa_icon "long-arrow-right" 
                       = link_to "组织目录",  drct_org_examine_path(examine), :class => "button button-primary button-small mr-1" 
                       -unless examine.hierarchy.blank?
+                        = fa_icon "long-arrow-right" 
                         = link_to "生成",  export_examine_path(examine), :class => "button button-action button-small mr-1" 
-                      = link_to "历史版本",  examine_documents_path(examine), :class => "button button-royal button-small mr-1" 
+                        = fa_icon "long-arrow-right" 
+                        = link_to "历史版本",  examine_documents_path(examine), :class => "button button-royal button-small mr-1" 
                       = link_to "删除",  examine, :method => :delete, :data => {:confirm => "确定删除吗?"}, :class => "button button-caution button-small" 
                       -#
                         = link_to "详细",  examine_path(examine), :class => "button button-primary button-small mr-1" 

@@ -35,6 +35,8 @@
                     %th{:scope => "col"}
                       水量回收率 / 奖励
                     %th{:scope => "col"}
+                      薪酬
+                    %th{:scope => "col"}
                       设置
                 %tbody
                   - @meter_reads.each_with_index do |meter_read, index|
@@ -62,6 +64,8 @@
                         = meter_read.rcy_rate
                         = "/"
                         = meter_read.rcy_mny
+                      %td
+                        = meter_read.salary
                       %td
                         .container-fluid
                           .row.justify-content-center

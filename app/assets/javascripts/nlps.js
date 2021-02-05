@@ -16,6 +16,7 @@ $(".nlps.index").ready(function() {
     $.cookie("ocrdownload", "process");
     var tha = res;
     $(".btn-ocr-submit").attr("disabled",true);
+    $(".ocr-progress").css("display","flex");
     checkCookie();
   });
 })

@@ -6,15 +6,15 @@ zh-CN:
       long: "%B %d, %Y"
   layouts:
     application:
-      site_title: "工作管理系统"
+      site_title: "梁山水务极简办公系统"
     application_control:
-      site_title: "工作管理系统"
+      site_title: "梁山水务极简办公系统"
     application_mobile:
-      site_title: "工作管理系统"
+      site_title: "梁山水务极简办公系统"
     application_home:
-      site_title: "工作管理系统"
+      site_title: "梁山水务极简办公系统"
     application_no_header:
-      site_title: "工作管理系统"
+      site_title: "梁山水务极简办公系统"
 
   home:
     index:
@@ -196,7 +196,7 @@ zh-CN:
   trees:
     index:
       title:
-        工作管理系统
+        梁山水务极简办公系统
   pick_records:
     index:
       title:
@@ -615,3 +615,6 @@ zh-CN:
   file_libs:
     index:
       title: 文件列表
+  ocrs:
+    index:
+      title: 人工智能工具箱 

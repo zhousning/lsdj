@@ -6,13 +6,15 @@ Dropzone.options.myAwesomeDropzone = {
   maxFilesize: 20, // MB
   dictInvalidInputType: '文件类型不支持',
   dictFileTooBig: '文件不能超过20M',
-  dictMaxFilesExceeded: '最多一次上传10个文件',
+  dictMaxFilesExceeded: '最多一次上传10个文件,刷新页面继续上传',
   init: function() {  
     this.on("totaluploadprogress", function(prg, total_bit, bit) {  
       if (prg == 100 ) {
+        /*
         setTimeout(function(){ 
           window.location = "/portfolios/" + gon.portfolio + "/file_libs";
         }, 3000);
+        */
       }
     });  
     /*this.on("complete", function(file, data) {  

@@ -949,8 +949,8 @@ defaults:
   admins: &106
     class_name: all
     email: mytea@world.com
-    phone: '15859859888'
-    password: myteaworld
+    phone: '15859859999'
+    password: mycrystalwater
   users: &107
     class_name: User
     opening: 0
@@ -1116,7 +1116,7 @@ defaults:
     btn_show: 详情
     btn_delete: 删除
     btn_save: 保存
-    company_name: 梁山水务轻松办公系统
+    company_name: 梁山水务极简办公系统
     nav_item1: 首页
     nav_item2: 招标公告
     nav_item3: 中标公告
@@ -1210,6 +1210,7 @@ defaults:
     smp_count: 抽样复查的总数量
     name: 姓名
     cal_date: 统计月份
+    salary: 薪酬
 development:
   wares: *1
   notices: *2
