@@ -1032,6 +1032,7 @@ defaults:
     disable: 0
     enable: 1
   notices: &129
+    label: 通知公告
     title: 标题
     content: 内容
   orders: &114
@@ -1211,6 +1212,47 @@ defaults:
     name: 姓名
     cal_date: 统计月份
     salary: 薪酬
+  products: &131
+    label: 产品
+    name: 名称
+  file_libs: &132
+    label: 文件库
+    name: 文件名
+    path: 路径
+    file_type: 文件类型
+    doc: '0'
+    xls: '1'
+    pdf: '2'
+    img: '3'
+    ppt: '4'
+    mp4: '5'
+    txt: '6'
+  archives: &133
+    label: 档案库
+    name: 名称
+    desc: 备注
+  portfolios: &134
+    label: 文件夹
+    name: 文件夹名
+  examines: &135
+    label: 考核资料自选库
+    name: 名称
+  exm_items: &136
+    label: 一级目录
+    name: 一级目录名
+    hierarchy: 目录树
+  agendas: &137
+    label: 日程
+    title: 标题
+    content: 事务内容
+    worktime: 时间
+  statistics: &138
+    label: 统计
+    title: 标题
+    xtitle: x轴标题
+    ytitle: y轴标题
+    legend: 图例
+    data: 数据
 development:
   wares: *1
   notices: *2
@@ -1221,13 +1263,6 @@ development:
   templates: *7
   natures: *8
   birds: *9
-  statistics:
-    label: 统计
-    title: 标题
-    xtitle: x轴标题
-    ytitle: y轴标题
-    legend: 图例
-    data: 数据
   spiders: *10
   selectors: *11
   websites: *12
@@ -1347,47 +1382,14 @@ development:
   teams: *126
   tea_prices: *127
   meter_reads: *128
-  products:
-    label: 产品
-    name: 名称
-  file_libs:
-    label: 文件库
-    name: 文件名
-    path: 路径
-    file_type: 文件类型
-    doc: '0'
-    xls: '1'
-    pdf: '2'
-    img: '3'
-    ppt: '4'
-    mp4: '5'
-    txt: '6'
-  archives:
-    label: 档案库
-    name: 名称
-    desc: 备注
-  portfolios:
-    label: 文件夹
-    name: 文件夹名
-  examines:
-    label: 考核资料自选库
-    name: 名称
-  exm_items:
-    label: 一级目录
-    name: 一级目录名
-    hierarchy: 目录树
-  agendas:
-    label: 日程
-    title: 标题
-    content: 事务内容
-    worktime: 时间
-  stats:
-    label: 统计
-    title: 标题
-    xtitle: x轴标题
-    ytitle: y轴标题
-    legend: 图例
-    data: 数据
+  products: *131
+  file_libs: *132
+  archives: *133
+  portfolios: *134
+  examines: *135
+  exm_items: *136
+  agendas: *137
+  statistics: *138
 test:
   admins: *106
   users: *107
@@ -1414,6 +1416,14 @@ test:
   teams: *126
   tea_prices: *127
   meter_reads: *128
+  products: *131
+  file_libs: *132
+  archives: *133
+  portfolios: *134
+  examines: *135
+  exm_items: *136
+  agendas: *137
+  statistics: *138
 production:
   wares: *128
   notices: *129
@@ -1544,3 +1554,11 @@ production:
   teams: *126
   tea_prices: *127
   meter_reads: *128
+  products: *131
+  file_libs: *132
+  archives: *133
+  portfolios: *134
+  examines: *135
+  exm_items: *136
+  agendas: *137
+  statistics: *138
