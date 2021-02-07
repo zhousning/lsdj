@@ -10,7 +10,10 @@
       %li.nav-item
         = link_to "控制面板", controls_path, :class => "nav-link text-muted"
       %li.nav-item
-        = link_to current_user.phone, nil, :class => "nav-link text-muted"
+        - if !current_user.name.blank?
+          = link_to current_user.name, nil, :class => "nav-link text-muted"
+        - else
+          = link_to current_user.phone, nil, :class => "nav-link text-muted"
       %li.nav-item
         %a.nav-link.text-muted{:href=>destroy_user_session_path, "data-method"=>"delete"} 注销
       - if current_user.super_admin?

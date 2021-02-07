@@ -7,7 +7,7 @@
       = image_tag "sdgylogo.jpg", :class => "control-navbar-logo mr-2"
     = image_tag "gykg.jpg", :class => "control-navbar-logo mr-2"
     = Setting.systems.company_name
-    = "——只为更轻松"
+    = "只为更轻松"
   %ul.w-100.navbar-nav.justify-content-end.px-3
     - unless user_signed_in?
       %li.nav-item
@@ -19,9 +19,12 @@
       %li.nav-item
         = link_to "工作日历", controls_path, :class => "nav-link text-white"
       %li.nav-item
-        = link_to current_user.phone, nil, :class => "nav-link text-white"
+        - if !current_user.name.blank?
+          = link_to "欢迎您：" + current_user.name, nil, :class => "nav-link text-white"
+        - else
+          = link_to "欢迎您：" + current_user.phone, nil, :class => "nav-link text-white"
       %li.nav-item
-        %a.nav-link.text-white{:href=>destroy_user_session_path, "data-method"=>"delete"} 注销
+        %a.nav-link.text-white{:href=>destroy_user_session_path, "data-method"=>"delete"} 退出 
       - if current_user.super_admin?
         %li.nav-item
           = link_to "后台管理", admin_root_path, :class => "nav-link text-white"

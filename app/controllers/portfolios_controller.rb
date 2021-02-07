@@ -6,28 +6,28 @@ class PortfoliosController < ApplicationController
 
    
   def index
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolios = @archive.portfolios
   end
    
 
    
   def show
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
   end
    
 
    
   def new
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = Portfolio.new
   end
    
 
    
   def create
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = Portfolio.new(portfolio_params)
     @portfolio.archive = @archive 
     if @portfolio.save
@@ -40,14 +40,14 @@ class PortfoliosController < ApplicationController
 
    
   def edit
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
   end
    
 
    
   def update
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
     if @portfolio.update(portfolio_params)
       redirect_to archive_portfolios_url(@archive)
@@ -59,7 +59,7 @@ class PortfoliosController < ApplicationController
 
    
   def destroy
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
     @portfolio.destroy
     redirect_to :action => :index
@@ -86,7 +86,7 @@ class PortfoliosController < ApplicationController
   end
 
   def upload
-    @archive = Archive.find(params[:archive_id])
+    @archive = current_user.archives.find(params[:archive_id])
     @portfolio = @archive.portfolios.find(params[:id])
 
     uploaded_file = params[:file]

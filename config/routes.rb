@@ -3,11 +3,19 @@ Rails.application.routes.draw do
   #mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+  #devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   devise_scope :user do
-    get 'forget', to: 'users/passwords#forget'
-    patch 'update_password', to: 'users/passwords#update_password'
-    post '/login_validate', to: 'users/sessions#user_validate'
+    #get 'forget', to: 'users/passwords#forget'
+    #patch 'update_password', to: 'users/passwords#update_password'
+    #post '/login_validate', to: 'users/sessions#user_validate'
+    #
+    #unauthenticated :user do
+    #  root to: "devise/sessions#new",as: :unauthenticated_root #设定登录页为系统默认首页
+    #end
+    #authenticated :user do
+    #  root to: "homes#index",as: :authenticated_root #设定系统登录后首页
+    #end
   end
 
   require 'sidekiq/web'

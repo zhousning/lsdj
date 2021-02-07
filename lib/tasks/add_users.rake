@@ -9,7 +9,7 @@ namespace 'db' do
 end
 
 def init_add
-  users = YAML.load_file("lib/tasks/users.yaml")
+  users = YAML.load_file("lib/tasks/data/users.yaml")
   user_hash = Hash.new
   
   users.each do |user|

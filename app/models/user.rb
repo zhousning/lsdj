@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   #before_create :build_default_data
   #def build_default_data
-  #  build_account
+  #  #build_account
   #end
 
   #before_save :store_unique_number
@@ -39,6 +39,15 @@ class User < ActiveRecord::Base
   #  end
   #end
 
+  after_create :assign_archive
+  def assign_archive
+    @archive = Archive.new(:name => Time.now.strftime("%Y") + "工作材料", :user => self)
+    @archive.portfolios << Portfolio.new(:name => "公文文件", :archive => @archive)
+    @archive.portfolios << Portfolio.new(:name => "工作计划", :archive => @archive)
+    @archive.portfolios << Portfolio.new(:name => "会议记录", :archive => @archive)
+    @archive.portfolios << Portfolio.new(:name => "学习总结", :archive => @archive)
+    @archive.save
+  end
   #after_create :set_qrcode
   #def set_qrcode
   #  invite_link = Rails.application.routes.url_helpers.new_user_registration_url(:host => Setting.systems.host, :inviter=>self.number)

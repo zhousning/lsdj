@@ -6,8 +6,8 @@ class ExcelTool
 
   #xlsx xlsm not xls
   #{
-  # sheet1: [{'A1' => xx, 'B1' => xx}, {'A1' => xx, 'B1' => xx},...],
-  # sheet2: [{'A1' => xx, 'B1' => xx}, {'A1' => xx, 'B1' => xx},...],
+  # Sheet1: [{'A1' => xx, 'B1' => xx}, {'A1' => xx, 'B1' => xx},...],
+  # Sheet2: [{'A1' => xx, 'B1' => xx}, {'A1' => xx, 'B1' => xx},...],
   #}
   def parseExcel(path)
     creek = Creek::Book.new(path) 
