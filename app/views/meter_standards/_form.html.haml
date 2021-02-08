@@ -1,0 +1,118 @@
+.container-fluid
+  .row
+    .col-sm-8
+      = form_for @meter_standard, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @meter_standard.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@meter_standard.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @meter_standard.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.std_sm_wm, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :std_sm_wm, :class => "form-control rounded-0"
+          
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.std_big_wm, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :std_big_wm, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.std_sm_yc, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :std_sm_yc, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.std_big_yc, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :std_big_yc, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.std_vst_wm, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :std_vst_wm, :class => "form-control rounded-0"
+              
+        %hr
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.cj_jl, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :cj_jl, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.cj_cf, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :cj_cf, :class => "form-control rounded-0"
+              
+        %hr
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.yd_jl, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :yd_jl, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.ydzj_jl, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :ydzj_jl, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.ed_jl, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :ed_jl, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.edzj_jl, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :edzj_jl, :class => "form-control rounded-0"
+              
+        %hr
+        .form-row
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.yd_cf, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :yd_cf, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.ed_cf, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :ed_cf, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.sd_cf, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :sd_cf, :class => "form-control rounded-0"
+              
+          .col-6
+            .form-group.row
+              = f.label Setting.meter_standards.zg_cf, :class => "col-8 col-form-label text-right"
+              .col-4
+                = f.number_field :zg_cf, :class => "form-control rounded-0"
+              
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button button-action"
+          -#
+            .col-3.offset-1
+              = link_to '返回', meter_standards_path, :class => "button button-caution"

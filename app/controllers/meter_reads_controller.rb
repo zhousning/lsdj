@@ -70,6 +70,7 @@ class MeterReadsController < ApplicationController
   end
    
   def show
+    @meter_standard = current_user.meter_standard
     @meter_read = current_user.meter_reads.find(params[:id])
   end
    
@@ -115,11 +116,26 @@ class MeterReadsController < ApplicationController
   
     def calculate_format(input_params)
       output_params = input_params
+      @standard = current_user.meter_standard
       
-      total = input_params[:act_sm_read].to_f*input_params[:std_sm_wm].to_f + input_params[:act_big_read].to_f*input_params[:std_big_wm].to_f + input_params[:act_vst_read].to_f*input_params[:std_vst_wm].to_f + input_params[:act_smyc_read].to_f*input_params[:std_sm_yc].to_f + input_params[:act_bigyc_read].to_f*input_params[:std_big_yc].to_f
+      total = 
+        input_params[:act_sm_read].to_f*@standard.std_sm_wm + 
+        input_params[:act_big_read].to_f*@standard.std_big_wm + 
+        input_params[:act_vst_read].to_f*@standard.std_vst_wm + 
+        input_params[:act_smyc_read].to_f*@standard.std_sm_yc + 
+        input_params[:act_bigyc_read].to_f*@standard.std_big_yc
 
-      act_mt_count = input_params[:act_sm_read].to_f + input_params[:act_big_read].to_f + input_params[:act_smyc_read].to_f + input_params[:act_bigyc_read].to_f
-      mst_mt_count = input_params[:mst_sm_read].to_f + input_params[:mst_big_read].to_f + input_params[:mst_smyc_read].to_f + input_params[:mst_bigyc_read].to_f
+      act_mt_count = 
+        input_params[:act_sm_read].to_f + 
+        input_params[:act_big_read].to_f + 
+        input_params[:act_smyc_read].to_f + 
+        input_params[:act_bigyc_read].to_f
+      
+      mst_mt_count = 
+        input_params[:mst_sm_read].to_f + 
+        input_params[:mst_big_read].to_f + 
+        input_params[:mst_smyc_read].to_f + 
+        input_params[:mst_bigyc_read].to_f
 
       cj_rate = mst_mt_count == 0 ? 0 : act_mt_count.to_f/mst_mt_count.to_f*100
       acrt_rate = input_params[:smp_count].to_f == 0 ? 0 : input_params[:smp_fc_count].to_f/input_params[:smp_count].to_f*100
@@ -127,26 +143,26 @@ class MeterReadsController < ApplicationController
 
       acrt_mny = 0
       if cj_rate >= 98 && acrt_rate >= 98
-        acrt_mny = 100
+        acrt_mny = @standard.cj_jl
       else
-        acrt_mny = -100
+        acrt_mny = -@standard.cj_cf
       end
 
       rcy_mny = 0
       rcy_rate_round = rcy_rate.round
       if 95 <= rcy_rate_round && rcy_rate_round < 98
-        rcy_mny = 200 + (rcy_rate_round - 95)*200
+        rcy_mny = @standard.yd_jl + (rcy_rate_round - 95)*@standard.ydzj_jl
       elsif 98 <= rcy_rate_round && rcy_rate_round <= 100 
-        rcy_mny = 200 + 200*3 + 300 + (rcy_rate_round - 98)*300
+        rcy_mny = @standard.yd_jl + @standard.ydzj_jl*3 + @standard.ed_jl + (rcy_rate_round - 98)*@standard.edzj_jl
       elsif 90 <= rcy_rate_round && rcy_rate_round < 95
-        rcy_mny = (95 - rcy_rate_round)*(-50)
+        rcy_mny = (95 - rcy_rate_round)*(-@standard.yd_cf)
       elsif 80 <= rcy_rate_round && rcy_rate_round < 90
-        rcy_mny = -250 + (90 - rcy_rate_round)*(-100)
+        rcy_mny = (-@standard.yd_cf)*5 + (90 - rcy_rate_round)*(-@standard.ed_cf)
       else
-        rcy_mny = -1250 + (80 - rcy_rate_round)*(-200)
+        rcy_mny = (-@standard.yd_cf)*5 + (-@standard.ed_cf)*10 + (80 - rcy_rate_round)*(-@standard.sd_cf)
       end
-      if rcy_mny < -2000
-        rcy_mny = -2000
+      if rcy_mny < -@standard.zg_cf
+        rcy_mny = -@standard.zg_cf
       end
 
       cj_rate = format("%0.2f", cj_rate).to_f

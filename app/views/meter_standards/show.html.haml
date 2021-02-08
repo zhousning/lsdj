@@ -1,0 +1,76 @@
+- provide(:title, t('.title'))
+            
+
+.container-fluid
+  .row
+    = render "layouts/control_sidebar"
+    %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
+      - content_for :card_header do
+        %h5
+          = link_to "/meter_reads", :class => "button pull-right button-primary" do
+            = fa_icon " chevron-left", text: Setting.systems.btn_back, right: false 
+
+      - content_for :card_body do
+        .container-fluid
+          .row
+            .col-md-12
+              = Setting.meter_standards.std_sm_wm
+              = @meter_standard.std_sm_wm
+          
+            .col-md-12
+              = Setting.meter_standards.std_big_wm
+              = @meter_standard.std_big_wm
+          
+            .col-md-12
+              = Setting.meter_standards.std_sm_yc
+              = @meter_standard.std_sm_yc
+          
+            .col-md-12
+              = Setting.meter_standards.std_big_yc
+              = @meter_standard.std_big_yc
+          
+            .col-md-12
+              = Setting.meter_standards.std_vst_wm
+              = @meter_standard.std_vst_wm
+          
+            .col-md-12
+              = Setting.meter_standards.cj_jl
+              = @meter_standard.cj_jl
+          
+            .col-md-12
+              = Setting.meter_standards.cj_cf
+              = @meter_standard.cj_cf
+          
+            .col-md-12
+              = Setting.meter_standards.yd_jl
+              = @meter_standard.yd_jl
+          
+            .col-md-12
+              = Setting.meter_standards.ydzj_jl
+              = @meter_standard.ydzj_jl
+          
+            .col-md-12
+              = Setting.meter_standards.ed_jl
+              = @meter_standard.ed_jl
+          
+            .col-md-12
+              = Setting.meter_standards.edzj_jl
+              = @meter_standard.edzj_jl
+          
+            .col-md-12
+              = Setting.meter_standards.yd_cf
+              = @meter_standard.yd_cf
+          
+            .col-md-12
+              = Setting.meter_standards.ed_cf
+              = @meter_standard.ed_cf
+          
+            .col-md-12
+              = Setting.meter_standards.sd_cf
+              = @meter_standard.sd_cf
+          
+            .col-md-12
+              = Setting.meter_standards.zg_cf
+              = @meter_standard.zg_cf
+          
+      = render "layouts/bootstrap/card"

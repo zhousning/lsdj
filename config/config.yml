@@ -57,7 +57,7 @@ mysetting:
     label: 小鸟
     name: 名称
     age: 年龄
-  statistics: &130
+  statistics:
     label: 数据统计
   spiders: &10
     label: 爬虫
@@ -1031,7 +1031,7 @@ defaults:
     pick_time: 采摘时间
     disable: 0
     enable: 1
-  notices: &129
+  notices: &137
     label: 通知公告
     title: 标题
     content: 内容
@@ -1212,10 +1212,10 @@ defaults:
     name: 姓名
     cal_date: 统计月份
     salary: 薪酬
-  products: &131
+  products: &129
     label: 产品
     name: 名称
-  file_libs: &132
+  file_libs: &130
     label: 文件库
     name: 文件名
     path: 路径
@@ -1227,32 +1227,49 @@ defaults:
     ppt: '4'
     mp4: '5'
     txt: '6'
-  archives: &133
+  archives: &131
     label: 档案库
     name: 名称
     desc: 备注
-  portfolios: &134
+  portfolios: &132
     label: 文件夹
     name: 文件夹名
-  examines: &135
+  examines: &133
     label: 考核资料自选库
     name: 名称
-  exm_items: &136
+  exm_items: &134
     label: 一级目录
     name: 一级目录名
     hierarchy: 目录树
-  agendas: &137
+  agendas: &135
     label: 日程
     title: 标题
     content: 事务内容
     worktime: 时间
-  statistics: &138
+  statistics: &136
     label: 统计
     title: 标题
     xtitle: x轴标题
     ytitle: y轴标题
     legend: 图例
     data: 数据
+  meter_standards: &137
+    label: 抄表标准
+    std_sm_wm: 小表标准(元/块)
+    std_big_wm: 大表标准(元/块)
+    std_sm_yc: 远传小表标准(元/块)
+    std_big_yc: 远传大表标准(元/块)
+    std_vst_wm: 上门催收或收费标准(元/块)
+    cj_jl: 抄见率准确率奖励
+    cj_cf: 抄见率准确率处罚
+    yd_jl: 一档奖励(95<=回收率<98)
+    ydzj_jl: 一档每增加1%奖励
+    ed_jl: 二档奖励(98<=回收率<=100)
+    edzj_jl: 二档每增加1%奖励
+    yd_cf: 一档处罚(90<=回收率<95)
+    ed_cf: 二档处罚(80<=回收率<90)
+    sd_cf: 三档处罚(回收率<80)
+    zg_cf: 最高处罚
 development:
   wares: *1
   notices: *2
@@ -1382,14 +1399,15 @@ development:
   teams: *126
   tea_prices: *127
   meter_reads: *128
-  products: *131
-  file_libs: *132
-  archives: *133
-  portfolios: *134
-  examines: *135
-  exm_items: *136
-  agendas: *137
-  statistics: *138
+  products: *129
+  file_libs: *130
+  archives: *131
+  portfolios: *132
+  examines: *133
+  exm_items: *134
+  agendas: *135
+  statistics: *136
+  meter_standards: *137
 test:
   admins: *106
   users: *107
@@ -1400,7 +1418,7 @@ test:
   wares: *128
   trees: *112
   leafs: *113
-  notices: *129
+  notices: *137
   orders: *114
   accounts: *115
   consumes: *116
@@ -1416,17 +1434,18 @@ test:
   teams: *126
   tea_prices: *127
   meter_reads: *128
-  products: *131
-  file_libs: *132
-  archives: *133
-  portfolios: *134
-  examines: *135
-  exm_items: *136
-  agendas: *137
-  statistics: *138
+  products: *129
+  file_libs: *130
+  archives: *131
+  portfolios: *132
+  examines: *133
+  exm_items: *134
+  agendas: *135
+  statistics: *136
+  meter_standards: *137
 production:
   wares: *128
-  notices: *129
+  notices: *137
   reports: *3
   models: *4
   properties: *5
@@ -1434,7 +1453,7 @@ production:
   templates: *7
   natures: *8
   birds: *9
-  statistics: *130
+  statistics: *136
   spiders: *10
   selectors: *11
   websites: *12
@@ -1554,11 +1573,11 @@ production:
   teams: *126
   tea_prices: *127
   meter_reads: *128
-  products: *131
-  file_libs: *132
-  archives: *133
-  portfolios: *134
-  examines: *135
-  exm_items: *136
-  agendas: *137
-  statistics: *138
+  products: *129
+  file_libs: *130
+  archives: *131
+  portfolios: *132
+  examines: *133
+  exm_items: *134
+  agendas: *135
+  meter_standards: *137

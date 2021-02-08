@@ -6,7 +6,9 @@
     %main.col-md-9.ml-sm-auto.col-lg-10.p-3{:role => "main"}
       - content_for :card_header do
         %h5
-          = link_to meter_xls_download_meter_reads_path, :class => "button button-royal pull-right button-small" do
+          = link_to edit_meter_standard_path(current_user.meter_standard), :class => "button button-highlight pull-right button-small " do
+            计件标准
+          = link_to meter_xls_download_meter_reads_path, :class => "button button-royal pull-right button-small mr-1" do
             下载计件表模板
           %button.button.button-caution.button-small.pull-right.mr-1{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
             上传excel

@@ -11,38 +11,39 @@
               - @meter_read.errors.full_messages.each do |msg|
                 %li= msg
         
-        .form-row
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.std_big_wm, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.number_field :std_big_wm, :class => "form-control rounded-0"
-              
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.std_sm_wm, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.number_field :std_sm_wm, :class => "form-control rounded-0"
+        -#
+          .form-row
+            .col-6
+              .form-group.row
+                = f.label Setting.meter_reads.std_big_wm, :class => "col-8 text-right col-form-label col-form-label"
+                .col-4
+                  = f.number_field :std_big_wm, :class => "form-control rounded-0"
+                
+            .col-6
+              .form-group.row
+                = f.label Setting.meter_reads.std_sm_wm, :class => "col-8 text-right col-form-label col-form-label"
+                .col-4
+                  = f.number_field :std_sm_wm, :class => "form-control rounded-0"
 
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.std_big_yc, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.number_field :std_big_yc, :class => "form-control rounded-0"
-              
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.std_sm_yc, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.number_field :std_sm_yc, :class => "form-control rounded-0"
-              
-          .col-6
-            .form-group.row
-              = f.label Setting.meter_reads.std_vst_wm, :class => "col-8 text-right col-form-label col-form-label"
-              .col-4
-                = f.number_field :std_vst_wm, :class => "form-control rounded-0"
+            .col-6
+              .form-group.row
+                = f.label Setting.meter_reads.std_big_yc, :class => "col-8 text-right col-form-label col-form-label"
+                .col-4
+                  = f.number_field :std_big_yc, :class => "form-control rounded-0"
+                
+            .col-6
+              .form-group.row
+                = f.label Setting.meter_reads.std_sm_yc, :class => "col-8 text-right col-form-label col-form-label"
+                .col-4
+                  = f.number_field :std_sm_yc, :class => "form-control rounded-0"
+                
+            .col-6
+              .form-group.row
+                = f.label Setting.meter_reads.std_vst_wm, :class => "col-8 text-right col-form-label col-form-label"
+                .col-4
+                  = f.number_field :std_vst_wm, :class => "form-control rounded-0"
 
-        %hr
+          %hr
 
         .form-row
           .col-6

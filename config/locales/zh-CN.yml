@@ -585,6 +585,11 @@ zh-CN:
       title: 编辑档案库
     show:
       title: 档案库
+  meter_standards:
+    edit:
+      title: 编辑计件标准
+    show:
+      title: 计件标准
   meter_reads:
     index:
       title: 计件 

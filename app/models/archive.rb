@@ -7,3 +7,16 @@ class Archive < ActiveRecord::Base
   belongs_to :user
 
 end
+
+# == Schema Information
+#
+# Table name: archives
+#
+#  id         :integer         not null, primary key
+#  name       :string          default(""), not null
+#  desc       :string          default(""), not null
+#  user_id    :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

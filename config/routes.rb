@@ -133,6 +133,7 @@ Rails.application.routes.draw do
   resources :agendas do
     get :download_append, :on => :member
   end
+  resources :meter_standards, :only => [:edit, :show, :update] 
   resources :flower
 
   root :to => 'controls#index'

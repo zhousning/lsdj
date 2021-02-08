@@ -10,3 +10,16 @@ class Examine < ActiveRecord::Base
   accepts_nested_attributes_for :documents, reject_if: :all_blank, allow_destroy: true
 
 end
+
+# == Schema Information
+#
+# Table name: examines
+#
+#  id         :integer         not null, primary key
+#  name       :string          default(""), not null
+#  hierarchy  :text
+#  user_id    :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

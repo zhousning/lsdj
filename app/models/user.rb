@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   dragonfly_accessor :qr_code
 
   has_one :account
+  has_one :meter_standard
 
   has_many :consumes
   has_many :orders
@@ -39,14 +40,15 @@ class User < ActiveRecord::Base
   #  end
   #end
 
-  after_create :assign_archive
-  def assign_archive
+  after_create :assign_data
+  def assign_data
     @archive = Archive.new(:name => Time.now.strftime("%Y") + "工作材料", :user => self)
     @archive.portfolios << Portfolio.new(:name => "公文文件", :archive => @archive)
     @archive.portfolios << Portfolio.new(:name => "工作计划", :archive => @archive)
     @archive.portfolios << Portfolio.new(:name => "会议记录", :archive => @archive)
     @archive.portfolios << Portfolio.new(:name => "学习总结", :archive => @archive)
     @archive.save
+    MeterStandard.create!(:user => self)
   end
   #after_create :set_qrcode
   #def set_qrcode
