@@ -3,10 +3,6 @@ mysetting:
   wares: &1
     label: ''
     name: 名字
-  notices: &2
-    label: 通知公告
-    title: 标题
-    content: 正文
   reports: &3
     title: 标题
     content: 正文
@@ -1031,10 +1027,6 @@ defaults:
     pick_time: 采摘时间
     disable: 0
     enable: 1
-  notices: &137
-    label: 通知公告
-    title: 标题
-    content: 内容
   orders: &114
     category_none: none
     category_recharge: 账户充值
@@ -1270,9 +1262,13 @@ defaults:
     ed_cf: 二档处罚(80<=回收率<90)
     sd_cf: 三档处罚(回收率<80)
     zg_cf: 最高处罚
+  notices: &138
+    label: 通知公告
+    title: 标题
+    content: 内容
 development:
+  notices: *138
   wares: *1
-  notices: *2
   reports: *3
   models: *4
   properties: *5
@@ -1418,7 +1414,7 @@ test:
   wares: *128
   trees: *112
   leafs: *113
-  notices: *137
+  notices: *138
   orders: *114
   accounts: *115
   consumes: *116
@@ -1445,7 +1441,7 @@ test:
   meter_standards: *137
 production:
   wares: *128
-  notices: *137
+  notices: *138
   reports: *3
   models: *4
   properties: *5
