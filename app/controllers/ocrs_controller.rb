@@ -15,6 +15,7 @@ class OcrsController < ApplicationController
 
   PUBLIC_FOLDER = File.join(Rails.root, "public")
   OCR_FOLDER = PUBLIC_FOLDER + "/ocrs/"
+  ACCESS_TOKEN = "24.0447c66aca82cc0cad15f1a2d29c0acd.2592000.1616806061.282335-11449805"
 
   def index
     @ocr = Ocr.new
@@ -205,7 +206,7 @@ class OcrsController < ApplicationController
     #-------unuse
 
     def baidu_request(url, file)
-      access_token = "24.133fdf2f85109beb9a49f9690e456275.2592000.1614146332.282335-23585850"
+      access_token = ACCESS_TOKEN
       content_type = "application/x-www-form-urlencoded"
       img = open(file).read
       image = Base64.encode64(img)
@@ -221,7 +222,7 @@ class OcrsController < ApplicationController
     
 
     def baidu_form_request(url, file)
-      access_token = "24.133fdf2f85109beb9a49f9690e456275.2592000.1614146332.282335-23585850"
+      access_token = ACCESS_TOKEN
       content_type = "application/x-www-form-urlencoded"
       img = open(file).read
       image = Base64.encode64(img)
